@@ -124,8 +124,8 @@ namespace Instrument_management
                 listBox2.Items.Add("断开服务器成功");
                 button1.Text = "TCP连接";
                 //开启监听线程
-                Thread receiveThread = new Thread(receiveMsg);
-                receiveThread.Start(this);
+                //Thread receiveThread = new Thread(receiveMsg);
+                //receiveThread.Start(this);
             }
             catch (Exception e)
             {
