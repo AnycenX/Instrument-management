@@ -158,3 +158,33 @@
             "type": "dll"
         }]
     }
+
+表5 日志上传接口
+
+|功能|接口|
+|----|----|
+|HTTP 请求方式|GET|
+|URL|https://api.anycen.com/instrument/uplog/|
+
+请求参数  
+
+|参数名称|类型|是否必须|描述|
+|----|----|----|----|
+|timeset|String|是|时间戳|
+|key|String|是|authkey与时间戳计算值|
+|username|String|是|用户名|
+|pocess|String|是|进程名|
+|start|Int|是|开始时间|
+|time|Int|是|合计时间|
+
+返回参数  
+
+|参数名称|类型|示例值|描述|
+|----|----|----|----|
+|code|String|success|是否存在更新|
+
+返回示例
+
+    {
+        "code": "success"
+    }
