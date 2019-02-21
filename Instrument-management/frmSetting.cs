@@ -28,7 +28,8 @@ namespace Instrument_management
 
         private void frmSetting_Load(object sender, EventArgs e)
         {
-
+            ReportTimer rt = new ReportTimer();
+            rt.Start();
         }
 
         private void EnumComputers(string ip3)
@@ -116,23 +117,23 @@ namespace Instrument_management
 
         public bool closeConn()
         {
-            try
-            {
-                clientSocket.Shutdown(SocketShutdown.Both);
-                Thread.Sleep(10);
-                clientSocket.Close();
-                listBox2.Items.Add("断开服务器成功");
-                button1.Text = "TCP连接";
-                //开启监听线程
-                Thread receiveThread = new Thread(receiveMsg);
-                receiveThread.Start(this);
-            }
-            catch (Exception e)
-            {
-                //listBox2.Items.Add("断开服务器失败" + e.ToString());
-                MessageBox.Show("断开服务器失败" + e.ToString());
-                return false;
-            }
+            //try
+            //{
+            //    clientSocket.Shutdown(SocketShutdown.Both);
+            //    Thread.Sleep(10);
+            //    clientSocket.Close();
+            //    listBox2.Items.Add("断开服务器成功");
+            //    button1.Text = "TCP连接";
+            //    //开启监听线程
+            //    Thread receiveThread = new Thread(receiveMsg);
+            //    receiveThread.Start(this);
+            //}
+            //catch (Exception e)
+            //{
+            //    //listBox2.Items.Add("断开服务器失败" + e.ToString());
+            //    MessageBox.Show("断开服务器失败" + e.ToString());
+            //    return false;
+            //}
             return true;
         }
 
