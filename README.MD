@@ -1,3 +1,5 @@
+# Instrument Management #
+
 ## 一、客户端 ##
 
 ### 客户端需要保证以下几个功能 ###
@@ -20,25 +22,26 @@
 
 ### 客户端数据接口 ###
 
-表1 获取基础信息
+#### 表1 获取基础信息 ####
 
 |功能|接口|
 |----|----|
 |HTTP 请求方式|GET|
-|URL|https://api.anycen.com/instrument/start/|
+|URL|https://api.anycen.com/instrument/?type=start|
 
 请求参数  
 
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
-|timeset|String|是|时间戳|
+|type|String|是|操作类型|
+|timeset|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 
 返回参数  
 
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
-|code|String|success|状态|
+|code|String|200|状态|
 |update|Int|5|软件主体最新版本号|
 |userinfo|Int|5|用户列表最新版本号|
 |processinfo|Int|5|监控进程列表最新版本号|
@@ -46,24 +49,25 @@
 返回示例
 
     {
-        "code":"success",
-        "update":5,
-        "userinfo":5,
-        "processinfo":5
+        "code": 200,
+        "update": 5,
+        "userinfo": 5,
+        "processinfo": 5
     }
 
-表2 获取软件更新信息
+#### 表2 获取软件更新信息 ####
 
 |功能|接口|
 |----|----|
 |HTTP 请求方式|GET|
-|URL|https://api.anycen.com/instrument/update/|
+|URL|https://api.anycen.com/instrument/?type=update|
 
 请求参数  
 
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
-|timeset|String|是|时间戳|
+|type|String|是|操作类型|
+|timeset|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |version|String|是|软件版本号|
 
@@ -71,13 +75,13 @@
 
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
-|code|String|success|是否存在更新|
+|code|String|200|是否存在更新|
 |file|String|列表|更新文件列表|
 
 返回示例
 
     {
-        "code": "success",
+        "code": 200,
         "file": [{
             "name": "main.exe"
         }, {
@@ -85,18 +89,19 @@
         }]
     }
 
-表3 获取用户列表更新信息
+#### 表3 获取用户列表更新信息 ####
 
 |功能|接口|
 |----|----|
 |HTTP 请求方式|GET|
-|URL|https://api.anycen.com/instrument/userinfo/|
+|URL|https://api.anycen.com/instrument/?type=userinfo|
 
 请求参数  
 
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
-|timeset|String|是|时间戳|
+|type|String|是|操作类型|
+|timeset|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |version|String|是|用户列表版本号|
 
@@ -104,13 +109,13 @@
 
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
-|code|String|success|是否存在更新|
+|code|String|200|是否存在更新|
 |list|String|列表|更新文件列表|
 
 返回示例
 
     {
-        "code": "success",
+        "code": 200,
         "list": [{
             "username": "anycen",
             "passwoed": "21232f297a57a5a743894a0e4a801fc3",
@@ -122,18 +127,19 @@
         }]
     }
 
-表4 获取监控进程列表更新信息
+#### 表4 获取监控进程列表更新信息 ####
 
 |功能|接口|
 |----|----|
 |HTTP 请求方式|GET|
-|URL|https://api.anycen.com/instrument/processinfo/|
+|URL|https://api.anycen.com/instrument/?type=processinfo|
 
 请求参数  
 
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
-|timeset|String|是|时间戳|
+|type|String|是|操作类型|
+|timeset|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |version|String|是|监控进程列表版本号|
 
@@ -141,13 +147,13 @@
 
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
-|code|String|success|是否存在更新|
+|code|String|200|是否存在更新|
 |list|String|列表|监控进程文件列表|
 
 返回示例
 
     {
-        "code": "success",
+        "code": 200,
         "list": [{
             "name": "软件名称1",
             "pocess": "tasges",
@@ -159,32 +165,156 @@
         }]
     }
 
-表5 日志上传接口
+#### 表5 日志上传接口 ####
 
 |功能|接口|
 |----|----|
 |HTTP 请求方式|GET|
-|URL|https://api.anycen.com/instrument/uplog/|
+|URL|https://api.anycen.com/instrument/?type=uplog|
 
 请求参数  
 
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
-|timeset|String|是|时间戳|
+|type|String|是|操作类型|
+|timeset|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |username|String|是|用户名|
 |pocess|String|是|进程名|
-|start|Int|是|开始时间|
-|time|Int|是|合计时间|
+|timestart|Longint|是|起时间 时间戳|
+|timestop|Longint|是|止时间 时间戳|
 
 返回参数  
 
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
-|code|String|success|是否存在更新|
+|code|String|200|状态码|
 
 返回示例
 
     {
-        "code": "success"
+        "code": 200
+    }
+
+## 二、管理端 ##
+
+### 管理端需要保证以下几个功能 ###
+
+1、拥有权限管理功能  
+2、保证可以推送用户信息  
+3、保证可以推送监控列表信息  
+4、保证可以获取日志信息
+5、在公网失效的情况下，尽量保证局域网通信服务  
+
+### 管理端所需要的功能 ###
+
+1、使用账户密码登录  
+2、新建、编辑、删除用户账户及密码  
+3、新建、编辑、删除监控列表信息  
+4、显示并统计使用日志信息  
+5、局域网服务端，广播信息  
+6、启动时作为暂存服务，以便其他用户端拉取信息  
+7、局域网属于备用手段，目的是在公网无法连接时，完成基本数据更新  
+
+### 管理端数据接口 ###
+
+#### 表1 用户信息上传接口 ####
+
+|功能|接口|
+|----|----|
+|HTTP 请求方式|GET|
+|URL|https://api.anycen.com/instrument/?type=upuser|
+
+请求参数  
+
+|参数名称|类型|是否必须|描述|
+|----|----|----|----|
+|type|String|是|操作类型|
+|timeset|Longint|是|时间戳|
+|key|String|是|authkey与时间戳计算值|
+|username|String|是|用户名|
+|password|String|是|用户密码（MD5）|
+|passsalt|String|是|密码加盐|
+
+返回参数  
+
+|参数名称|类型|示例值|描述|
+|----|----|----|----|
+|code|String|200|状态码|
+
+返回示例
+
+    {
+        "code": 200
+    }
+
+#### 表2 监控进程列表上传接口 ####
+
+|功能|接口|
+|----|----|
+|HTTP 请求方式|GET|
+|URL|https://api.anycen.com/instrument/?type=uppocess|
+
+请求参数  
+
+|参数名称|类型|是否必须|描述|
+|----|----|----|----|
+|type|String|是|操作类型|
+|timeset|Longint|是|时间戳|
+|key|String|是|authkey与时间戳计算值|
+|name|String|是|监控软件名|
+|pocess|String|是|监控进程名|
+|potype|String|是|监控进程类型（EXE、DLL等）|
+
+返回参数  
+
+|参数名称|类型|示例值|描述|
+|----|----|----|----|
+|code|String|200|状态码|
+
+返回示例
+
+    {
+        "code": 200
+    }
+
+#### 表3 监控进程列表上传接口 ####
+
+|功能|接口|
+|----|----|
+|HTTP 请求方式|GET|
+|URL|https://api.anycen.com/instrument/?type=getlog|
+
+请求参数  
+
+|参数名称|类型|是否必须|描述|
+|----|----|----|----|
+|type|String|是|操作类型|
+|timeset|Longint|是|时间戳|
+|key|String|是|authkey与时间戳计算值|
+|name|String|是|监控软件名|
+|timestart|Longint|是|起时间 时间戳|
+|timestop|Longint|是|止时间 时间戳|
+
+返回参数  
+
+|参数名称|类型|示例值|描述|
+|----|----|----|----|
+|code|String|200|状态码|
+
+返回示例
+
+    {
+        "code": 200,
+        "date": [{
+            "username": "admin",
+            "pocess": "tasges",
+            "timestart": "12345",
+            "timestop": "12345"
+        }, {
+            "username": "admin",
+            "pocess": "tasges",
+            "timestart": "12345",
+            "timestop": "12345"
+        }]
     }
