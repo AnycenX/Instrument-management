@@ -39,9 +39,18 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|success|状态|
-|update|String|5|软件主体最新版本号|
-|userinfo|String|5|用户列表最新版本号|
-|processinfo|String|5|监控进程列表最新版本号|
+|update|Int|5|软件主体最新版本号|
+|userinfo|Int|5|用户列表最新版本号|
+|processinfo|Int|5|监控进程列表最新版本号|
+
+返回示例
+
+    {
+        "code":"success",
+        "update":5,
+        "userinfo":5,
+        "processinfo":5
+    }
 
 表2 获取软件更新信息
 
@@ -65,6 +74,17 @@
 |code|String|success|是否存在更新|
 |file|String|列表|更新文件列表|
 
+返回示例
+
+    {
+        "code": "success",
+        "file": [{
+            "name": "main.exe"
+        }, {
+            "name": "nude.dll"
+        }]
+    }
+
 表3 获取用户列表更新信息
 
 |功能|接口|
@@ -87,6 +107,21 @@
 |code|String|success|是否存在更新|
 |list|String|列表|更新文件列表|
 
+返回示例
+
+    {
+        "code": "success",
+        "list": [{
+            "username": "anycen",
+            "passwoed": "21232f297a57a5a743894a0e4a801fc3",
+            "passsalt": "6ed6hf"
+        }, {
+            "username": "admin",
+            "passwoed": "21232f297a57a5a743894a0e4a801fc3",
+            "passsalt": "dfe3sd"
+        }]
+    }
+
 表4 获取监控进程列表更新信息
 
 |功能|接口|
@@ -108,3 +143,18 @@
 |----|----|----|----|
 |code|String|success|是否存在更新|
 |list|String|列表|监控进程文件列表|
+
+返回示例
+
+    {
+        "code": "success",
+        "list": [{
+            "name": "软件名称1",
+            "pocess": "tasges",
+            "type": "exe"
+        }, {
+            "name": "软件名称2",
+            "pocess": "dsp",
+            "type": "dll"
+        }]
+    }
