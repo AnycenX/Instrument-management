@@ -14,13 +14,13 @@ using System.Net.Sockets;
 
 namespace Instrument_management
 {
-    public partial class frmSetting : Form
+    public partial class FormSetting : Form
     {
         string[] localip = new string[20];
         Socket clientSocket;
        // new Thread(receiveMsg).Start(this);
 
-        public frmSetting()
+        public FormSetting()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;

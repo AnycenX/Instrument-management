@@ -7,6 +7,7 @@ namespace Instrument_management
 {
     static class Program
     {
+        static TrayController trayContoller;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -15,8 +16,10 @@ namespace Instrument_management
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            trayContoller = new TrayController();
             //Application.Run(new frmMain());
-            Application.Run(new frmSetting());
+            Application.Run();
         }
     }
 }
