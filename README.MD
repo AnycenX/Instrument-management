@@ -76,16 +76,20 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|是否存在更新|
-|file|String|列表|更新文件列表|
+|file|List|列表|更新文件列表|
+|+name|String|main.exe|更新文件名|
+|+url|String|https://soft.jsdrv.com/|更新文件URL|
 
 返回示例
 
     {
         "code": 200,
         "file": [{
-            "name": "main.exe"
+            "name": "main.exe",
+            "url": "https://soft.jsdrv.com/"
         }, {
-            "name": "nude.dll"
+            "name": "nude.dll",
+            "url": "https://soft.jsdrv.com/"
         }]
     }
 
@@ -110,7 +114,10 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|是否存在更新|
-|list|String|列表|更新文件列表|
+|list|List|列表|更新文件列表|
+|+username|String|admin|用户名|
+|+passwoed|String|21232f297a57a5a743894a0e4a801fc3|密码（MD5）|
+|+passsalt|String|6ed6hf|密码加盐|
 
 返回示例
 
@@ -148,7 +155,11 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|是否存在更新|
-|list|String|列表|监控进程文件列表|
+|list|List|列表|监控进程文件列表|
+|+name|String|软件名称1|监控软件名|
+|+pocess|String|tasges|监控进程名|
+|+type|String|exe|监控进程类型|
+
 
 返回示例
 
@@ -278,7 +289,7 @@
         "code": 200
     }
 
-#### 表3 监控进程列表上传接口 ####
+#### 表3 获取监控日志接口 ####
 
 |功能|接口|
 |----|----|
@@ -301,6 +312,11 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|状态码|
+|date|List|列表|返回列表|
+|+username|string|admin|用户名|
+|+pocess|string|tasges|进程名|
+|+timestart|Longint|12345|进程开始运行时间戳|
+|+timestop|Longint|12345|进程结束运行时间戳|
 
 返回示例
 
