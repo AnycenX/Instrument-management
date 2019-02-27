@@ -34,7 +34,7 @@
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
 |type|String|是|操作类型|
-|timeset|Longint|是|时间戳|
+|timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 
 返回参数  
@@ -50,9 +50,11 @@
 
     {
         "code": 200,
-        "update": 5,
-        "userinfo": 5,
-        "processinfo": 5
+        "data": {
+            "update": 5,
+            "userinfo": 5,
+            "processinfo": 5
+        }
     }
 
 #### 表2 获取软件更新信息 ####
@@ -67,7 +69,7 @@
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
 |type|String|是|操作类型|
-|timeset|Longint|是|时间戳|
+|timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |version|String|是|软件版本号|
 
@@ -84,7 +86,7 @@
 
     {
         "code": 200,
-        "file": [{
+        "data": [{
             "name": "main.exe",
             "url": "https://soft.jsdrv.com/"
         }, {
@@ -105,7 +107,7 @@
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
 |type|String|是|操作类型|
-|timeset|Longint|是|时间戳|
+|timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |version|String|是|用户列表版本号|
 
@@ -123,7 +125,7 @@
 
     {
         "code": 200,
-        "list": [{
+        "data": [{
             "username": "anycen",
             "passwoed": "21232f297a57a5a743894a0e4a801fc3",
             "passsalt": "6ed6hf"
@@ -146,7 +148,7 @@
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
 |type|String|是|操作类型|
-|timeset|Longint|是|时间戳|
+|timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |version|String|是|监控进程列表版本号|
 
@@ -165,7 +167,7 @@
 
     {
         "code": 200,
-        "list": [{
+        "data": [{
             "name": "软件名称1",
             "pocess": "tasges",
             "type": "exe"
@@ -188,9 +190,10 @@
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
 |type|String|是|操作类型|
-|timeset|Longint|是|时间戳|
+|timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |username|String|是|用户名|
+|name|String|是|软件名|
 |pocess|String|是|进程名|
 |timestart|Longint|是|起时间 时间戳|
 |timestop|Longint|是|止时间 时间戳|
@@ -241,7 +244,7 @@
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
 |type|String|是|操作类型|
-|timeset|Longint|是|时间戳|
+|timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |username|String|是|用户名|
 |password|String|是|用户密码（MD5）|
@@ -271,7 +274,7 @@
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
 |type|String|是|操作类型|
-|timeset|Longint|是|时间戳|
+|timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |name|String|是|监控软件名|
 |pocess|String|是|监控进程名|
@@ -301,7 +304,7 @@
 |参数名称|类型|是否必须|描述|
 |----|----|----|----|
 |type|String|是|操作类型|
-|timeset|Longint|是|时间戳|
+|timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |name|String|是|监控软件名|
 |timestart|Longint|是|起时间 时间戳|
@@ -314,7 +317,7 @@
 |code|String|200|状态码|
 |date|List|列表|返回列表|
 |+username|string|admin|用户名|
-|+pocess|string|tasges|进程名|
+|+name|string|tasges|软件名|
 |+timestart|Longint|12345|进程开始运行时间戳|
 |+timestop|Longint|12345|进程结束运行时间戳|
 
@@ -324,13 +327,17 @@
         "code": 200,
         "date": [{
             "username": "admin",
-            "pocess": "tasges",
+            "name": "tasges",
             "timestart": "12345",
             "timestop": "12345"
         }, {
             "username": "admin",
-            "pocess": "tasges",
+            "name": "tasges",
             "timestart": "12345",
             "timestop": "12345"
         }]
     }
+
+部分SQL语句  
+
+    UPDATE `category` SET `arrchildid`=TRIM(BOTH ',' FROM replace(concat(',',`arrchildid`,','), ',1,', '')) WHERE `catid`=100
