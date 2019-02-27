@@ -167,5 +167,10 @@ namespace Instrument_management
                 textBox1.ForeColor = Color.Silver;
             }
         }
+
+        private void btnLoading_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

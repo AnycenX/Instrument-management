@@ -38,8 +38,8 @@
             this.btnLoading = new System.Windows.Forms.Button();
             this.btnShutdown = new System.Windows.Forms.Button();
             this.PlanLoad = new System.Windows.Forms.Panel();
-            this.picBack = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.picBack = new System.Windows.Forms.PictureBox();
             this.PlanLoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.SuspendLayout();
@@ -51,9 +51,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(22, 21);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 29);
+            this.button1.Size = new System.Drawing.Size(218, 51);
             this.button1.TabIndex = 0;
             this.button1.Text = "禁用任务管理器";
             this.button1.UseVisualStyleBackColor = true;
@@ -61,9 +62,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 47);
+            this.button2.Location = new System.Drawing.Point(22, 82);
+            this.button2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 29);
+            this.button2.Size = new System.Drawing.Size(218, 51);
             this.button2.TabIndex = 1;
             this.button2.Text = "启用任务管理器";
             this.button2.UseVisualStyleBackColor = true;
@@ -72,9 +74,10 @@
             // textBox1
             // 
             this.textBox1.ForeColor = System.Drawing.Color.Silver;
-            this.textBox1.Location = new System.Drawing.Point(22, 47);
+            this.textBox1.Location = new System.Drawing.Point(40, 82);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 29);
+            this.textBox1.Size = new System.Drawing.Size(464, 44);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "请输入用户名";
             this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
@@ -83,9 +86,10 @@
             // textBox2
             // 
             this.textBox2.ForeColor = System.Drawing.Color.Silver;
-            this.textBox2.Location = new System.Drawing.Point(22, 87);
+            this.textBox2.Location = new System.Drawing.Point(40, 152);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(255, 29);
+            this.textBox2.Size = new System.Drawing.Size(464, 44);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "请输入密码";
             this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
@@ -93,19 +97,22 @@
             // 
             // btnLoading
             // 
-            this.btnLoading.Location = new System.Drawing.Point(83, 140);
+            this.btnLoading.Location = new System.Drawing.Point(152, 245);
+            this.btnLoading.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnLoading.Name = "btnLoading";
-            this.btnLoading.Size = new System.Drawing.Size(131, 38);
+            this.btnLoading.Size = new System.Drawing.Size(240, 66);
             this.btnLoading.TabIndex = 6;
             this.btnLoading.Text = "登录";
             this.btnLoading.UseVisualStyleBackColor = true;
+            this.btnLoading.Click += new System.EventHandler(this.btnLoading_Click);
             // 
             // btnShutdown
             // 
             this.btnShutdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnShutdown.Location = new System.Drawing.Point(12, 454);
+            this.btnShutdown.Location = new System.Drawing.Point(22, 794);
+            this.btnShutdown.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnShutdown.Name = "btnShutdown";
-            this.btnShutdown.Size = new System.Drawing.Size(51, 34);
+            this.btnShutdown.Size = new System.Drawing.Size(94, 60);
             this.btnShutdown.TabIndex = 7;
             this.btnShutdown.Text = "关闭";
             this.btnShutdown.UseVisualStyleBackColor = true;
@@ -120,10 +127,21 @@
             this.PlanLoad.Controls.Add(this.textBox1);
             this.PlanLoad.Controls.Add(this.textBox2);
             this.PlanLoad.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PlanLoad.Location = new System.Drawing.Point(450, 155);
+            this.PlanLoad.Location = new System.Drawing.Point(825, 271);
+            this.PlanLoad.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.PlanLoad.Name = "PlanLoad";
-            this.PlanLoad.Size = new System.Drawing.Size(300, 196);
+            this.PlanLoad.Size = new System.Drawing.Size(548, 342);
             this.PlanLoad.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(204, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 36);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "请先登录";
             // 
             // picBack
             // 
@@ -132,32 +150,25 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picBack.Image = ((System.Drawing.Image)(resources.GetObject("picBack.Image")));
             this.picBack.Location = new System.Drawing.Point(0, 0);
+            this.picBack.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.picBack.Name = "picBack";
-            this.picBack.Size = new System.Drawing.Size(1000, 500);
+            this.picBack.Size = new System.Drawing.Size(1833, 875);
             this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBack.TabIndex = 9;
             this.picBack.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(111, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 21);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "请先登录";
-            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 500);
+            this.ClientSize = new System.Drawing.Size(1833, 875);
             this.Controls.Add(this.PlanLoad);
             this.Controls.Add(this.btnShutdown);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.picBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "frmMain";
             this.Text = "屏幕锁定";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

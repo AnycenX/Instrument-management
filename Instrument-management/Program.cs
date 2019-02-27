@@ -18,6 +18,9 @@ namespace Instrument_management
             Application.SetCompatibleTextRenderingDefault(false);
 
             trayContoller = new TrayController();
+            ApiController api = new ApiController();
+            api.GetStart();
+            var a = api.GetProcessinfo("1");
             //Application.Run(new frmMain());
             Application.Run();
         }

@@ -11,7 +11,6 @@ namespace Instrument_management
 {
     class ReportTimer
     {
-        List<string> monitorList = new List<string>() { "notepad" };
         List<ProcessLogModel> processLog = new List<ProcessLogModel>();
         List<ProcessLogModel> processExitedLog = new List<ProcessLogModel>();
         List<string> logList = new List<string>();
@@ -32,7 +31,7 @@ namespace Instrument_management
             DateTime nowTime = DateTime.Now;
             // 取当前与监控列表的并集
             IEnumerable<string> currentList = from x in processes
-                                                  where monitorList.Contains(x.ProcessName)
+                                                  where SharedData.processList.Contains(x.ProcessName)
                                               select x.ProcessName;
             logList = (from x in processLog select x.name).ToList();
             // 一共会出现三种情况：
