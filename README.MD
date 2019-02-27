@@ -126,10 +126,12 @@
     {
         "code": 200,
         "data": [{
+            "id": 1,
             "username": "anycen",
             "passwoed": "21232f297a57a5a743894a0e4a801fc3",
             "passsalt": "6ed6hf"
         }, {
+            "id": 2,
             "username": "admin",
             "passwoed": "21232f297a57a5a743894a0e4a801fc3",
             "passsalt": "dfe3sd"
@@ -207,7 +209,8 @@
 返回示例
 
     {
-        "code": 200
+        "code": 200,
+        "data": "OK"
     }
 
 ## 二、管理端 ##
@@ -259,7 +262,8 @@
 返回示例
 
     {
-        "code": 200
+        "code": 200,
+        "data": "OK"
     }
 
 #### 表2 监控进程列表上传接口 ####
@@ -289,7 +293,8 @@
 返回示例
 
     {
-        "code": 200
+        "code": 200,
+        "data": "OK"
     }
 
 #### 表3 获取监控日志接口 ####
