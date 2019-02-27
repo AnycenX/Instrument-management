@@ -161,7 +161,7 @@
 |code|String|200|是否存在更新|
 |list|List|列表|监控进程文件列表|
 |+name|String|软件名称1|监控软件名|
-|+pocess|String|tasges|监控进程名|
+|+process|String|tasges|监控进程名|
 |+type|String|exe|监控进程类型|
 
 
@@ -171,12 +171,12 @@
         "code": 200,
         "data": [{
             "name": "软件名称1",
-            "pocess": "tasges",
+            "process": "tasges",
             "type": "exe"
         }, {
             "name": "软件名称2",
-            "pocess": "dsp",
-            "type": "dll"
+            "process": "dsp",
+            "type": "msi"
         }]
     }
 
@@ -196,7 +196,7 @@
 |key|String|是|authkey与时间戳计算值|
 |username|String|是|用户名|
 |name|String|是|软件名|
-|pocess|String|是|进程名|
+|process|String|是|进程名|
 |timestart|Longint|是|起时间 时间戳|
 |timestop|Longint|是|止时间 时间戳|
 
@@ -240,6 +240,37 @@
 |功能|接口|
 |----|----|
 |HTTP 请求方式|GET|
+|URL|https://api.anycen.com/instrument/?type=inuser|
+
+请求参数  
+
+|参数名称|类型|是否必须|描述|
+|----|----|----|----|
+|type|String|是|操作类型|
+|timestamp|Longint|是|时间戳|
+|key|String|是|authkey与时间戳计算值|
+|username|String|是|用户名|
+|password|String|是|用户密码（MD5）|
+|passsalt|String|是|密码加盐|
+
+返回参数  
+
+|参数名称|类型|示例值|描述|
+|----|----|----|----|
+|code|String|200|状态码|
+
+返回示例
+
+    {
+        "code": 200,
+        "data": "OK"
+    }
+
+#### 表2 用户信息更新接口 ####
+
+|功能|接口|
+|----|----|
+|HTTP 请求方式|GET|
 |URL|https://api.anycen.com/instrument/?type=upuser|
 
 请求参数  
@@ -266,12 +297,12 @@
         "data": "OK"
     }
 
-#### 表2 监控进程列表上传接口 ####
+#### 表3 监控进程列表上传接口 ####
 
 |功能|接口|
 |----|----|
 |HTTP 请求方式|GET|
-|URL|https://api.anycen.com/instrument/?type=uppocess|
+|URL|https://api.anycen.com/instrument/?type=inprocess|
 
 请求参数  
 
@@ -281,8 +312,8 @@
 |timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
 |name|String|是|监控软件名|
-|pocess|String|是|监控进程名|
-|potype|String|是|监控进程类型（EXE、DLL等）|
+|process|String|是|监控进程名|
+|potype|String|是|监控进程类型（EXE、MSI等）|
 
 返回参数  
 
@@ -297,7 +328,38 @@
         "data": "OK"
     }
 
-#### 表3 获取监控日志接口 ####
+#### 表4 监控进程列表更新接口 ####
+
+|功能|接口|
+|----|----|
+|HTTP 请求方式|GET|
+|URL|https://api.anycen.com/instrument/?type=upprocess|
+
+请求参数  
+
+|参数名称|类型|是否必须|描述|
+|----|----|----|----|
+|type|String|是|操作类型|
+|timestamp|Longint|是|时间戳|
+|key|String|是|authkey与时间戳计算值|
+|name|String|是|监控软件名|
+|process|String|是|监控进程名|
+|potype|String|是|监控进程类型（EXE、MSI等）|
+
+返回参数  
+
+|参数名称|类型|示例值|描述|
+|----|----|----|----|
+|code|String|200|状态码|
+
+返回示例
+
+    {
+        "code": 200,
+        "data": "OK"
+    }
+
+#### 表5 获取监控日志接口 ####
 
 |功能|接口|
 |----|----|
