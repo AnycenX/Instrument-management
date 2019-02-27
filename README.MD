@@ -120,6 +120,7 @@
 |+username|String|admin|用户名|
 |+password|String|21232f297a57a5a743894a0e4a801fc3|密码（MD5）|
 |+passsalt|String|6ed6hf|密码加盐|
+|+rank|Int|0|用户等级|
 
 返回示例
 
@@ -129,12 +130,14 @@
             "id": 1,
             "username": "anycen",
             "password": "21232f297a57a5a743894a0e4a801fc3",
-            "passsalt": "6ed6hf"
+            "passsalt": "6ed6hf",
+            "rank": 0
         }, {
             "id": 2,
             "username": "admin",
             "password": "21232f297a57a5a743894a0e4a801fc3",
-            "passsalt": "dfe3sd"
+            "passsalt": "dfe3sd",
+            "rank": 0
         }]
     }
 
@@ -252,6 +255,7 @@
 |username|String|是|用户名|
 |password|String|是|用户密码（MD5）|
 |passsalt|String|是|密码加盐|
+|rank|Int|是|用户等级|
 
 返回参数  
 
@@ -283,6 +287,7 @@
 |username|String|是|用户名|
 |password|String|是|用户密码（MD5）|
 |passsalt|String|是|密码加盐|
+|rank|Int|是|用户等级|
 
 返回参数  
 
