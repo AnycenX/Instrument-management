@@ -118,7 +118,7 @@
 |code|String|200|是否存在更新|
 |list|List|列表|更新文件列表|
 |+username|String|admin|用户名|
-|+passwoed|String|21232f297a57a5a743894a0e4a801fc3|密码（MD5）|
+|+password|String|21232f297a57a5a743894a0e4a801fc3|密码（MD5）|
 |+passsalt|String|6ed6hf|密码加盐|
 
 返回示例
@@ -128,12 +128,12 @@
         "data": [{
             "id": 1,
             "username": "anycen",
-            "passwoed": "21232f297a57a5a743894a0e4a801fc3",
+            "password": "21232f297a57a5a743894a0e4a801fc3",
             "passsalt": "6ed6hf"
         }, {
             "id": 2,
             "username": "admin",
-            "passwoed": "21232f297a57a5a743894a0e4a801fc3",
+            "password": "21232f297a57a5a743894a0e4a801fc3",
             "passsalt": "dfe3sd"
         }]
     }
