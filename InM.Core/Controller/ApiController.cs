@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace InM
 {
-    class ApiController
+    public class ApiController
     {
         const string authkey = "21232f297a57a5a743894a0e4a801fc3";
         const string endpoint = "https://api.anycen.com/instrument/";

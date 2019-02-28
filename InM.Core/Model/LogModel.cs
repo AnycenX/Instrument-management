@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InM
 {
-    class ProcessLogModel
+    public class ProcessLogModel
     {
         public string name;
         public DateTime start;

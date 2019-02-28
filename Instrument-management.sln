@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instrument-management", "Instrument-management\Instrument-management.csproj", "{8E4DA8D5-4E6B-4A53-B227-68AC15E89FE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InM", "Instrument-management\InM.csproj", "{8E4DA8D5-4E6B-4A53-B227-68AC15E89FE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InM.Core", "InM.Core\InM.Core.csproj", "{F380C154-E2EC-46DA-B0A6-7C0488936B93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8E4DA8D5-4E6B-4A53-B227-68AC15E89FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E4DA8D5-4E6B-4A53-B227-68AC15E89FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E4DA8D5-4E6B-4A53-B227-68AC15E89FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F380C154-E2EC-46DA-B0A6-7C0488936B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F380C154-E2EC-46DA-B0A6-7C0488936B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F380C154-E2EC-46DA-B0A6-7C0488936B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F380C154-E2EC-46DA-B0A6-7C0488936B93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
