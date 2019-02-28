@@ -12,12 +12,14 @@ namespace InM
 {
     public class ApiController
     {
-        const string authkey = "21232f297a57a5a743894a0e4a801fc3";
-        const string endpoint = "https://api.anycen.com/instrument/";
+        readonly string authkey;
+        readonly string endpoint;
         private HttpClient httpClient = new HttpClient();
 
-        public ApiController()
+        public ApiController(string authkeyIn, string endpointIn)
         {
+            authkey = authkeyIn;
+            endpoint = endpointIn;
             httpClient.DefaultRequestHeaders.Connection.Add("keep-alive");
             // TODO: 检测是否可以访问公网服务器，如果不行需要切换到内网服务器
         }
@@ -80,6 +82,11 @@ namespace InM
             return result.ToObject<IEnumerable<ProcessInfo>>();
         }
 
+        public void Uplog(string username, ProcessUplogModel processUplog)
+        {
+            Uplog(username, processUplog.friendlyName, processUplog.name, ToUnixTimestamp(processUplog.start), ToUnixTimestamp(processUplog.stop));
+        }
+
         public void Uplog(string username, string name, string process, long timestart, long timestop)
         {
             Dictionary<string, string> parampairs = new Dictionary<string, string>
@@ -95,12 +102,10 @@ namespace InM
             Console.WriteLine(result);
         }
 
-        public 
-
-        async Task<JToken> SendAsync(IEnumerable<KeyValuePair<string, string>> param)
+        private async Task<JToken> SendAsync(IEnumerable<KeyValuePair<string, string>> param)
         {
             var paramlist = param.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-            long unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            long unixTimestamp = ToUnixTimestamp(DateTime.Now);
             string key = Sign(unixTimestamp);
             paramlist.Add("timestamp", unixTimestamp.ToString());
             paramlist.Add("key", key);
@@ -128,6 +133,12 @@ namespace InM
         string Sign(long unixTimestamp)
         {
             return Encryption.MD5Hash(((unixTimestamp - 500) * 3).ToString() + authkey);
+        }
+
+        long ToUnixTimestamp(DateTime dateTime)
+        {
+            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
+            return (long)(dateTime - startTime).TotalSeconds;
         }
     }
 }

@@ -9,24 +9,47 @@ using System.Timers;
 
 namespace InM
 {
-    class ReportTimer
+    public class ReportUploadArgs
     {
-        List<ProcessLogModel> processLog = new List<ProcessLogModel>();
-        List<ProcessLogModel> processExitedLog = new List<ProcessLogModel>();
+        public ReportUploadArgs(IEnumerable<ProcessUplogModel> processUplogModelsIn)
+        {
+            processUplogModels = processUplogModelsIn;
+        }
+        public IEnumerable<ProcessUplogModel> processUplogModels;
+    }
+    public class ReportTimer
+    {
+        List<ProcessUplogModel> processLog = new List<ProcessUplogModel>();
+        List<ProcessUplogModel> processExitedLog = new List<ProcessUplogModel>();
         List<string> logList = new List<string>();
+
+        Timer timerRefreshProcess;
+        Timer timerUploadProcess;
+
+        public delegate void ReportUploadHandler(object sender, ReportUploadArgs e);
+        public event ReportUploadHandler ReportUpload;
+
         public void Start()
         {
-            Timer timerRefreshProcess = new Timer(2000);
+            timerRefreshProcess = new Timer(2000);
             timerRefreshProcess.Elapsed += TimerRefreshProcess_Elapsed;
             timerRefreshProcess.Enabled = true;
-            Timer timerUploadProcess = new Timer(10000);
+            timerUploadProcess = new Timer(10000);
             timerUploadProcess.Elapsed += TimerUploadProcess_Elapsed;
             timerUploadProcess.Enabled = true;
         }
 
+        public void Stop()
+        {
+            timerRefreshProcess.Stop();
+            timerUploadProcess.Stop();
+            processLog.Clear();
+            processExitedLog.Clear();
+            logList.Clear();
+        }
+
         private void TimerRefreshProcess_Elapsed(object sender, ElapsedEventArgs e)
         {
-            Console.WriteLine("tiktok");
             Process[] processes = Process.GetProcesses();
             DateTime nowTime = DateTime.Now;
             // 取当前与监控列表的并集
@@ -40,16 +63,17 @@ namespace InM
                 .ToList()
                 .ForEach(x =>
                 {
-                    processLog.Add(new ProcessLogModel()
+                    processLog.Add(new ProcessUplogModel()
                     {
                         name = x,
+                        friendlyName = (from y in SharedData.processInfo where y.process == x select y.name)?.First() ?? "",
                         start = nowTime
                     });
                 });
             // 2. 两边都在：更新last时间
             (from x in processLog where currentList.Intersect(logList).Contains(x.name) select x)
                 .ToList()
-                .ForEach(x => x.last = nowTime);
+                .ForEach(x => x.stop = nowTime);
             // 3. 只在log：程序已退出
             var q3 = from x in processLog where logList.Except(currentList).Contains(x.name) select x;
             processExitedLog.AddRange(q3);
@@ -58,9 +82,7 @@ namespace InM
 
         private void TimerUploadProcess_Elapsed(object sender, ElapsedEventArgs e)
         {
-            string json = JsonConvert.SerializeObject(processLog.Concat(processExitedLog));
-            Console.WriteLine(json);
-
+            ReportUpload?.Invoke(this, new ReportUploadArgs(processLog.Concat(processExitedLog)));
             processExitedLog.Clear();
         }
     }

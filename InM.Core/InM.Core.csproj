@@ -44,11 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ApiController.cs" />
-    <Compile Include="Controller\ReportTimer.cs" />
     <Compile Include="Controller\StorageController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Model\InfoWithVer.cs" />
-    <Compile Include="Model\LogModel.cs" />
     <Compile Include="Model\ProcessInfo.cs" />
     <Compile Include="Model\StorageModel.cs" />
     <Compile Include="Model\UserInfo.cs" />

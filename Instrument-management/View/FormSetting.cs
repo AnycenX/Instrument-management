@@ -28,8 +28,6 @@ namespace InM
 
         private void frmSetting_Load(object sender, EventArgs e)
         {
-            ReportTimer rt = new ReportTimer();
-            rt.Start();
         }
 
         private void EnumComputers(string ip3)
