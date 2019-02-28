@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace Instrument_management
+namespace InM
 {
     public class SelfProtect
     {

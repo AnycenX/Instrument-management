@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Timers;
 
-namespace Instrument_management
+namespace InM
 {
     class ReportTimer
     {

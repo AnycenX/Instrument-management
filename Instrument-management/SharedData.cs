@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Instrument_management
+namespace InM
 {
     public static class SharedData
     {

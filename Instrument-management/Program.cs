@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Instrument_management
+namespace InM
 {
     static class Program
     {

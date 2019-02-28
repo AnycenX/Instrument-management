@@ -14,7 +14,7 @@ using System.Management;
 using System.Management.Instrumentation;
 using System.Runtime.InteropServices;
 
-namespace Instrument_management
+namespace InM
 {
     public partial class frmMain : Form
     {

@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace Instrument_management
+namespace InM
 {
     class Hook
     {

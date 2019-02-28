@@ -12,7 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 
-namespace Instrument_management
+namespace InM
 {
     public partial class FormSetting : Form
     {

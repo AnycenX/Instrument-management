@@ -1,4 +1,4 @@
-﻿namespace Instrument_management
+﻿namespace InM
 {
     partial class FormSetting
     {

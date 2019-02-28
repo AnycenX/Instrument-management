@@ -1,4 +1,4 @@
-﻿using Instrument_management.Properties;
+﻿using InM.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Instrument_management
+namespace InM
 {
     class TrayController
     {
