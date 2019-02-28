@@ -11,7 +11,7 @@ namespace InM
 {
     class TrayController
     {
-        private NotifyIcon notifyIcon;
+        public NotifyIcon notifyIcon;
         private ContextMenu contextMenu;
 
         public TrayController()
@@ -41,7 +41,7 @@ namespace InM
 
         private void logoutItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("现在还退不掉");
+            SharedData.User.Logout();
         }
     }
 }
