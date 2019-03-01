@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace InM
 {
-    public class StorageModel
+    public class StartInfo
     {
-        public InfoWithVer<UserInfo> userInfo;
-        public InfoWithVer<ProcessInfo> processInfo;
+        public int update;
+        public int userinfo;
+        public int processinfo;
     }
 }

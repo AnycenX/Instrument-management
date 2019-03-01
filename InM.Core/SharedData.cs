@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,5 +23,7 @@ namespace InM
         public static bool isLoggedin { get => User.isLoggedin; }
         public static bool isAdmin { get => User.isAdmin; }
 
+        public static string currentPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        public static string dataPath = Path.Combine(currentPath, "data.bin");
     }
 }

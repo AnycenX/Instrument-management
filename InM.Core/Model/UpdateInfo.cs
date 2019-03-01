@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace InM
 {
-    public class StorageModel
+    public class UpdateInfo
     {
-        public InfoWithVer<UserInfo> userInfo;
-        public InfoWithVer<ProcessInfo> processInfo;
+        public string name;
+        public string url;
     }
 }

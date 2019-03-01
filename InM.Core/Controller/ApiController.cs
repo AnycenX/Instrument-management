@@ -39,17 +39,17 @@ namespace InM
             }
             return true;
         }
-        public void GetStart()
+        public StartInfo GetStart()
         {
             Dictionary<string, string> parampairs = new Dictionary<string, string>
                 {
                     { "type", "start" }
                 };
             var result = SendAsync(parampairs).Result;
-            Console.WriteLine(result);
+            return result.ToObject<StartInfo>();
         }
 
-        public void GetUpdate(string version)
+        public IEnumerable<UpdateInfo> GetUpdate(string version)
         {
             Dictionary<string, string> parampairs = new Dictionary<string, string>
                 {
@@ -57,7 +57,7 @@ namespace InM
                     { "version", version }
                 };
             var result = SendAsync(parampairs).Result;
-            Console.WriteLine(result);
+            return result.ToObject<IEnumerable<UpdateInfo>>();
         }
 
         public IEnumerable<UserInfo> GetUserinfo(string version)
