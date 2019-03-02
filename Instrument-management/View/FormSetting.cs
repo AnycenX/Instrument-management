@@ -12,15 +12,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 
-namespace Instrument_management
+namespace InM
 {
-    public partial class frmSetting : Form
+    public partial class FormSetting : Form
     {
         string[] localip = new string[20];
         Socket clientSocket;
        // new Thread(receiveMsg).Start(this);
 
-        public frmSetting()
+        public FormSetting()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
@@ -28,7 +28,6 @@ namespace Instrument_management
 
         private void frmSetting_Load(object sender, EventArgs e)
         {
-
         }
 
         private void EnumComputers(string ip3)
@@ -116,23 +115,23 @@ namespace Instrument_management
 
         public bool closeConn()
         {
-            try
-            {
-                clientSocket.Shutdown(SocketShutdown.Both);
-                Thread.Sleep(10);
-                clientSocket.Close();
-                listBox2.Items.Add("断开服务器成功");
-                button1.Text = "TCP连接";
-                //开启监听线程
-                //Thread receiveThread = new Thread(receiveMsg);
-                //receiveThread.Start(this);
-            }
-            catch (Exception e)
-            {
-                //listBox2.Items.Add("断开服务器失败" + e.ToString());
-                MessageBox.Show("断开服务器失败" + e.ToString());
-                return false;
-            }
+            //try
+            //{
+            //    clientSocket.Shutdown(SocketShutdown.Both);
+            //    Thread.Sleep(10);
+            //    clientSocket.Close();
+            //    listBox2.Items.Add("断开服务器成功");
+            //    button1.Text = "TCP连接";
+            //    //开启监听线程
+            //    Thread receiveThread = new Thread(receiveMsg);
+            //    receiveThread.Start(this);
+            //}
+            //catch (Exception e)
+            //{
+            //    //listBox2.Items.Add("断开服务器失败" + e.ToString());
+            //    MessageBox.Show("断开服务器失败" + e.ToString());
+            //    return false;
+            //}
             return true;
         }
 

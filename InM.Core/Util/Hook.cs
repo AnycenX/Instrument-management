@@ -4,14 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace Instrument_management
+namespace InM
 {
-    class Hook
+    public class Hook
     {
         public delegate int HookProc(int nCode, int wParam, IntPtr lParam);
         static int hHook = 0;

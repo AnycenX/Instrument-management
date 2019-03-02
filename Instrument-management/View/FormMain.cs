@@ -14,14 +14,14 @@ using System.Management;
 using System.Management.Instrumentation;
 using System.Runtime.InteropServices;
 
-namespace Instrument_management
+namespace InM
 {
-    public partial class frmMain : Form
+    public partial class FormMain : Form
     {
         Hook h = new Hook();
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern int SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int Width, int Height, int flags);
-        public frmMain()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -33,9 +33,9 @@ namespace Instrument_management
 
         protected override void OnLoad(EventArgs e)
         {
-            FullScreen();//最大化
-            h.Hook_Start();//禁用快捷键
-            SetWindowPos(this.Handle, -1, 0, 0, 0, 0, 1 | 2);//保持窗体最前
+            //FullScreen();//最大化
+            //h.Hook_Start();//禁用快捷键
+            //SetWindowPos(this.Handle, -1, 0, 0, 0, 0, 1 | 2);//保持窗体最前
             Locations();
             //Translate();
         }
@@ -97,30 +97,32 @@ namespace Instrument_management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System");
-                rk.SetValue("DisableTaskMgr", 1, Microsoft.Win32.RegistryValueKind.DWord);
-                MessageBox.Show("禁用任务管理器成功");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            SelfProtect.Protect();
+            //try
+            //{
+            //    Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System");
+            //    rk.SetValue("DisableTaskMgr", 1, Microsoft.Win32.RegistryValueKind.DWord);
+            //    MessageBox.Show("禁用任务管理器成功");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System");
-                rk.SetValue("DisableTaskMgr", 0, Microsoft.Win32.RegistryValueKind.DWord);
-                MessageBox.Show("启用任务管理器成功");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            SelfProtect.Unprotect();
+            //try
+            //{
+            //    Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System");
+            //    rk.SetValue("DisableTaskMgr", 0, Microsoft.Win32.RegistryValueKind.DWord);
+            //    MessageBox.Show("启用任务管理器成功");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void btnShutdown_Click(object sender, EventArgs e)
@@ -128,41 +130,53 @@ namespace Instrument_management
             Environment.Exit(0);
         }
 
-        private void textBox2_Leave(object sender, EventArgs e)
+        private void textBoxUserpwd_Leave(object sender, EventArgs e)
         {
-            if (textBox2.Text == "")
+            if (textBoxUserpwd.Text == "")
             {
-                textBox2.Text = "请输入密码";
-                textBox2.ForeColor = Color.Silver;
-                textBox2.UseSystemPasswordChar = false;
+                textBoxUserpwd.Text = "请输入密码";
+                textBoxUserpwd.ForeColor = Color.Silver;
+                textBoxUserpwd.UseSystemPasswordChar = false;
             }
         }
 
-        private void textBox2_Enter(object sender, EventArgs e)
+        private void textBoxUserpwd_Enter(object sender, EventArgs e)
         {
-            if (textBox2.Text == "请输入密码")
+            if (textBoxUserpwd.Text == "请输入密码")
             {
-                textBox2.Text = "";
-                textBox2.ForeColor = Color.Black;
-                textBox2.UseSystemPasswordChar = true;
+                textBoxUserpwd.Text = "";
+                textBoxUserpwd.ForeColor = Color.Black;
+                textBoxUserpwd.UseSystemPasswordChar = true;
             }   
         }
 
-        private void textBox1_Enter(object sender, EventArgs e)
+        private void textBoxUsername_Enter(object sender, EventArgs e)
         {
-            if (textBox1.Text == "请输入用户名")
+            if (textBoxUsername.Text == "请输入用户名")
             {
-                textBox1.Text = "";
-                textBox1.ForeColor = Color.Black;
+                textBoxUsername.Text = "";
+                textBoxUsername.ForeColor = Color.Black;
             }
         }
 
-        private void textBox1_Leave(object sender, EventArgs e)
+        private void textBoxUsername_Leave(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (textBoxUsername.Text == "")
             {
-                textBox1.Text = "请输入用户名";
-                textBox1.ForeColor = Color.Silver;
+                textBoxUsername.Text = "请输入用户名";
+                textBoxUsername.ForeColor = Color.Silver;
+            }
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SharedData.User.Login(textBoxUsername.Text, textBoxUserpwd.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "登录失败");
             }
         }
     }
