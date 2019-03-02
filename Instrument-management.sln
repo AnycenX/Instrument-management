@@ -23,6 +23,10 @@ Global
 		{F380C154-E2EC-46DA-B0A6-7C0488936B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F380C154-E2EC-46DA-B0A6-7C0488936B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F380C154-E2EC-46DA-B0A6-7C0488936B93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
