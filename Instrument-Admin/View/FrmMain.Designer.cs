@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabCont = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.CheckUser = new System.Windows.Forms.CheckBox();
@@ -39,7 +39,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LinkForgetPass = new System.Windows.Forms.LinkLabel();
+            this.RefreshLog = new System.Windows.Forms.LinkLabel();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.DateStart = new System.Windows.Forms.DateTimePicker();
             this.DateStop = new System.Windows.Forms.DateTimePicker();
@@ -50,12 +50,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.RefreshUser = new System.Windows.Forms.LinkLabel();
             this.BtnNewUser = new System.Windows.Forms.Button();
             this.PanUserEdit = new System.Windows.Forms.Panel();
             this.TxtRePassWord = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BtnUser = new System.Windows.Forms.Button();
             this.ComUserRank = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TxtPassWord = new System.Windows.Forms.TextBox();
@@ -68,11 +68,11 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.RefreshProcess = new System.Windows.Forms.LinkLabel();
             this.BtnNewProcess = new System.Windows.Forms.Button();
             this.PanProcessEdit = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BtnProcess = new System.Windows.Forms.Button();
             this.ComProcessType = new System.Windows.Forms.ComboBox();
             this.TxtProcessName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -116,7 +116,7 @@
             // 
             this.tabPage2.Controls.Add(this.CheckUser);
             this.tabPage2.Controls.Add(this.DataLogInfo);
-            this.tabPage2.Controls.Add(this.LinkForgetPass);
+            this.tabPage2.Controls.Add(this.RefreshLog);
             this.tabPage2.Controls.Add(this.BtnSearch);
             this.tabPage2.Controls.Add(this.DateStart);
             this.tabPage2.Controls.Add(this.DateStop);
@@ -164,14 +164,14 @@
             this.DataLogInfo.MultiSelect = false;
             this.DataLogInfo.Name = "DataLogInfo";
             this.DataLogInfo.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataLogInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataLogInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DataLogInfo.RowHeadersVisible = false;
             this.DataLogInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataLogInfo.RowTemplate.Height = 23;
@@ -211,17 +211,17 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 152;
             // 
-            // LinkForgetPass
+            // RefreshLog
             // 
-            this.LinkForgetPass.ActiveLinkColor = System.Drawing.Color.Maroon;
-            this.LinkForgetPass.AutoSize = true;
-            this.LinkForgetPass.LinkColor = System.Drawing.Color.Gray;
-            this.LinkForgetPass.Location = new System.Drawing.Point(562, 56);
-            this.LinkForgetPass.Name = "LinkForgetPass";
-            this.LinkForgetPass.Size = new System.Drawing.Size(65, 20);
-            this.LinkForgetPass.TabIndex = 11;
-            this.LinkForgetPass.TabStop = true;
-            this.LinkForgetPass.Text = "刷新数据";
+            this.RefreshLog.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.RefreshLog.AutoSize = true;
+            this.RefreshLog.LinkColor = System.Drawing.Color.Gray;
+            this.RefreshLog.Location = new System.Drawing.Point(562, 56);
+            this.RefreshLog.Name = "RefreshLog";
+            this.RefreshLog.Size = new System.Drawing.Size(65, 20);
+            this.RefreshLog.TabIndex = 11;
+            this.RefreshLog.TabStop = true;
+            this.RefreshLog.Text = "刷新数据";
             // 
             // BtnSearch
             // 
@@ -315,7 +315,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.linkLabel1);
+            this.tabPage3.Controls.Add(this.RefreshUser);
             this.tabPage3.Controls.Add(this.BtnNewUser);
             this.tabPage3.Controls.Add(this.PanUserEdit);
             this.tabPage3.Controls.Add(this.DataUserinfo);
@@ -326,17 +326,17 @@
             this.tabPage3.Text = " 用户管理 ";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // RefreshUser
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Maroon;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.Gray;
-            this.linkLabel1.Location = new System.Drawing.Point(16, 357);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(65, 20);
-            this.linkLabel1.TabIndex = 14;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "刷新数据";
+            this.RefreshUser.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.RefreshUser.AutoSize = true;
+            this.RefreshUser.LinkColor = System.Drawing.Color.Gray;
+            this.RefreshUser.Location = new System.Drawing.Point(16, 357);
+            this.RefreshUser.Name = "RefreshUser";
+            this.RefreshUser.Size = new System.Drawing.Size(65, 20);
+            this.RefreshUser.TabIndex = 14;
+            this.RefreshUser.TabStop = true;
+            this.RefreshUser.Text = "刷新数据";
             // 
             // BtnNewUser
             // 
@@ -353,7 +353,7 @@
             this.PanUserEdit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanUserEdit.Controls.Add(this.TxtRePassWord);
             this.PanUserEdit.Controls.Add(this.label10);
-            this.PanUserEdit.Controls.Add(this.button3);
+            this.PanUserEdit.Controls.Add(this.BtnUser);
             this.PanUserEdit.Controls.Add(this.ComUserRank);
             this.PanUserEdit.Controls.Add(this.label9);
             this.PanUserEdit.Controls.Add(this.TxtPassWord);
@@ -374,6 +374,7 @@
             this.TxtRePassWord.Name = "TxtRePassWord";
             this.TxtRePassWord.Size = new System.Drawing.Size(169, 26);
             this.TxtRePassWord.TabIndex = 16;
+            this.TxtRePassWord.UseSystemPasswordChar = true;
             // 
             // label10
             // 
@@ -384,17 +385,19 @@
             this.label10.TabIndex = 15;
             this.label10.Text = "确认密码：";
             // 
-            // button3
+            // BtnUser
             // 
-            this.button3.Location = new System.Drawing.Point(115, 229);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 32);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "确 定";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnUser.Location = new System.Drawing.Point(115, 229);
+            this.BtnUser.Name = "BtnUser";
+            this.BtnUser.Size = new System.Drawing.Size(145, 32);
+            this.BtnUser.TabIndex = 14;
+            this.BtnUser.Text = "确 定";
+            this.BtnUser.UseVisualStyleBackColor = true;
+            this.BtnUser.Click += new System.EventHandler(this.BtnUser_Click);
             // 
             // ComUserRank
             // 
+            this.ComUserRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComUserRank.FormattingEnabled = true;
             this.ComUserRank.Items.AddRange(new object[] {
             "普通用户",
@@ -403,7 +406,6 @@
             this.ComUserRank.Name = "ComUserRank";
             this.ComUserRank.Size = new System.Drawing.Size(169, 28);
             this.ComUserRank.TabIndex = 6;
-            this.ComUserRank.Text = "普通用户";
             // 
             // label9
             // 
@@ -420,6 +422,7 @@
             this.TxtPassWord.Name = "TxtPassWord";
             this.TxtPassWord.Size = new System.Drawing.Size(169, 26);
             this.TxtPassWord.TabIndex = 4;
+            this.TxtPassWord.UseSystemPasswordChar = true;
             // 
             // label8
             // 
@@ -486,14 +489,14 @@
             this.DataUserinfo.Location = new System.Drawing.Point(13, 16);
             this.DataUserinfo.Name = "DataUserinfo";
             this.DataUserinfo.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataUserinfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataUserinfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DataUserinfo.RowHeadersVisible = false;
             this.DataUserinfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataUserinfo.RowTemplate.Height = 23;
@@ -520,7 +523,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.linkLabel2);
+            this.tabPage4.Controls.Add(this.RefreshProcess);
             this.tabPage4.Controls.Add(this.BtnNewProcess);
             this.tabPage4.Controls.Add(this.PanProcessEdit);
             this.tabPage4.Controls.Add(this.DataProcessInfo);
@@ -531,17 +534,17 @@
             this.tabPage4.Text = " 监控管理 ";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // linkLabel2
+            // RefreshProcess
             // 
-            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.Maroon;
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.LinkColor = System.Drawing.Color.Gray;
-            this.linkLabel2.Location = new System.Drawing.Point(16, 357);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(65, 20);
-            this.linkLabel2.TabIndex = 16;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "刷新数据";
+            this.RefreshProcess.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.RefreshProcess.AutoSize = true;
+            this.RefreshProcess.LinkColor = System.Drawing.Color.Gray;
+            this.RefreshProcess.Location = new System.Drawing.Point(16, 357);
+            this.RefreshProcess.Name = "RefreshProcess";
+            this.RefreshProcess.Size = new System.Drawing.Size(65, 20);
+            this.RefreshProcess.TabIndex = 16;
+            this.RefreshProcess.TabStop = true;
+            this.RefreshProcess.Text = "刷新数据";
             // 
             // BtnNewProcess
             // 
@@ -557,7 +560,7 @@
             // 
             this.PanProcessEdit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanProcessEdit.Controls.Add(this.label12);
-            this.PanProcessEdit.Controls.Add(this.button4);
+            this.PanProcessEdit.Controls.Add(this.BtnProcess);
             this.PanProcessEdit.Controls.Add(this.ComProcessType);
             this.PanProcessEdit.Controls.Add(this.TxtProcessName);
             this.PanProcessEdit.Controls.Add(this.label14);
@@ -580,17 +583,19 @@
             this.label12.TabIndex = 15;
             this.label12.Text = "进程类型：";
             // 
-            // button4
+            // BtnProcess
             // 
-            this.button4.Location = new System.Drawing.Point(115, 229);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 32);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "确 定";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BtnProcess.Location = new System.Drawing.Point(115, 229);
+            this.BtnProcess.Name = "BtnProcess";
+            this.BtnProcess.Size = new System.Drawing.Size(145, 32);
+            this.BtnProcess.TabIndex = 14;
+            this.BtnProcess.Text = "确 定";
+            this.BtnProcess.UseVisualStyleBackColor = true;
+            this.BtnProcess.Click += new System.EventHandler(this.BtnProcess_Click);
             // 
             // ComProcessType
             // 
+            this.ComProcessType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComProcessType.FormattingEnabled = true;
             this.ComProcessType.Items.AddRange(new object[] {
             "EXE",
@@ -600,7 +605,6 @@
             this.ComProcessType.Name = "ComProcessType";
             this.ComProcessType.Size = new System.Drawing.Size(169, 28);
             this.ComProcessType.TabIndex = 6;
-            this.ComProcessType.Text = "EXE";
             // 
             // TxtProcessName
             // 
@@ -676,14 +680,14 @@
             this.DataProcessInfo.Location = new System.Drawing.Point(13, 16);
             this.DataProcessInfo.Name = "DataProcessInfo";
             this.DataProcessInfo.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataProcessInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataProcessInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DataProcessInfo.RowHeadersVisible = false;
             this.DataProcessInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataProcessInfo.RowTemplate.Height = 23;
@@ -772,13 +776,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnSearch;
-        private System.Windows.Forms.LinkLabel LinkForgetPass;
+        private System.Windows.Forms.LinkLabel RefreshLog;
         private System.Windows.Forms.Panel PanUserEdit;
         private System.Windows.Forms.Label btnUserClose;
         private System.Windows.Forms.Button BtnNewUser;
         private System.Windows.Forms.TextBox TxtRePassWord;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnUser;
         private System.Windows.Forms.ComboBox ComUserRank;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TxtPassWord;
@@ -789,7 +793,7 @@
         private System.Windows.Forms.Panel PanProcessEdit;
         private System.Windows.Forms.Label LblProcessEdit;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnProcess;
         private System.Windows.Forms.ComboBox ComProcessType;
         private System.Windows.Forms.TextBox TxtProcessName;
         private System.Windows.Forms.Label label14;
@@ -803,8 +807,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.CheckBox CheckUser;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel RefreshUser;
+        private System.Windows.Forms.LinkLabel RefreshProcess;
         private System.Windows.Forms.DataGridView DataUserinfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
