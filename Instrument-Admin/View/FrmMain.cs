@@ -115,12 +115,19 @@ namespace InM_Admin
         {
             LblUserEdit.Text = "新建用户";
             PanUserEdit.Visible = true;
+            TxtUserName.Enabled = true;
+            TxtUserName.Text = "";
+            TxtPassWord.Text = "";
+            TxtRePassWord.Text = "";
         }
 
         private void BtnNewProcess_Click(object sender, EventArgs e)
         {
             LblProcessEdit.Text = "新建监控";
             PanProcessEdit.Visible = true;
+            TxtSoftName.Enabled = true;
+            TxtSoftName.Text = "";
+            TxtProcessName.Text = "";
         }
 
         private void btnProcessClose_Click(object sender, EventArgs e)
@@ -184,6 +191,7 @@ namespace InM_Admin
                 LblUserEdit.Text = "编辑用户";
                 PanUserEdit.Visible = true;
                 TxtUserName.Text = UserGdv.Rows[e.RowIndex].Cells[0].Value.ToString();
+                TxtUserName.Enabled = false;
                 if (UserGdv.Rows[e.RowIndex].Cells[1].Value.ToString() == "1")
                 {
                     ComUserRank.Text = "管理员";
@@ -195,7 +203,7 @@ namespace InM_Admin
             }
         }
 
-        private void DataProcessInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataProcessInfo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView ProcessGdv = sender as DataGridView;//获取事件发送者
             if (e.RowIndex > -1 && e.ColumnIndex > -1)//防止 Index 出错
@@ -203,12 +211,13 @@ namespace InM_Admin
                 LblProcessEdit.Text = "编辑用户";
                 PanProcessEdit.Visible = true;
                 TxtSoftName.Text = ProcessGdv.Rows[e.RowIndex].Cells[0].Value.ToString();
+                TxtSoftName.Enabled = false;
                 TxtProcessName.Text = ProcessGdv.Rows[e.RowIndex].Cells[1].Value.ToString();
                 if (ProcessGdv.Rows[e.RowIndex].Cells[2].Value.ToString() == "EXE")
                 {
                     ComProcessType.Text = "管理员";
                 }
-                else if(ProcessGdv.Rows[e.RowIndex].Cells[2].Value.ToString() == "MSI")
+                else if (ProcessGdv.Rows[e.RowIndex].Cells[2].Value.ToString() == "MSI")
                 {
                     ComProcessType.Text = "普通用户";
                 }

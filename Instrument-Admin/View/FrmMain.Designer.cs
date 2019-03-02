@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabCont = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.CheckUser = new System.Windows.Forms.CheckBox();
@@ -53,7 +53,6 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.BtnNewUser = new System.Windows.Forms.Button();
             this.PanUserEdit = new System.Windows.Forms.Panel();
-            this.LblUserEdit = new System.Windows.Forms.Label();
             this.TxtRePassWord = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -64,6 +63,7 @@
             this.TxtUserName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnUserClose = new System.Windows.Forms.Label();
+            this.LblUserEdit = new System.Windows.Forms.Label();
             this.DataUserinfo = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +71,6 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.BtnNewProcess = new System.Windows.Forms.Button();
             this.PanProcessEdit = new System.Windows.Forms.Panel();
-            this.LblProcessEdit = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.ComProcessType = new System.Windows.Forms.ComboBox();
@@ -80,6 +79,7 @@
             this.TxtSoftName = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btnProcessClose = new System.Windows.Forms.Label();
+            this.LblProcessEdit = new System.Windows.Forms.Label();
             this.DataProcessInfo = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -164,14 +164,14 @@
             this.DataLogInfo.MultiSelect = false;
             this.DataLogInfo.Name = "DataLogInfo";
             this.DataLogInfo.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataLogInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataLogInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataLogInfo.RowHeadersVisible = false;
             this.DataLogInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataLogInfo.RowTemplate.Height = 23;
@@ -368,16 +368,6 @@
             this.PanUserEdit.TabIndex = 11;
             this.PanUserEdit.Visible = false;
             // 
-            // LblUserEdit
-            // 
-            this.LblUserEdit.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LblUserEdit.Location = new System.Drawing.Point(3, 9);
-            this.LblUserEdit.Name = "LblUserEdit";
-            this.LblUserEdit.Size = new System.Drawing.Size(354, 21);
-            this.LblUserEdit.TabIndex = 17;
-            this.LblUserEdit.Text = "新建用户";
-            this.LblUserEdit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // TxtRePassWord
             // 
             this.TxtRePassWord.Location = new System.Drawing.Point(134, 139);
@@ -442,7 +432,6 @@
             // 
             // TxtUserName
             // 
-            this.TxtUserName.Enabled = false;
             this.TxtUserName.Location = new System.Drawing.Point(134, 55);
             this.TxtUserName.Name = "TxtUserName";
             this.TxtUserName.Size = new System.Drawing.Size(169, 26);
@@ -473,6 +462,16 @@
             this.btnUserClose.MouseLeave += new System.EventHandler(this.btnUserClose_MouseLeave);
             this.btnUserClose.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnUserClose_MouseMove);
             // 
+            // LblUserEdit
+            // 
+            this.LblUserEdit.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblUserEdit.Location = new System.Drawing.Point(3, 9);
+            this.LblUserEdit.Name = "LblUserEdit";
+            this.LblUserEdit.Size = new System.Drawing.Size(354, 21);
+            this.LblUserEdit.TabIndex = 17;
+            this.LblUserEdit.Text = "新建用户";
+            this.LblUserEdit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // DataUserinfo
             // 
             this.DataUserinfo.AllowUserToAddRows = false;
@@ -487,14 +486,14 @@
             this.DataUserinfo.Location = new System.Drawing.Point(13, 16);
             this.DataUserinfo.Name = "DataUserinfo";
             this.DataUserinfo.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataUserinfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataUserinfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DataUserinfo.RowHeadersVisible = false;
             this.DataUserinfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataUserinfo.RowTemplate.Height = 23;
@@ -571,16 +570,6 @@
             this.PanProcessEdit.Size = new System.Drawing.Size(362, 287);
             this.PanProcessEdit.TabIndex = 14;
             this.PanProcessEdit.Visible = false;
-            // 
-            // LblProcessEdit
-            // 
-            this.LblProcessEdit.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LblProcessEdit.Location = new System.Drawing.Point(3, 9);
-            this.LblProcessEdit.Name = "LblProcessEdit";
-            this.LblProcessEdit.Size = new System.Drawing.Size(354, 21);
-            this.LblProcessEdit.TabIndex = 17;
-            this.LblProcessEdit.Text = "新建监控";
-            this.LblProcessEdit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label12
             // 
@@ -662,6 +651,16 @@
             this.btnProcessClose.MouseLeave += new System.EventHandler(this.btnProcessClose_MouseLeave);
             this.btnProcessClose.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnProcessClose_MouseMove);
             // 
+            // LblProcessEdit
+            // 
+            this.LblProcessEdit.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblProcessEdit.Location = new System.Drawing.Point(3, 9);
+            this.LblProcessEdit.Name = "LblProcessEdit";
+            this.LblProcessEdit.Size = new System.Drawing.Size(354, 21);
+            this.LblProcessEdit.TabIndex = 17;
+            this.LblProcessEdit.Text = "新建监控";
+            this.LblProcessEdit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // DataProcessInfo
             // 
             this.DataProcessInfo.AllowUserToAddRows = false;
@@ -677,21 +676,21 @@
             this.DataProcessInfo.Location = new System.Drawing.Point(13, 16);
             this.DataProcessInfo.Name = "DataProcessInfo";
             this.DataProcessInfo.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataProcessInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataProcessInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DataProcessInfo.RowHeadersVisible = false;
             this.DataProcessInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataProcessInfo.RowTemplate.Height = 23;
             this.DataProcessInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataProcessInfo.Size = new System.Drawing.Size(613, 329);
             this.DataProcessInfo.TabIndex = 17;
-            this.DataProcessInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataProcessInfo_CellContentClick);
+            this.DataProcessInfo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataProcessInfo_CellDoubleClick);
             // 
             // dataGridViewTextBoxColumn3
             // 
