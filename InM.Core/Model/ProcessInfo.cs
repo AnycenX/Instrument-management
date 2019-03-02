@@ -10,6 +10,7 @@ namespace InM
 {
     public class ProcessInfo
     {
+        public int id { get; set; }
         public string name { get; set; }
         public string process { get; set; }
         public string type { get; set; }
