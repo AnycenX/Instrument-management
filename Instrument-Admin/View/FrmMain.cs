@@ -361,7 +361,25 @@ namespace InM_Admin
             {
                 if (TxtSoftName.Text != "" && TxtProcessName.Text != "" && ComProcessType.Text != "")
                 {
-                    
+                    try
+                    {
+                        var processs = new ProcessInfo();
+                        processs.name = TxtSoftName.Text;
+                        processs.process = TxtProcessName.Text;
+                        processs.type = ComProcessType.Text;
+                        Program.api.Inprocess(processs);
+                        SharedData.processInfoVer = new InfoWithVer<ProcessInfo>()
+                        {
+                            info = Program.api.GetProcessinfo(processs.ToString()).ToArray()
+                        };
+                        DataProcessInfo.DataSource = SharedData.processInfo;
+                        MessageBox.Show("监控进程添加成功", "系统提示");
+                        PanProcessEdit.Visible = false;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("监控进程添加失败，请重试", "系统提示");
+                    }
                 }
                 else
                 {
@@ -370,7 +388,25 @@ namespace InM_Admin
             }
             else
             {
-                MessageBox.Show("edit", "系统提示");
+                try
+                {
+                    var processs = new ProcessInfo();
+                    processs.name = TxtSoftName.Text;
+                    processs.process = TxtProcessName.Text;
+                    processs.type = ComProcessType.Text;
+                    Program.api.Upprocess(processs);
+                    SharedData.processInfoVer = new InfoWithVer<ProcessInfo>()
+                    {
+                        info = Program.api.GetProcessinfo(processs.ToString()).ToArray()
+                    };
+                    DataProcessInfo.DataSource = SharedData.processInfo;
+                    MessageBox.Show("监控进程修改成功", "系统提示");
+                    PanProcessEdit.Visible = false;
+                }
+                catch
+                {
+                    MessageBox.Show("监控进程修改失败，请重试", "系统提示");
+                }
             }
         }
 
