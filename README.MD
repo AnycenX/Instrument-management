@@ -117,6 +117,7 @@
 |----|----|----|----|
 |code|String|200|是否存在更新|
 |list|List|列表|更新文件列表|
+|+id|Int|1|ID|
 |+username|String|admin|用户名|
 |+password|String|21232f297a57a5a743894a0e4a801fc3|密码（MD5）|
 |+passsalt|String|6ed6hf|密码加盐|
@@ -163,6 +164,7 @@
 |----|----|----|----|
 |code|String|200|是否存在更新|
 |list|List|列表|监控进程文件列表|
+|+id|Int|1|ID|
 |+name|String|软件名称1|监控软件名|
 |+process|String|tasges|监控进程名|
 |+type|String|exe|监控进程类型|
@@ -173,10 +175,12 @@
     {
         "code": 200,
         "data": [{
+            "id": 1,
             "name": "软件名称1",
             "process": "tasges",
             "type": "exe"
         }, {
+            "id": 2,
             "name": "软件名称2",
             "process": "dsp",
             "type": "msi"
@@ -284,10 +288,12 @@
 |type|String|是|操作类型|
 |timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
+|id|String|Int|ID|
 |username|String|是|用户名|
 |password|String|是|用户密码（MD5）|
 |passsalt|String|是|密码加盐|
 |rank|Int|是|用户等级|
+|deleted|Int|否|删除信息|
 
 返回参数  
 
@@ -347,9 +353,11 @@
 |type|String|是|操作类型|
 |timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
+|id|String|Int|ID|
 |name|String|是|监控软件名|
 |process|String|是|监控进程名|
 |potype|String|是|监控进程类型（EXE、MSI等）|
+|deleted|Int|否|删除信息|
 
 返回参数  
 
