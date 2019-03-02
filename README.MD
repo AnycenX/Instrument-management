@@ -288,6 +288,7 @@
 |type|String|是|操作类型|
 |timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
+|id|String|Int|ID|
 |username|String|是|用户名|
 |password|String|是|用户密码（MD5）|
 |passsalt|String|是|密码加盐|
@@ -352,6 +353,7 @@
 |type|String|是|操作类型|
 |timestamp|Longint|是|时间戳|
 |key|String|是|authkey与时间戳计算值|
+|id|String|Int|ID|
 |name|String|是|监控软件名|
 |process|String|是|监控进程名|
 |potype|String|是|监控进程类型（EXE、MSI等）|
