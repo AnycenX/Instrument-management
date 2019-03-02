@@ -16,7 +16,7 @@ namespace Instrument_Admin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLoad());
+            Application.Run(new FrmMain());
         }
     }
 }
