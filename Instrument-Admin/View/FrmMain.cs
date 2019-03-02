@@ -435,6 +435,8 @@ namespace InM_Admin
                 s += str.Substring(r.Next(0, str.Length - 1), 1);
             }
             return s;
+        }
+
         private void DataUserinfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex == 1)
