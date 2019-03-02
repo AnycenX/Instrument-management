@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Instrument_Admin
+namespace InM_Admin
 {
     public partial class FrmMain : Form
     {

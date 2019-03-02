@@ -1,4 +1,4 @@
-﻿namespace Instrument_Admin
+﻿namespace InM_Admin
 {
     partial class FrmMain
     {

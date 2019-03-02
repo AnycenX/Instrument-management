@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Instrument_Admin</RootNamespace>
-    <AssemblyName>Instrument-Admin</AssemblyName>
+    <RootNamespace>InM_Admin</RootNamespace>
+    <AssemblyName>InM.Admin</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -72,6 +72,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

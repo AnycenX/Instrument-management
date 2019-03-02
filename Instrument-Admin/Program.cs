@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Instrument_Admin
+namespace InM_Admin
 {
     static class Program
     {
