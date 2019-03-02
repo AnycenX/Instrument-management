@@ -10,19 +10,19 @@ namespace InM
 {
     public class ProcessInfo
     {
-        public string name;
-        public string process;
-        public string type;
+        public string name { get; set; }
+        public string process { get; set; }
+        public string type { get; set; }
     }
 
     public class ProcessUplogModel
     {
-        public string username;
-        public string name;
-        public string process;
+        public string username { get; set; }
+        public string name { get; set; }
+        public string process { get; set; }
         [JsonConverter(typeof(UnixDateTimeConverter))]
-        public DateTime start;
+        public DateTime timestart { get; set; }
         [JsonConverter(typeof(UnixDateTimeConverter))]
-        public DateTime stop;
+        public DateTime timestop { get; set; }
     }
 }

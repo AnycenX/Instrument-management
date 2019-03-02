@@ -51,10 +51,10 @@
             // textBoxUsername
             // 
             this.textBoxUsername.ForeColor = System.Drawing.Color.Silver;
-            this.textBoxUsername.Location = new System.Drawing.Point(29, 59);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUsername.Location = new System.Drawing.Point(40, 82);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(339, 34);
+            this.textBoxUsername.Size = new System.Drawing.Size(464, 44);
             this.textBoxUsername.TabIndex = 4;
             this.textBoxUsername.Text = "请输入用户名";
             this.textBoxUsername.Enter += new System.EventHandler(this.textBoxUsername_Enter);
