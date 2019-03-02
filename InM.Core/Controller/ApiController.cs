@@ -12,6 +12,8 @@ namespace InM
 {
     public class ApiController
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         readonly string authkey;
         readonly string endpoint;
         private HttpClient httpClient = new HttpClient();
@@ -84,7 +86,7 @@ namespace InM
 
         public void Uplog(string username, ProcessUplogModel processUplog)
         {
-            Uplog(username, processUplog.friendlyName, processUplog.name, ToUnixTimestamp(processUplog.start), ToUnixTimestamp(processUplog.stop));
+            Uplog(username, processUplog.name, processUplog.process, ToUnixTimestamp(processUplog.start), ToUnixTimestamp(processUplog.stop));
         }
 
         public void Uplog(string username, string name, string process, long timestart, long timestop)
@@ -99,7 +101,64 @@ namespace InM
                     { "timestop", timestop.ToString() }
                 };
             var result = SendAsync(parampairs).Result;
-            Console.WriteLine(result);
+        }
+
+        public void Inuser(UserInfo userInfo)
+        {
+            AdminUser("inuser", userInfo.username, userInfo.password, userInfo.passsalt, userInfo.rank);
+        }
+
+        public void Upuser(UserInfo userInfo)
+        {
+            AdminUser("upuser", userInfo.username, userInfo.password, userInfo.passsalt, userInfo.rank);
+        }
+
+        private void AdminUser(string type, string username, string password, string passsalt, int rank)
+        {
+            Dictionary<string, string> parampairs = new Dictionary<string, string>
+                {
+                    { "type", type },
+                    { "username", username },
+                    { "password", password },
+                    { "passsalt", passsalt },
+                    { "rank", rank.ToString() }
+                };
+            var result = SendAsync(parampairs).Result;
+        }
+
+        public void Inprocess(ProcessInfo processInfo)
+        {
+            AdminProcess("inprocess", processInfo.name, processInfo.process, processInfo.type);
+        }
+
+        public void Upprocess(ProcessInfo processInfo)
+        {
+            AdminProcess("upprocess", processInfo.name, processInfo.process, processInfo.type);
+        }
+
+        private void AdminProcess(string type, string name, string process, string pottype)
+        {
+            Dictionary<string, string> parampairs = new Dictionary<string, string>
+                {
+                    { "type", type },
+                    { "name", name },
+                    { "process", process },
+                    { "pottype", pottype }
+                };
+            var result = SendAsync(parampairs).Result;
+        }
+
+        public IEnumerable<ProcessInfo> Getlog(string name, DateTime timestart, DateTime timestop)
+        {
+            Dictionary<string, string> parampairs = new Dictionary<string, string>
+                {
+                    { "type", "getlog" },
+                    { "name", name },
+                    { "timestart", ToUnixTimestamp(timestart).ToString() },
+                    { "timestop", ToUnixTimestamp(timestop).ToString() }
+                };
+            var result = SendAsync(parampairs).Result;
+            return result.ToObject<IEnumerable<ProcessInfo>>();
         }
 
         private async Task<JToken> SendAsync(IEnumerable<KeyValuePair<string, string>> param)
@@ -116,11 +175,11 @@ namespace InM
             string query = content.ReadAsStringAsync().Result;
             builder.Query = query.ToString();
             string url = builder.ToString();
-            Console.WriteLine(url);
+            logger.Debug(url);
 
             // 如果出现http错误这里将会抛出异常
             string responseString = await httpClient.GetStringAsync(url);
-            Console.WriteLine(responseString);
+            logger.Debug(responseString);
             JObject jObject = JObject.Parse(responseString);
             if ((int)jObject["code"] != 200)
             {

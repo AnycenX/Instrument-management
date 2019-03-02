@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +17,12 @@ namespace InM
 
     public class ProcessUplogModel
     {
+        public string username;
         public string name;
-        public string friendlyName;
+        public string process;
+        [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTime start;
+        [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTime stop;
     }
 }

@@ -9,6 +9,8 @@ namespace InM
 {
     static class Program
     {
+        const int VERSION = 1;
+
         const string authkey = "21232f297a57a5a743894a0e4a801fc3";
         const string endpoint = "https://api.anycen.com/instrument/";
 
@@ -82,7 +84,7 @@ namespace InM
             };
             StorageController.Save(SharedData.dataPath, sm);
 
-            if (startInfo.update > 999)
+            if (startInfo.update > VERSION)
             {
                 HttpClient client = new HttpClient();
                 List<UpdateInfo> updateInfos = api.GetUpdate(startInfo.update.ToString()).ToList();
