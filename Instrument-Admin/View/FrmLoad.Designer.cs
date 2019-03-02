@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ProgLoading = new System.Windows.Forms.ProgressBar();
             this.TxtUserword = new System.Windows.Forms.TextBox();
             this.LblUser = new System.Windows.Forms.Label();
             this.LblPass = new System.Windows.Forms.Label();
@@ -37,16 +36,6 @@
             this.LinkForgetPass = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
-            // ProgLoading
-            // 
-            this.ProgLoading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProgLoading.Location = new System.Drawing.Point(0, 0);
-            this.ProgLoading.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ProgLoading.Name = "ProgLoading";
-            this.ProgLoading.Size = new System.Drawing.Size(278, 8);
-            this.ProgLoading.TabIndex = 0;
-            // 
             // TxtUserword
             // 
             this.TxtUserword.Location = new System.Drawing.Point(78, 33);
@@ -54,6 +43,7 @@
             this.TxtUserword.Name = "TxtUserword";
             this.TxtUserword.Size = new System.Drawing.Size(180, 26);
             this.TxtUserword.TabIndex = 1;
+            this.TxtUserword.Text = "tisu";
             // 
             // LblUser
             // 
@@ -82,7 +72,9 @@
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(180, 26);
             this.TxtPassword.TabIndex = 3;
+            this.TxtPassword.Text = "123";
             this.TxtPassword.UseSystemPasswordChar = true;
+            this.TxtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPassword_KeyDown);
             // 
             // BtnLoad
             // 
@@ -92,6 +84,7 @@
             this.BtnLoad.TabIndex = 5;
             this.BtnLoad.Text = "登 录";
             this.BtnLoad.UseVisualStyleBackColor = true;
+            this.BtnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
             // 
             // LinkForgetPass
             // 
@@ -116,7 +109,6 @@
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.LblUser);
             this.Controls.Add(this.TxtUserword);
-            this.Controls.Add(this.ProgLoading);
             this.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -125,14 +117,13 @@
             this.Name = "FrmLoad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "系统登录";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLoad_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ProgressBar ProgLoading;
         private System.Windows.Forms.TextBox TxtUserword;
         private System.Windows.Forms.Label LblUser;
         private System.Windows.Forms.Label LblPass;

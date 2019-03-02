@@ -67,13 +67,13 @@ namespace InM
                     {
                         process = x,
                         name = (from y in SharedData.processInfo where y.process == x select y.name)?.First() ?? "",
-                        start = nowTime
+                        timestart = nowTime
                     });
                 });
             // 2. 两边都在：更新last时间
             (from x in processLog where currentList.Intersect(logList).Contains(x.process) select x)
                 .ToList()
-                .ForEach(x => x.stop = nowTime);
+                .ForEach(x => x.timestop = nowTime);
             // 3. 只在log：程序已退出
             var q3 = from x in processLog where logList.Except(currentList).Contains(x.process) select x;
             processExitedLog.AddRange(q3);

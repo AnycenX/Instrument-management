@@ -8,9 +8,9 @@ namespace InM
 {
     public class UserInfo
     {
-        public string username;
-        public string password;
-        public string passsalt;
-        public int rank;
+        public string username { get; set; }
+        public string password { get; set; }
+        public string passsalt { get; set; }
+        public int rank { get; set; }
     }
 }

@@ -23,6 +23,7 @@ namespace InM
             authkey = authkeyIn;
             endpoint = endpointIn;
             httpClient.DefaultRequestHeaders.Connection.Add("keep-alive");
+            httpClient.Timeout = new TimeSpan(0, 0, 5);
             // TODO: 检测是否可以访问公网服务器，如果不行需要切换到内网服务器
         }
         public bool CheckConnection()
@@ -86,7 +87,7 @@ namespace InM
 
         public void Uplog(string username, ProcessUplogModel processUplog)
         {
-            Uplog(username, processUplog.name, processUplog.process, ToUnixTimestamp(processUplog.start), ToUnixTimestamp(processUplog.stop));
+            Uplog(username, processUplog.name, processUplog.process, ToUnixTimestamp(processUplog.timestart), ToUnixTimestamp(processUplog.timestop));
         }
 
         public void Uplog(string username, string name, string process, long timestart, long timestop)
@@ -148,7 +149,7 @@ namespace InM
             var result = SendAsync(parampairs).Result;
         }
 
-        public IEnumerable<ProcessInfo> Getlog(string name, DateTime timestart, DateTime timestop)
+        public IEnumerable<ProcessUplogModel> Getlog(string name, DateTime timestart, DateTime timestop)
         {
             Dictionary<string, string> parampairs = new Dictionary<string, string>
                 {
@@ -158,7 +159,7 @@ namespace InM
                     { "timestop", ToUnixTimestamp(timestop).ToString() }
                 };
             var result = SendAsync(parampairs).Result;
-            return result.ToObject<IEnumerable<ProcessInfo>>();
+            return result.ToObject<IEnumerable<ProcessUplogModel>>();
         }
 
         private async Task<JToken> SendAsync(IEnumerable<KeyValuePair<string, string>> param)
@@ -178,7 +179,7 @@ namespace InM
             logger.Debug(url);
 
             // 如果出现http错误这里将会抛出异常
-            string responseString = await httpClient.GetStringAsync(url);
+            string responseString = httpClient.GetStringAsync(url).Result;
             logger.Debug(responseString);
             JObject jObject = JObject.Parse(responseString);
             if ((int)jObject["code"] != 200)
