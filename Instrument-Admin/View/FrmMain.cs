@@ -435,6 +435,22 @@ namespace InM_Admin
                 s += str.Substring(r.Next(0, str.Length - 1), 1);
             }
             return s;
+        private void DataUserinfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                e.Value = (int)e.Value == 1 ? "管理员" : "普通用户";
+            }
+        }
+
+        private void DataLogInfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var dgv = sender as DataGridView;
+            if (e.ColumnIndex == 3)
+            {
+                var ele = (dgv.DataSource as IEnumerable<ProcessUplogModel>).ElementAt(e.RowIndex);
+                e.Value = (ele.timestop - ele.timestart).ToString();
+            }
         }
     }
 }

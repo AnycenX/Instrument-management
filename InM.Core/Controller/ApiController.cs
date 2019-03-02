@@ -109,12 +109,12 @@ namespace InM
             AdminUser("inuser", userInfo.username, userInfo.password, userInfo.passsalt, userInfo.rank);
         }
 
-        public void Upuser(UserInfo userInfo)
+        public void Upuser(UserInfo userInfo, bool deleted = false)
         {
-            AdminUser("upuser", userInfo.username, userInfo.password, userInfo.passsalt, userInfo.rank);
+            AdminUser("upuser", userInfo.username, userInfo.password, userInfo.passsalt, userInfo.rank, userInfo.id, deleted);
         }
 
-        private void AdminUser(string type, string username, string password, string passsalt, int rank)
+        private void AdminUser(string type, string username, string password, string passsalt, int rank, int id = -99, bool deleted = false)
         {
             Dictionary<string, string> parampairs = new Dictionary<string, string>
                 {
@@ -124,6 +124,14 @@ namespace InM
                     { "passsalt", passsalt },
                     { "rank", rank.ToString() }
                 };
+            if (id != -99)
+            {
+                parampairs.Add("id", id.ToString());
+            }
+            if (deleted)
+            {
+                parampairs.Add("deleted", "1");
+            }
             var result = SendAsync(parampairs).Result;
         }
 
@@ -132,12 +140,12 @@ namespace InM
             AdminProcess("inprocess", processInfo.name, processInfo.process, processInfo.type);
         }
 
-        public void Upprocess(ProcessInfo processInfo)
+        public void Upprocess(ProcessInfo processInfo, bool deleted = false)
         {
-            AdminProcess("upprocess", processInfo.name, processInfo.process, processInfo.type);
+            AdminProcess("upprocess", processInfo.name, processInfo.process, processInfo.type, processInfo.id, deleted);
         }
 
-        private void AdminProcess(string type, string name, string process, string pottype)
+        private void AdminProcess(string type, string name, string process, string pottype, int id = -99, bool deleted = false)
         {
             Dictionary<string, string> parampairs = new Dictionary<string, string>
                 {
@@ -146,6 +154,14 @@ namespace InM
                     { "process", process },
                     { "pottype", pottype }
                 };
+            if (id != -99)
+            {
+                parampairs.Add("id", id.ToString());
+            }
+            if (deleted)
+            {
+                parampairs.Add("deleted", "1");
+            }
             var result = SendAsync(parampairs).Result;
         }
 
