@@ -29,11 +29,6 @@ namespace InM
         public event UserChangedHandler UserChanged;
         public void Login(string name, string password)
         {
-            if (name == "test")
-            {
-                UserChanged?.Invoke(this, new UserChangedArgs("sss"));
-                return;
-            }
             var users = from x in SharedData.userInfo where x.username == name select x;
             if (users.Count() == 0)
             {

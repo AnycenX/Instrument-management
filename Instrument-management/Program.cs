@@ -26,6 +26,9 @@ namespace InM
         [STAThread]
         static void Main()
         {
+            logger.Info("软件开始启动");
+            Application.ThreadException += Application_ThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -50,6 +53,18 @@ namespace InM
             formMain.Show();
             
             Application.Run();
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            logger.Fatal(e.ExceptionObject);
+            Application.Restart();
+        }
+
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            logger.Fatal(e.Exception);
+            Application.Restart();
         }
 
         static void Update()

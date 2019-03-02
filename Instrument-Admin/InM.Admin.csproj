@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\InMAdminHandler.cs" />
-    <Compile Include="ProcessInfoEx.cs" />
     <Compile Include="View\FrmLoad.cs">
       <SubType>Form</SubType>
     </Compile>
