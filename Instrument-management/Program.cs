@@ -10,6 +10,7 @@ namespace InM
     static class Program
     {
         const int VERSION = 1;
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         const string authkey = "21232f297a57a5a743894a0e4a801fc3";
         const string endpoint = "https://api.anycen.com/instrument/";
@@ -33,10 +34,21 @@ namespace InM
             api = new ApiController(authkey, endpoint);
             inMEventHandler = new InMEventHandler();
 
+#if !DEBUG
+            try
+            {
+                SelfProtect.Protect();
+            }
+            catch (Exception e)
+            {
+                logger.Warn("自我保护失败，请检查是否有管理员权限：" + e.Message);
+            }
+#endif
+
             Update();
             formMain = new FormMain();
             formMain.Show();
-            //Application.Run(new FormMain());
+            
             Application.Run();
         }
 
@@ -57,6 +69,13 @@ namespace InM
             {
                 SharedData.processInfoVer = smold.processInfo;
                 SharedData.userInfoVer = smold.userInfo;
+            }
+
+            if (!api.CheckConnection())
+            {
+                logger.Warn("无法连接至公网服务器");
+                //TODO: 局域网处理
+                return;
             }
 
             StartInfo startInfo = api.GetStart();
@@ -103,8 +122,6 @@ namespace InM
                     File.Move(downloadFilename + ".downloading", downloadFilename);
                 }
             }
-            
-            Application.Run(new FormMain());
         }
     }
 }

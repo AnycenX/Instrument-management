@@ -19,6 +19,8 @@ namespace InM
     }
     public class UserController
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         public bool isLoggedin { get => !string.IsNullOrEmpty(LoggedinUser); }
         public string LoggedinUser { get; protected set; }
         public bool isAdmin { get; protected set; }
@@ -44,11 +46,13 @@ namespace InM
             }
             LoggedinUser = user.username;
             isAdmin = user.rank == 1;
+            logger.Info($"账号登录：{LoggedinUser},管理员：{isAdmin}");
             UserChanged?.Invoke(this, new UserChangedArgs(LoggedinUser, isAdmin));
         }
 
         public void Logout()
         {
+            logger.Info($"账号退出：{LoggedinUser}");
             UserChanged?.Invoke(this, new UserChangedArgs(null));
         }
     }

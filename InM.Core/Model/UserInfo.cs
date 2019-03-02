@@ -8,6 +8,7 @@ namespace InM
 {
     public class UserInfo
     {
+        public int id;
         public string username;
         public string password;
         public string passsalt;

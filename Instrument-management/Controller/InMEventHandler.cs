@@ -9,6 +9,8 @@ namespace InM
 {
     public class InMEventHandler
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         public InMEventHandler()
         {
             SharedData.User.UserChanged += User_UserChanged;
@@ -41,7 +43,7 @@ namespace InM
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    logger.Warn("进程报告上传失败，原因：" + ex.Message);
                 }
             }
         }

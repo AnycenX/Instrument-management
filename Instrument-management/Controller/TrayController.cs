@@ -29,12 +29,17 @@ namespace InM
             contextMenu = new ContextMenu(new MenuItem[]
             {
                 new MenuItem("设置", settingItem_Click),
-                new MenuItem("退出登录", logoutItem_Click)
+                new MenuItem("注销登录", logoutItem_Click)
             });
         }
 
         private void settingItem_Click(object sender, EventArgs e)
         {
+            if (!SharedData.isAdmin)
+            {
+                MessageBox.Show("只有管理员可以进行设置", "提示");
+                return;
+            }
             FormSetting form = new FormSetting();
             form.Show();
         }
