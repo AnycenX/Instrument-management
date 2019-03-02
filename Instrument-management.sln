@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InM", "Instrument-managemen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InM.Core", "InM.Core\InM.Core.csproj", "{F380C154-E2EC-46DA-B0A6-7C0488936B93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instrument-Admin", "Instrument-Admin\Instrument-Admin.csproj", "{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

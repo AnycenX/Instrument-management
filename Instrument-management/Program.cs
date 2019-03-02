@@ -104,6 +104,7 @@ namespace InM
                 }
             }
             
+            Application.Run(new FormMain());
         }
     }
 }
