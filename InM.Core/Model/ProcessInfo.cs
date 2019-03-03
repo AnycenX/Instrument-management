@@ -30,6 +30,6 @@ namespace InM
     public class UnixDateTimeTimezoneConverter : UnixDateTimeConverter
     {
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer) 
-            => TimeZone.CurrentTimeZone.ToLocalTime((DateTime)base.ReadJson(reader, objectType, existingValue, serializer));
+            => ((DateTime)base.ReadJson(reader, objectType, existingValue, serializer)).ToLocalTime();
     }
 }
