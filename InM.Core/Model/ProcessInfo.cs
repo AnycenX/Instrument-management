@@ -21,9 +21,15 @@ namespace InM
         public string username { get; set; }
         public string name { get; set; }
         public string process { get; set; }
-        [JsonConverter(typeof(UnixDateTimeConverter))]
+        [JsonConverter(typeof(UnixDateTimeTimezoneConverter))]
         public DateTime timestart { get; set; }
-        [JsonConverter(typeof(UnixDateTimeConverter))]
+        [JsonConverter(typeof(UnixDateTimeTimezoneConverter))]
         public DateTime timestop { get; set; }
+    }
+
+    public class UnixDateTimeTimezoneConverter : UnixDateTimeConverter
+    {
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer) 
+            => TimeZone.CurrentTimeZone.ToLocalTime((DateTime)base.ReadJson(reader, objectType, existingValue, serializer));
     }
 }
