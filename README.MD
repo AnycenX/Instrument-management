@@ -42,7 +42,7 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|状态|
-|Data|Object|列表|更新信息列表|
+|data|Object|列表|更新信息列表|
 |+update|Int|5|软件主体最新版本号|
 |+userinfo|Int|5|用户列表最新版本号|
 |+processinfo|Int|5|监控进程列表最新版本号|
@@ -79,7 +79,7 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|是否存在更新|
-|Data|Object|列表|更新文件列表|
+|data|Object|列表|更新文件列表|
 |+name|String|main.exe|更新文件名|
 |+url|String|https://soft.jsdrv.com/|更新文件URL|
 
@@ -117,7 +117,7 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|是否存在更新|
-|Data|Object|列表|更新文件列表|
+|data|Object|列表|更新文件列表|
 |+id|Int|1|用户ID|
 |+username|String|admin|用户名|
 |+password|String|21232f297a57a5a743894a0e4a801fc3|密码（MD5）|
@@ -419,6 +419,23 @@
         }]
     }
 
-部分SQL语句  
+## 三、剩余进度管理 ##
 
-    UPDATE `category` SET `arrchildid`=TRIM(BOTH ',' FROM replace(concat(',',`arrchildid`,','), ',1,', '')) WHERE `catid`=100
+### 服务端 ###
+
+1、增加Timestamp服务端验证功能，保证Timestamp不在服务端Timestamp+-30s时返回错误信息。
+
+### 管理端 ###
+
+1、解决局域网HTTP服务中Type=Start时数据为空的问题。  
+2、判断公网无法连接时，局域网内开启服务的功能。  
+3、完成在公网无法连接时，局域网内开启时，~~无法进行编辑等操作~~。  
+4、完成部分设置功能。  
+5、增加端口设置接口。  
+>补充：公网连接时，服务端与本地各版本号均同步；公网无法连接时，本地修改时更新本地版本号，待连接公网时，判断版本号选择是否进行同步  
+
+### 客户端 ###
+
+1、判断公网无法连接时，局域网内开启数据拉取的功能。  
+2、完成部分设置功能。  
+3、增加端口设置接口。  
