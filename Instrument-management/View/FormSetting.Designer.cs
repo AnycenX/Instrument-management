@@ -339,6 +339,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FormSetting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "仪器管理系统-客户端设置";
             this.Load += new System.EventHandler(this.frmSetting_Load);
             this.panel1.ResumeLayout(false);

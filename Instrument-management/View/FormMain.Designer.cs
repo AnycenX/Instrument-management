@@ -34,11 +34,11 @@
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxUserpwd = new System.Windows.Forms.TextBox();
             this.PlanLoad = new System.Windows.Forms.Panel();
+            this.LinkForgetPass = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.picBack = new System.Windows.Forms.PictureBox();
             this.panelForm = new System.Windows.Forms.Panel();
-            this.LinkForgetPass = new System.Windows.Forms.LinkLabel();
             this.PlanLoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.panelForm.SuspendLayout();
@@ -53,7 +53,7 @@
             // 
             this.textBoxUsername.ForeColor = System.Drawing.Color.Silver;
             this.textBoxUsername.Location = new System.Drawing.Point(22, 55);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(255, 29);
             this.textBoxUsername.TabIndex = 4;
@@ -88,6 +88,19 @@
             this.PlanLoad.Name = "PlanLoad";
             this.PlanLoad.Size = new System.Drawing.Size(298, 206);
             this.PlanLoad.TabIndex = 8;
+            // 
+            // LinkForgetPass
+            // 
+            this.LinkForgetPass.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.LinkForgetPass.AutoSize = true;
+            this.LinkForgetPass.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LinkForgetPass.LinkColor = System.Drawing.Color.Gray;
+            this.LinkForgetPass.Location = new System.Drawing.Point(22, 150);
+            this.LinkForgetPass.Name = "LinkForgetPass";
+            this.LinkForgetPass.Size = new System.Drawing.Size(93, 20);
+            this.LinkForgetPass.TabIndex = 13;
+            this.LinkForgetPass.TabStop = true;
+            this.LinkForgetPass.Text = "刷新本地数据";
             // 
             // label1
             // 
@@ -125,23 +138,10 @@
             this.panelForm.Controls.Add(this.picBack);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 0);
-            this.panelForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelForm.Margin = new System.Windows.Forms.Padding(2);
             this.panelForm.Name = "panelForm";
             this.panelForm.Size = new System.Drawing.Size(960, 576);
             this.panelForm.TabIndex = 10;
-            // 
-            // LinkForgetPass
-            // 
-            this.LinkForgetPass.ActiveLinkColor = System.Drawing.Color.Maroon;
-            this.LinkForgetPass.AutoSize = true;
-            this.LinkForgetPass.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LinkForgetPass.LinkColor = System.Drawing.Color.Gray;
-            this.LinkForgetPass.Location = new System.Drawing.Point(22, 150);
-            this.LinkForgetPass.Name = "LinkForgetPass";
-            this.LinkForgetPass.Size = new System.Drawing.Size(93, 20);
-            this.LinkForgetPass.TabIndex = 13;
-            this.LinkForgetPass.TabStop = true;
-            this.LinkForgetPass.Text = "刷新本地数据";
             // 
             // FormMain
             // 
@@ -151,6 +151,7 @@
             this.ClientSize = new System.Drawing.Size(960, 576);
             this.Controls.Add(this.panelForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "屏幕锁定";
             this.TopMost = true;
