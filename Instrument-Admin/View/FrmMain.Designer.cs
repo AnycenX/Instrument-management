@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabCont = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.CheckUser = new System.Windows.Forms.CheckBox();
@@ -39,7 +39,6 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RefreshLog = new System.Windows.Forms.LinkLabel();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.DateStart = new System.Windows.Forms.DateTimePicker();
             this.DateStop = new System.Windows.Forms.DateTimePicker();
@@ -85,6 +84,8 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.BtnDelUser = new System.Windows.Forms.LinkLabel();
+            this.BtnDelProcess = new System.Windows.Forms.LinkLabel();
             this.TabCont.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataLogInfo)).BeginInit();
@@ -116,7 +117,6 @@
             // 
             this.tabPage2.Controls.Add(this.CheckUser);
             this.tabPage2.Controls.Add(this.DataLogInfo);
-            this.tabPage2.Controls.Add(this.RefreshLog);
             this.tabPage2.Controls.Add(this.BtnSearch);
             this.tabPage2.Controls.Add(this.DateStart);
             this.tabPage2.Controls.Add(this.DateStop);
@@ -139,7 +139,7 @@
             this.CheckUser.AutoSize = true;
             this.CheckUser.Checked = true;
             this.CheckUser.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CheckUser.Location = new System.Drawing.Point(458, 54);
+            this.CheckUser.Location = new System.Drawing.Point(529, 54);
             this.CheckUser.Name = "CheckUser";
             this.CheckUser.Size = new System.Drawing.Size(98, 24);
             this.CheckUser.TabIndex = 14;
@@ -164,20 +164,21 @@
             this.DataLogInfo.MultiSelect = false;
             this.DataLogInfo.Name = "DataLogInfo";
             this.DataLogInfo.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataLogInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataLogInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.DataLogInfo.RowHeadersVisible = false;
             this.DataLogInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataLogInfo.RowTemplate.Height = 23;
             this.DataLogInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataLogInfo.Size = new System.Drawing.Size(613, 284);
             this.DataLogInfo.TabIndex = 13;
+            this.DataLogInfo.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataLogInfo_CellFormatting);
             // 
             // Column2
             // 
@@ -211,24 +212,11 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 152;
             // 
-            // RefreshLog
-            // 
-            this.RefreshLog.ActiveLinkColor = System.Drawing.Color.Maroon;
-            this.RefreshLog.AutoSize = true;
-            this.RefreshLog.LinkColor = System.Drawing.Color.Gray;
-            this.RefreshLog.Location = new System.Drawing.Point(562, 55);
-            this.RefreshLog.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.RefreshLog.Name = "RefreshLog";
-            this.RefreshLog.Size = new System.Drawing.Size(65, 20);
-            this.RefreshLog.TabIndex = 11;
-            this.RefreshLog.TabStop = true;
-            this.RefreshLog.Text = "刷新数据";
-            // 
             // BtnSearch
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(458, 9);
+            this.BtnSearch.Location = new System.Drawing.Point(493, 8);
             this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(169, 38);
+            this.BtnSearch.Size = new System.Drawing.Size(134, 38);
             this.BtnSearch.TabIndex = 10;
             this.BtnSearch.Text = "查 询";
             this.BtnSearch.UseVisualStyleBackColor = true;
@@ -239,23 +227,23 @@
             this.DateStart.Enabled = false;
             this.DateStart.Location = new System.Drawing.Point(90, 50);
             this.DateStart.Name = "DateStart";
-            this.DateStart.Size = new System.Drawing.Size(126, 26);
+            this.DateStart.Size = new System.Drawing.Size(140, 26);
             this.DateStart.TabIndex = 2;
             this.DateStart.ValueChanged += new System.EventHandler(this.DateStart_ValueChanged);
             // 
             // DateStop
             // 
             this.DateStop.Enabled = false;
-            this.DateStop.Location = new System.Drawing.Point(315, 50);
+            this.DateStop.Location = new System.Drawing.Point(331, 50);
             this.DateStop.Name = "DateStop";
-            this.DateStop.Size = new System.Drawing.Size(126, 26);
+            this.DateStop.Size = new System.Drawing.Size(140, 26);
             this.DateStop.TabIndex = 8;
             this.DateStop.ValueChanged += new System.EventHandler(this.DateStop_ValueChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(230, 53);
+            this.label4.Location = new System.Drawing.Point(246, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 20);
             this.label4.TabIndex = 7;
@@ -279,9 +267,9 @@
             "最近七天",
             "最近一月",
             "自定义时间"});
-            this.ComDayChange.Location = new System.Drawing.Point(315, 10);
+            this.ComDayChange.Location = new System.Drawing.Point(331, 10);
             this.ComDayChange.Name = "ComDayChange";
-            this.ComDayChange.Size = new System.Drawing.Size(126, 28);
+            this.ComDayChange.Size = new System.Drawing.Size(140, 28);
             this.ComDayChange.TabIndex = 5;
             this.ComDayChange.Text = "今日数据";
             this.ComDayChange.SelectedIndexChanged += new System.EventHandler(this.ComDayChange_SelectedIndexChanged);
@@ -291,7 +279,7 @@
             this.ComUsername.FormattingEnabled = true;
             this.ComUsername.Location = new System.Drawing.Point(90, 10);
             this.ComUsername.Name = "ComUsername";
-            this.ComUsername.Size = new System.Drawing.Size(126, 28);
+            this.ComUsername.Size = new System.Drawing.Size(140, 28);
             this.ComUsername.TabIndex = 4;
             this.ComUsername.Text = "加载中...";
             this.ComUsername.SelectedIndexChanged += new System.EventHandler(this.ComUsername_SelectedIndexChanged);
@@ -299,7 +287,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(230, 13);
+            this.label2.Location = new System.Drawing.Point(246, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 3;
@@ -339,6 +327,7 @@
             this.RefreshUser.TabIndex = 14;
             this.RefreshUser.TabStop = true;
             this.RefreshUser.Text = "刷新数据";
+            this.RefreshUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RefreshUser_LinkClicked);
             // 
             // BtnNewUser
             // 
@@ -353,6 +342,7 @@
             // PanUserEdit
             // 
             this.PanUserEdit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanUserEdit.Controls.Add(this.BtnDelUser);
             this.PanUserEdit.Controls.Add(this.TxtRePassWord);
             this.PanUserEdit.Controls.Add(this.label10);
             this.PanUserEdit.Controls.Add(this.BtnUser);
@@ -389,7 +379,7 @@
             // 
             // BtnUser
             // 
-            this.BtnUser.Location = new System.Drawing.Point(116, 231);
+            this.BtnUser.Location = new System.Drawing.Point(154, 231);
             this.BtnUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnUser.Name = "BtnUser";
             this.BtnUser.Size = new System.Drawing.Size(129, 33);
@@ -492,14 +482,14 @@
             this.DataUserinfo.Location = new System.Drawing.Point(13, 16);
             this.DataUserinfo.Name = "DataUserinfo";
             this.DataUserinfo.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataUserinfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataUserinfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.DataUserinfo.RowHeadersVisible = false;
             this.DataUserinfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataUserinfo.RowTemplate.Height = 23;
@@ -550,6 +540,7 @@
             this.RefreshProcess.TabIndex = 16;
             this.RefreshProcess.TabStop = true;
             this.RefreshProcess.Text = "刷新数据";
+            this.RefreshProcess.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RefreshProcess_LinkClicked);
             // 
             // BtnNewProcess
             // 
@@ -564,6 +555,7 @@
             // PanProcessEdit
             // 
             this.PanProcessEdit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanProcessEdit.Controls.Add(this.BtnDelProcess);
             this.PanProcessEdit.Controls.Add(this.label12);
             this.PanProcessEdit.Controls.Add(this.BtnProcess);
             this.PanProcessEdit.Controls.Add(this.ComProcessType);
@@ -590,7 +582,7 @@
             // 
             // BtnProcess
             // 
-            this.BtnProcess.Location = new System.Drawing.Point(116, 231);
+            this.BtnProcess.Location = new System.Drawing.Point(154, 231);
             this.BtnProcess.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnProcess.Name = "BtnProcess";
             this.BtnProcess.Size = new System.Drawing.Size(129, 33);
@@ -630,7 +622,6 @@
             // 
             // TxtSoftName
             // 
-            this.TxtSoftName.Enabled = false;
             this.TxtSoftName.Location = new System.Drawing.Point(134, 55);
             this.TxtSoftName.Name = "TxtSoftName";
             this.TxtSoftName.Size = new System.Drawing.Size(169, 26);
@@ -686,14 +677,14 @@
             this.DataProcessInfo.Location = new System.Drawing.Point(13, 16);
             this.DataProcessInfo.Name = "DataProcessInfo";
             this.DataProcessInfo.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataProcessInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataProcessInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.DataProcessInfo.RowHeadersVisible = false;
             this.DataProcessInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataProcessInfo.RowTemplate.Height = 23;
@@ -734,6 +725,34 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = " 系统设置 ";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // BtnDelUser
+            // 
+            this.BtnDelUser.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.BtnDelUser.AutoSize = true;
+            this.BtnDelUser.LinkColor = System.Drawing.Color.Red;
+            this.BtnDelUser.Location = new System.Drawing.Point(49, 237);
+            this.BtnDelUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BtnDelUser.Name = "BtnDelUser";
+            this.BtnDelUser.Size = new System.Drawing.Size(65, 20);
+            this.BtnDelUser.TabIndex = 18;
+            this.BtnDelUser.TabStop = true;
+            this.BtnDelUser.Text = "删除用户";
+            this.BtnDelUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnDelUser_LinkClicked);
+            // 
+            // BtnDelProcess
+            // 
+            this.BtnDelProcess.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.BtnDelProcess.AutoSize = true;
+            this.BtnDelProcess.LinkColor = System.Drawing.Color.Red;
+            this.BtnDelProcess.Location = new System.Drawing.Point(49, 237);
+            this.BtnDelProcess.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BtnDelProcess.Name = "BtnDelProcess";
+            this.BtnDelProcess.Size = new System.Drawing.Size(65, 20);
+            this.BtnDelProcess.TabIndex = 19;
+            this.BtnDelProcess.TabStop = true;
+            this.BtnDelProcess.Text = "删除进程";
+            this.BtnDelProcess.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnDelProcess_LinkClicked);
             // 
             // FrmMain
             // 
@@ -782,7 +801,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnSearch;
-        private System.Windows.Forms.LinkLabel RefreshLog;
         private System.Windows.Forms.Panel PanUserEdit;
         private System.Windows.Forms.Label btnUserClose;
         private System.Windows.Forms.Button BtnNewUser;
@@ -822,6 +840,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.LinkLabel BtnDelUser;
+        private System.Windows.Forms.LinkLabel BtnDelProcess;
     }
 }
 

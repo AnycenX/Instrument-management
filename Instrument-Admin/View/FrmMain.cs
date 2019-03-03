@@ -20,6 +20,8 @@ namespace InM_Admin
         public bool flag_process = true;
         public string cachePassSalt;
         public string cachePassWord;
+        public int cacheUserID;
+        public int cacheProcessID;
 
         public FrmMain()
         {
@@ -58,8 +60,8 @@ namespace InM_Admin
             DataUserinfo.DataSource = SharedData.userInfo;
             DataProcessInfo.DataSource = SharedData.processInfo;
 
-            dateStart = DateTime.Now.Date.AddDays(-1);
-            dateStop = DateTime.Now.Date;
+            dateStart = DateTime.Now.Date;
+            dateStop = DateTime.Now.Date.AddDays(1);
             userName = ComUsername.Text;
         }
 
@@ -68,20 +70,20 @@ namespace InM_Admin
             switch (ComDayChange.SelectedIndex)
             {
                 case 0://今天
-                    dateStart = DateTime.Now.Date.AddDays(-1);
-                    dateStop = DateTime.Now.Date;
+                    dateStart = DateTime.Now.Date;
+                    dateStop = DateTime.Now.Date.AddDays(1);
                     break;
                 case 1://三天
-                    dateStart = DateTime.Now.Date.AddDays(-3);
-                    dateStop = DateTime.Now.Date;
+                    dateStart = DateTime.Now.Date.AddDays(-2);
+                    dateStop = DateTime.Now.Date.AddDays(1);
                     break;
                 case 2://七天
-                    dateStart = DateTime.Now.Date.AddDays(-7);
-                    dateStop = DateTime.Now.Date;
+                    dateStart = DateTime.Now.Date.AddDays(-6);
+                    dateStop = DateTime.Now.Date.AddDays(1);
                     break;
                 case 3://一月
-                    dateStart = DateTime.Now.Date.AddDays(-30);
-                    dateStop = DateTime.Now.Date;
+                    dateStart = DateTime.Now.Date.AddDays(-29);
+                    dateStop = DateTime.Now.Date.AddDays(1);
                     break;
             }
             if (ComDayChange.SelectedIndex == 4)
@@ -116,9 +118,9 @@ namespace InM_Admin
         private void BtnNewUser_Click(object sender, EventArgs e)
         {
             flag_user = true;
+            BtnDelUser.Visible = false;
             LblUserEdit.Text = "新建用户";
             PanUserEdit.Visible = true;
-            TxtUserName.Enabled = true;
             TxtUserName.Text = "";
             TxtPassWord.Text = "";
             TxtRePassWord.Text = "";
@@ -127,9 +129,9 @@ namespace InM_Admin
         private void BtnNewProcess_Click(object sender, EventArgs e)
         {
             flag_process = true;
+            BtnDelProcess.Visible = false;
             LblProcessEdit.Text = "新建监控";
             PanProcessEdit.Visible = true;
-            TxtSoftName.Enabled = true;
             TxtSoftName.Text = "";
             TxtProcessName.Text = "";
         }
@@ -195,14 +197,15 @@ namespace InM_Admin
                 flag_user = false;
                 LblUserEdit.Text = "编辑用户";
                 PanUserEdit.Visible = true;
+                BtnDelUser.Visible = true;
 
                 var ele = (UserGdv.DataSource as IEnumerable<UserInfo>).ElementAt(e.RowIndex);
                 TxtUserName.Text = ele.username;
-                TxtUserName.Enabled = false;
                 TxtPassWord.Text = ele.password;
                 TxtRePassWord.Text = ele.password;
                 cachePassWord = ele.password;
                 cachePassSalt = ele.passsalt;
+                cacheUserID = ele.id;
                 if (ele.rank == 1)
                 {
                     ComUserRank.Text = "管理员";
@@ -222,22 +225,23 @@ namespace InM_Admin
                 flag_process = false;
                 LblProcessEdit.Text = "编辑用户";
                 PanProcessEdit.Visible = true;
+                BtnDelProcess.Visible = true;
 
                 var ele = (ProcessGdv.DataSource as IEnumerable<ProcessInfo>).ElementAt(e.RowIndex);
                 TxtSoftName.Text = ele.name;
-                TxtSoftName.Enabled = false;
                 TxtProcessName.Text = ele.process;
+                cacheProcessID = ele.id;
                 if (ele.type == "EXE")
                 {
-                    ComProcessType.Text = "管理员";
+                    ComProcessType.Text = "EXE";
                 }
                 else if (ele.type == "MSI")
                 {
-                    ComProcessType.Text = "普通用户";
+                    ComProcessType.Text = "MSI";
                 }
                 else if (ele.type == "VBS")
                 {
-                    ComProcessType.Text = "普通用户";
+                    ComProcessType.Text = "VBS";
                 }
             }
         }
@@ -277,13 +281,10 @@ namespace InM_Admin
                                 users.rank = 1;
                             }
                             Program.api.Inuser(users);
-                            SharedData.userInfoVer = new InfoWithVer<UserInfo>()
-                            {
-                                info = Program.api.GetUserinfo(users.ToString()).ToArray()
-                            };
-                            DataUserinfo.DataSource = SharedData.userInfo;
+                            refreshUser();
                             MessageBox.Show("新增用户成功", "系统提示");
                             PanUserEdit.Visible = false;
+                            ComUsername.DataSource = (from x in SharedData.userInfo select x.username).ToArray();
                         }
                         catch
                         {
@@ -314,6 +315,7 @@ namespace InM_Admin
                         try
                         {
                             var users = new UserInfo();
+                            users.id = cacheUserID;
                             users.username = TxtUserName.Text;
                             if (TxtPassWord.Text == cachePassWord)
                             {
@@ -334,13 +336,10 @@ namespace InM_Admin
                                 users.rank = 1;
                             }
                             Program.api.Upuser(users);
-                            SharedData.userInfoVer = new InfoWithVer<UserInfo>()
-                            {
-                                info = Program.api.GetUserinfo(users.ToString()).ToArray()
-                            };
-                            DataUserinfo.DataSource = SharedData.userInfo;
+                            refreshUser();
                             MessageBox.Show("用户信息更新成功", "系统提示");
                             PanUserEdit.Visible = false;
+                            ComUsername.DataSource = (from x in SharedData.userInfo select x.username).ToArray();
                         }
                         catch
                         {
@@ -368,11 +367,7 @@ namespace InM_Admin
                         processs.process = TxtProcessName.Text;
                         processs.type = ComProcessType.Text;
                         Program.api.Inprocess(processs);
-                        SharedData.processInfoVer = new InfoWithVer<ProcessInfo>()
-                        {
-                            info = Program.api.GetProcessinfo(processs.ToString()).ToArray()
-                        };
-                        DataProcessInfo.DataSource = SharedData.processInfo;
+                        refreshProcess();
                         MessageBox.Show("监控进程添加成功", "系统提示");
                         PanProcessEdit.Visible = false;
                     }
@@ -391,15 +386,12 @@ namespace InM_Admin
                 try
                 {
                     var processs = new ProcessInfo();
+                    processs.id = cacheProcessID;
                     processs.name = TxtSoftName.Text;
                     processs.process = TxtProcessName.Text;
                     processs.type = ComProcessType.Text;
                     Program.api.Upprocess(processs);
-                    SharedData.processInfoVer = new InfoWithVer<ProcessInfo>()
-                    {
-                        info = Program.api.GetProcessinfo(processs.ToString()).ToArray()
-                    };
-                    DataProcessInfo.DataSource = SharedData.processInfo;
+                    refreshProcess();
                     MessageBox.Show("监控进程修改成功", "系统提示");
                     PanProcessEdit.Visible = false;
                 }
@@ -452,6 +444,113 @@ namespace InM_Admin
             {
                 var ele = (dgv.DataSource as IEnumerable<ProcessUplogModel>).ElementAt(e.RowIndex);
                 e.Value = (ele.timestop - ele.timestart).ToString();
+            }
+        }
+
+        private void RefreshUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            refreshUser();
+            MessageBox.Show("用户信息刷新成功", "系统提示");
+        }
+
+        private void RefreshProcess_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            refreshProcess();
+            MessageBox.Show("监控进程刷新成功", "系统提示");
+        }
+
+        private void refreshUser()
+        {
+            SharedData.userInfoVer = new InfoWithVer<UserInfo>()
+            {
+                info = Program.api.GetUserinfo("ver").ToArray()
+            };
+            DataUserinfo.DataSource = SharedData.userInfo;
+            saveDatatoBin();
+        }
+
+        private void refreshProcess()
+        {
+            SharedData.processInfoVer = new InfoWithVer<ProcessInfo>()
+            {
+                info = Program.api.GetProcessinfo("ver").ToArray()
+            };
+            DataProcessInfo.DataSource = SharedData.processInfo;
+            saveDatatoBin();
+        }
+
+        private void saveDatatoBin()
+        {
+            StorageModel bin = new StorageModel()
+            {
+                userInfo = SharedData.userInfoVer,
+                processInfo = SharedData.processInfoVer
+            };
+            StorageController.Save(SharedData.dataPath, bin);
+        }
+
+        private void BtnDelUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("您真的要确认删除该用户吗？", "系统提示", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.OK)
+            {
+                try
+                {
+                    var users = new UserInfo();
+                    users.id = cacheUserID;
+                    users.username = TxtUserName.Text;
+                    if (TxtPassWord.Text == cachePassWord)
+                    {
+                        users.passsalt = cachePassSalt;
+                        users.password = cachePassWord;
+                    }
+                    else
+                    {
+                        users.passsalt = GetRandomString(6, true, true, true, false, "");
+                        users.password = Encryption.MD5HashWithSalt(TxtPassWord.Text, users.passsalt);
+                    }
+                    if (ComUserRank.Text == "普通用户")
+                    {
+                        users.rank = 0;
+                    }
+                    else
+                    {
+                        users.rank = 1;
+                    }
+                    Program.api.Upuser(users, true);
+                    refreshUser();
+                    MessageBox.Show("用户信息删除成功", "系统提示");
+                    PanUserEdit.Visible = false;
+                    ComUsername.DataSource = (from x in SharedData.userInfo select x.username).ToArray();
+                }
+                catch
+                {
+                    MessageBox.Show("用户信息删除失败，请重试", "系统提示");
+                }
+            }
+        }
+
+        private void BtnDelProcess_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("您真的要确认删除该监控进程吗？", "系统提示", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.OK)
+            {
+                try
+                {
+                    var processs = new ProcessInfo();
+                    processs.id = cacheProcessID;
+                    processs.name = TxtSoftName.Text;
+                    processs.process = TxtProcessName.Text;
+                    processs.type = ComProcessType.Text;
+                    Program.api.Upprocess(processs, true);
+                    refreshProcess();
+                    MessageBox.Show("监控进程删除成功", "系统提示");
+                    PanProcessEdit.Visible = false;
+                }
+                catch
+                {
+                    MessageBox.Show("监控进程删除失败，请重试", "系统提示");
+                }
             }
         }
     }

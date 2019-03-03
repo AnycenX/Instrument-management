@@ -97,7 +97,7 @@ namespace InM
                     { "type", "uplog" },
                     { "username", username },
                     { "name", name },
-                    { "pocess", process },
+                    { "process", process },
                     { "timestart", timestart.ToString() },
                     { "timestop", timestop.ToString() }
                 };
@@ -152,7 +152,7 @@ namespace InM
                     { "type", type },
                     { "name", name },
                     { "process", process },
-                    { "pottype", pottype }
+                    { "potype", pottype }
                 };
             if (id != -99)
             {

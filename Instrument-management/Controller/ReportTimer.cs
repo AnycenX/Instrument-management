@@ -25,7 +25,7 @@ namespace InM
 
         Timer timerRefreshProcess;
         Timer timerUploadProcess;
-
+        
         public delegate void ReportUploadHandler(object sender, ReportUploadArgs e);
         public event ReportUploadHandler ReportUpload;
 
