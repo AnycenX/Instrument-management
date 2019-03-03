@@ -138,7 +138,7 @@
             this.panel1.Controls.Add(this.LblUser);
             this.panel1.Controls.Add(this.TxtUserword);
             this.panel1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(379, 281);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(363, 270);
             this.panel1.TabIndex = 10;
