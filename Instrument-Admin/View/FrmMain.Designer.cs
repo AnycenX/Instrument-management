@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabCont = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.CheckUser = new System.Windows.Forms.CheckBox();
@@ -52,6 +52,7 @@
             this.RefreshUser = new System.Windows.Forms.LinkLabel();
             this.BtnNewUser = new System.Windows.Forms.Button();
             this.PanUserEdit = new System.Windows.Forms.Panel();
+            this.BtnDelUser = new System.Windows.Forms.LinkLabel();
             this.TxtRePassWord = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.BtnUser = new System.Windows.Forms.Button();
@@ -70,6 +71,7 @@
             this.RefreshProcess = new System.Windows.Forms.LinkLabel();
             this.BtnNewProcess = new System.Windows.Forms.Button();
             this.PanProcessEdit = new System.Windows.Forms.Panel();
+            this.BtnDelProcess = new System.Windows.Forms.LinkLabel();
             this.label12 = new System.Windows.Forms.Label();
             this.BtnProcess = new System.Windows.Forms.Button();
             this.ComProcessType = new System.Windows.Forms.ComboBox();
@@ -84,8 +86,15 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.BtnDelUser = new System.Windows.Forms.LinkLabel();
-            this.BtnDelProcess = new System.Windows.Forms.LinkLabel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.LinkHandBook = new System.Windows.Forms.LinkLabel();
+            this.LblHandBook = new System.Windows.Forms.Label();
+            this.LblUpdate = new System.Windows.Forms.Label();
+            this.LblSetInerNet = new System.Windows.Forms.Label();
+            this.CheckNet = new System.Windows.Forms.CheckBox();
+            this.BtnCheckUpdate = new System.Windows.Forms.Button();
+            this.TxtSever = new System.Windows.Forms.TextBox();
+            this.LblSever = new System.Windows.Forms.Label();
             this.TabCont.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataLogInfo)).BeginInit();
@@ -95,6 +104,7 @@
             this.tabPage4.SuspendLayout();
             this.PanProcessEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataProcessInfo)).BeginInit();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabCont
@@ -128,7 +138,7 @@
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(641, 391);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = " 日志查看 ";
@@ -164,14 +174,14 @@
             this.DataLogInfo.MultiSelect = false;
             this.DataLogInfo.Name = "DataLogInfo";
             this.DataLogInfo.ReadOnly = true;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataLogInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataLogInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataLogInfo.RowHeadersVisible = false;
             this.DataLogInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataLogInfo.RowTemplate.Height = 23;
@@ -360,6 +370,20 @@
             this.PanUserEdit.TabIndex = 11;
             this.PanUserEdit.Visible = false;
             // 
+            // BtnDelUser
+            // 
+            this.BtnDelUser.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.BtnDelUser.AutoSize = true;
+            this.BtnDelUser.LinkColor = System.Drawing.Color.Red;
+            this.BtnDelUser.Location = new System.Drawing.Point(49, 237);
+            this.BtnDelUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BtnDelUser.Name = "BtnDelUser";
+            this.BtnDelUser.Size = new System.Drawing.Size(65, 20);
+            this.BtnDelUser.TabIndex = 18;
+            this.BtnDelUser.TabStop = true;
+            this.BtnDelUser.Text = "删除用户";
+            this.BtnDelUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnDelUser_LinkClicked);
+            // 
             // TxtRePassWord
             // 
             this.TxtRePassWord.Location = new System.Drawing.Point(134, 139);
@@ -380,7 +404,7 @@
             // BtnUser
             // 
             this.BtnUser.Location = new System.Drawing.Point(154, 231);
-            this.BtnUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnUser.Margin = new System.Windows.Forms.Padding(2);
             this.BtnUser.Name = "BtnUser";
             this.BtnUser.Size = new System.Drawing.Size(129, 33);
             this.BtnUser.TabIndex = 14;
@@ -482,14 +506,14 @@
             this.DataUserinfo.Location = new System.Drawing.Point(13, 16);
             this.DataUserinfo.Name = "DataUserinfo";
             this.DataUserinfo.ReadOnly = true;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataUserinfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataUserinfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DataUserinfo.RowHeadersVisible = false;
             this.DataUserinfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataUserinfo.RowTemplate.Height = 23;
@@ -571,6 +595,20 @@
             this.PanProcessEdit.TabIndex = 14;
             this.PanProcessEdit.Visible = false;
             // 
+            // BtnDelProcess
+            // 
+            this.BtnDelProcess.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.BtnDelProcess.AutoSize = true;
+            this.BtnDelProcess.LinkColor = System.Drawing.Color.Red;
+            this.BtnDelProcess.Location = new System.Drawing.Point(49, 237);
+            this.BtnDelProcess.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BtnDelProcess.Name = "BtnDelProcess";
+            this.BtnDelProcess.Size = new System.Drawing.Size(65, 20);
+            this.BtnDelProcess.TabIndex = 19;
+            this.BtnDelProcess.TabStop = true;
+            this.BtnDelProcess.Text = "删除进程";
+            this.BtnDelProcess.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnDelProcess_LinkClicked);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -583,7 +621,7 @@
             // BtnProcess
             // 
             this.BtnProcess.Location = new System.Drawing.Point(154, 231);
-            this.BtnProcess.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnProcess.Margin = new System.Windows.Forms.Padding(2);
             this.BtnProcess.Name = "BtnProcess";
             this.BtnProcess.Size = new System.Drawing.Size(129, 33);
             this.BtnProcess.TabIndex = 14;
@@ -677,14 +715,14 @@
             this.DataProcessInfo.Location = new System.Drawing.Point(13, 16);
             this.DataProcessInfo.Name = "DataProcessInfo";
             this.DataProcessInfo.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataProcessInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataProcessInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DataProcessInfo.RowHeadersVisible = false;
             this.DataProcessInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataProcessInfo.RowTemplate.Height = 23;
@@ -719,6 +757,15 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label16);
+            this.tabPage5.Controls.Add(this.LinkHandBook);
+            this.tabPage5.Controls.Add(this.LblHandBook);
+            this.tabPage5.Controls.Add(this.LblUpdate);
+            this.tabPage5.Controls.Add(this.LblSetInerNet);
+            this.tabPage5.Controls.Add(this.CheckNet);
+            this.tabPage5.Controls.Add(this.BtnCheckUpdate);
+            this.tabPage5.Controls.Add(this.TxtSever);
+            this.tabPage5.Controls.Add(this.LblSever);
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(641, 391);
@@ -726,33 +773,94 @@
             this.tabPage5.Text = " 系统设置 ";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // BtnDelUser
+            // label16
             // 
-            this.BtnDelUser.ActiveLinkColor = System.Drawing.Color.Maroon;
-            this.BtnDelUser.AutoSize = true;
-            this.BtnDelUser.LinkColor = System.Drawing.Color.Red;
-            this.BtnDelUser.Location = new System.Drawing.Point(49, 237);
-            this.BtnDelUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.BtnDelUser.Name = "BtnDelUser";
-            this.BtnDelUser.Size = new System.Drawing.Size(65, 20);
-            this.BtnDelUser.TabIndex = 18;
-            this.BtnDelUser.TabStop = true;
-            this.BtnDelUser.Text = "删除用户";
-            this.BtnDelUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnDelUser_LinkClicked);
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(553, 370);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(85, 16);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "Build: 20190303";
             // 
-            // BtnDelProcess
+            // LinkHandBook
             // 
-            this.BtnDelProcess.ActiveLinkColor = System.Drawing.Color.Maroon;
-            this.BtnDelProcess.AutoSize = true;
-            this.BtnDelProcess.LinkColor = System.Drawing.Color.Red;
-            this.BtnDelProcess.Location = new System.Drawing.Point(49, 237);
-            this.BtnDelProcess.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.BtnDelProcess.Name = "BtnDelProcess";
-            this.BtnDelProcess.Size = new System.Drawing.Size(65, 20);
-            this.BtnDelProcess.TabIndex = 19;
-            this.BtnDelProcess.TabStop = true;
-            this.BtnDelProcess.Text = "删除进程";
-            this.BtnDelProcess.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnDelProcess_LinkClicked);
+            this.LinkHandBook.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.LinkHandBook.AutoSize = true;
+            this.LinkHandBook.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LinkHandBook.Location = new System.Drawing.Point(225, 206);
+            this.LinkHandBook.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LinkHandBook.Name = "LinkHandBook";
+            this.LinkHandBook.Size = new System.Drawing.Size(93, 20);
+            this.LinkHandBook.TabIndex = 20;
+            this.LinkHandBook.TabStop = true;
+            this.LinkHandBook.Text = "查看使用说明";
+            // 
+            // LblHandBook
+            // 
+            this.LblHandBook.AutoSize = true;
+            this.LblHandBook.Location = new System.Drawing.Point(121, 206);
+            this.LblHandBook.Name = "LblHandBook";
+            this.LblHandBook.Size = new System.Drawing.Size(79, 20);
+            this.LblHandBook.TabIndex = 19;
+            this.LblHandBook.Text = "使用说明：";
+            // 
+            // LblUpdate
+            // 
+            this.LblUpdate.AutoSize = true;
+            this.LblUpdate.Location = new System.Drawing.Point(121, 152);
+            this.LblUpdate.Name = "LblUpdate";
+            this.LblUpdate.Size = new System.Drawing.Size(79, 20);
+            this.LblUpdate.TabIndex = 18;
+            this.LblUpdate.Text = "系统更新：";
+            // 
+            // LblSetInerNet
+            // 
+            this.LblSetInerNet.AutoSize = true;
+            this.LblSetInerNet.Location = new System.Drawing.Point(121, 98);
+            this.LblSetInerNet.Name = "LblSetInerNet";
+            this.LblSetInerNet.Size = new System.Drawing.Size(93, 20);
+            this.LblSetInerNet.TabIndex = 17;
+            this.LblSetInerNet.Text = "开启局域网：";
+            // 
+            // CheckNet
+            // 
+            this.CheckNet.AutoSize = true;
+            this.CheckNet.Checked = true;
+            this.CheckNet.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckNet.Location = new System.Drawing.Point(220, 97);
+            this.CheckNet.Name = "CheckNet";
+            this.CheckNet.Size = new System.Drawing.Size(224, 24);
+            this.CheckNet.TabIndex = 16;
+            this.CheckNet.Text = "局域网仅在公网服务无效时使用";
+            this.CheckNet.UseVisualStyleBackColor = true;
+            // 
+            // BtnCheckUpdate
+            // 
+            this.BtnCheckUpdate.Location = new System.Drawing.Point(220, 148);
+            this.BtnCheckUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCheckUpdate.Name = "BtnCheckUpdate";
+            this.BtnCheckUpdate.Size = new System.Drawing.Size(108, 28);
+            this.BtnCheckUpdate.TabIndex = 15;
+            this.BtnCheckUpdate.Text = "检查更新";
+            this.BtnCheckUpdate.UseVisualStyleBackColor = true;
+            // 
+            // TxtSever
+            // 
+            this.TxtSever.Location = new System.Drawing.Point(220, 41);
+            this.TxtSever.Name = "TxtSever";
+            this.TxtSever.Size = new System.Drawing.Size(260, 26);
+            this.TxtSever.TabIndex = 4;
+            this.TxtSever.Text = "https://api.anycen.com/instrument/";
+            // 
+            // LblSever
+            // 
+            this.LblSever.AutoSize = true;
+            this.LblSever.Location = new System.Drawing.Point(121, 44);
+            this.LblSever.Name = "LblSever";
+            this.LblSever.Size = new System.Drawing.Size(79, 20);
+            this.LblSever.TabIndex = 3;
+            this.LblSever.Text = "服务接口：";
             // 
             // FrmMain
             // 
@@ -764,7 +872,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "管理端";
+            this.Text = "仪器管理系统-管理端";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.TabCont.ResumeLayout(false);
@@ -781,6 +889,8 @@
             this.PanProcessEdit.ResumeLayout(false);
             this.PanProcessEdit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataProcessInfo)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -842,6 +952,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.LinkLabel BtnDelUser;
         private System.Windows.Forms.LinkLabel BtnDelProcess;
+        private System.Windows.Forms.TextBox TxtSever;
+        private System.Windows.Forms.Label LblSever;
+        private System.Windows.Forms.Button BtnCheckUpdate;
+        private System.Windows.Forms.Label LblUpdate;
+        private System.Windows.Forms.Label LblSetInerNet;
+        private System.Windows.Forms.CheckBox CheckNet;
+        private System.Windows.Forms.LinkLabel LinkHandBook;
+        private System.Windows.Forms.Label LblHandBook;
+        private System.Windows.Forms.Label label16;
     }
 }
 

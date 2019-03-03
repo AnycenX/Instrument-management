@@ -37,10 +37,15 @@ namespace InM_Admin
 
         private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)//如果输入的是回车键  
+            if (e.KeyCode == Keys.Enter) 
             {
-                this.BtnLoad_Click(sender, e);//触发button事件  
+                BtnLoad_Click(sender, e);
             }
+        }
+
+        private void LinkForgetPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("请联系高级管理员重置密码","系统提示");
         }
     }
 }

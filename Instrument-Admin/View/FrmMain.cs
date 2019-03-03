@@ -223,7 +223,7 @@ namespace InM_Admin
             if (e.RowIndex > -1 && e.ColumnIndex > -1)//防止 Index 出错
             {
                 flag_process = false;
-                LblProcessEdit.Text = "编辑用户";
+                LblProcessEdit.Text = "编辑监控";
                 PanProcessEdit.Visible = true;
                 BtnDelProcess.Visible = true;
 

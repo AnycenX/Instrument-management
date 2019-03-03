@@ -38,6 +38,7 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.picBack = new System.Windows.Forms.PictureBox();
             this.panelForm = new System.Windows.Forms.Panel();
+            this.LinkForgetPass = new System.Windows.Forms.LinkLabel();
             this.PlanLoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.panelForm.SuspendLayout();
@@ -51,10 +52,10 @@
             // textBoxUsername
             // 
             this.textBoxUsername.ForeColor = System.Drawing.Color.Silver;
-            this.textBoxUsername.Location = new System.Drawing.Point(40, 96);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.textBoxUsername.Location = new System.Drawing.Point(22, 55);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(465, 44);
+            this.textBoxUsername.Size = new System.Drawing.Size(255, 29);
             this.textBoxUsername.TabIndex = 4;
             this.textBoxUsername.Text = "请输入用户名";
             this.textBoxUsername.Enter += new System.EventHandler(this.textBoxUsername_Enter);
@@ -63,10 +64,9 @@
             // textBoxUserpwd
             // 
             this.textBoxUserpwd.ForeColor = System.Drawing.Color.Silver;
-            this.textBoxUserpwd.Location = new System.Drawing.Point(40, 153);
-            this.textBoxUserpwd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBoxUserpwd.Location = new System.Drawing.Point(22, 96);
             this.textBoxUserpwd.Name = "textBoxUserpwd";
-            this.textBoxUserpwd.Size = new System.Drawing.Size(465, 44);
+            this.textBoxUserpwd.Size = new System.Drawing.Size(255, 29);
             this.textBoxUserpwd.TabIndex = 5;
             this.textBoxUserpwd.Text = "请输入密码";
             this.textBoxUserpwd.Enter += new System.EventHandler(this.textBoxUserpwd_Enter);
@@ -77,35 +77,34 @@
             this.PlanLoad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PlanLoad.BackColor = System.Drawing.SystemColors.Control;
             this.PlanLoad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PlanLoad.Controls.Add(this.LinkForgetPass);
             this.PlanLoad.Controls.Add(this.label1);
             this.PlanLoad.Controls.Add(this.buttonLogin);
             this.PlanLoad.Controls.Add(this.textBoxUsername);
             this.PlanLoad.Controls.Add(this.textBoxUserpwd);
             this.PlanLoad.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PlanLoad.Location = new System.Drawing.Point(659, 323);
+            this.PlanLoad.Location = new System.Drawing.Point(359, 185);
             this.PlanLoad.Margin = new System.Windows.Forms.Padding(0);
             this.PlanLoad.Name = "PlanLoad";
-            this.PlanLoad.Size = new System.Drawing.Size(544, 359);
+            this.PlanLoad.Size = new System.Drawing.Size(298, 206);
             this.PlanLoad.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(204, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(111, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 36);
+            this.label1.Size = new System.Drawing.Size(74, 21);
             this.label1.TabIndex = 7;
             this.label1.Text = "请先登录";
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(153, 245);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonLogin.Location = new System.Drawing.Point(140, 141);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(241, 66);
-            this.buttonLogin.TabIndex = 6;
-            this.buttonLogin.Text = "登录";
+            this.buttonLogin.Size = new System.Drawing.Size(131, 36);
+            this.buttonLogin.TabIndex = 3;
+            this.buttonLogin.Text = "登 录";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
@@ -114,9 +113,8 @@
             this.picBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picBack.Image = ((System.Drawing.Image)(resources.GetObject("picBack.Image")));
             this.picBack.Location = new System.Drawing.Point(0, 0);
-            this.picBack.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.picBack.Name = "picBack";
-            this.picBack.Size = new System.Drawing.Size(1760, 1008);
+            this.picBack.Size = new System.Drawing.Size(960, 576);
             this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBack.TabIndex = 9;
             this.picBack.TabStop = false;
@@ -127,20 +125,32 @@
             this.panelForm.Controls.Add(this.picBack);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 0);
-            this.panelForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(1760, 1008);
+            this.panelForm.Size = new System.Drawing.Size(960, 576);
             this.panelForm.TabIndex = 10;
+            // 
+            // LinkForgetPass
+            // 
+            this.LinkForgetPass.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.LinkForgetPass.AutoSize = true;
+            this.LinkForgetPass.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LinkForgetPass.LinkColor = System.Drawing.Color.Gray;
+            this.LinkForgetPass.Location = new System.Drawing.Point(22, 150);
+            this.LinkForgetPass.Name = "LinkForgetPass";
+            this.LinkForgetPass.Size = new System.Drawing.Size(93, 20);
+            this.LinkForgetPass.TabIndex = 13;
+            this.LinkForgetPass.TabStop = true;
+            this.LinkForgetPass.Text = "刷新本地数据";
             // 
             // FormMain
             // 
             this.AcceptButton = this.buttonLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1760, 1008);
+            this.ClientSize = new System.Drawing.Size(960, 576);
             this.Controls.Add(this.panelForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FormMain";
             this.Text = "屏幕锁定";
             this.TopMost = true;
@@ -164,6 +174,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Panel panelForm;
+        private System.Windows.Forms.LinkLabel LinkForgetPass;
     }
 }
 

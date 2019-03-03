@@ -97,6 +97,7 @@
             this.LinkForgetPass.TabIndex = 6;
             this.LinkForgetPass.TabStop = true;
             this.LinkForgetPass.Text = "忘记密码";
+            this.LinkForgetPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkForgetPass_LinkClicked);
             // 
             // FrmLoad
             // 

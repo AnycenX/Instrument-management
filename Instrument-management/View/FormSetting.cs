@@ -159,6 +159,5 @@ namespace InM
         {
             sendSignal(textBox3.Text);
         }
-
     }
 }
