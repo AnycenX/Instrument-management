@@ -68,7 +68,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\HttpServer.cs" />
     <Compile Include="Controller\InMAdminHandler.cs" />
+    <Compile Include="Model\JsonProcessData.cs" />
+    <Compile Include="Model\JsonStartData.cs" />
+    <Compile Include="Model\JsonUserData.cs" />
     <Compile Include="View\FrmLoad.cs">
       <SubType>Form</SubType>
     </Compile>

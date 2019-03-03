@@ -16,6 +16,7 @@ namespace InM
         public static UserInfo[] userInfo { get => userInfoVer?.info ?? new UserInfo[0]; }
         public static InfoWithVer<ProcessInfo> processInfoVer;
         public static ProcessInfo[] processInfo { get => processInfoVer?.info ?? new ProcessInfo[0]; }
+        public static StartInfo startInfo { get; set; }
 
         public static IEnumerable<string> processList { get => from x in processInfo select x.process; }
 

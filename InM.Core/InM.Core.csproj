@@ -56,6 +56,7 @@
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Model\InfoWithVer.cs" />
     <Compile Include="Model\ProcessInfo.cs" />
+    <Compile Include="Model\ServerInfo.cs" />
     <Compile Include="Model\StorageModel.cs" />
     <Compile Include="Model\StartInfo.cs" />
     <Compile Include="Model\UpdateInfo.cs" />

@@ -42,9 +42,10 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|状态|
-|update|Int|5|软件主体最新版本号|
-|userinfo|Int|5|用户列表最新版本号|
-|processinfo|Int|5|监控进程列表最新版本号|
+|Data|Object|列表|更新信息列表|
+|+update|Int|5|软件主体最新版本号|
+|+userinfo|Int|5|用户列表最新版本号|
+|+processinfo|Int|5|监控进程列表最新版本号|
 
 返回示例
 
@@ -78,7 +79,7 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|是否存在更新|
-|file|List|列表|更新文件列表|
+|Data|Object|列表|更新文件列表|
 |+name|String|main.exe|更新文件名|
 |+url|String|https://soft.jsdrv.com/|更新文件URL|
 
@@ -116,7 +117,7 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|是否存在更新|
-|list|List|列表|更新文件列表|
+|Data|Object|列表|更新文件列表|
 |+id|Int|1|用户ID|
 |+username|String|admin|用户名|
 |+password|String|21232f297a57a5a743894a0e4a801fc3|密码（MD5）|
@@ -163,7 +164,7 @@
 |参数名称|类型|示例值|描述|
 |----|----|----|----|
 |code|String|200|是否存在更新|
-|list|List|列表|监控进程文件列表|
+|Data|Object|列表|监控进程文件列表|
 |+id|Int|1|监控进程ID|
 |+name|String|软件名称1|监控软件名|
 |+process|String|tasges|监控进程名|

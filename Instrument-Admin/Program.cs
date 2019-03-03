@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using InM;
+using InM.Core.Model;
 using InM_Admin.Controller;
+using Newtonsoft.Json;
 
 namespace InM_Admin
 {
@@ -32,11 +37,12 @@ namespace InM_Admin
 
             inMAdminHandler = new InMAdminHandler();
 
-            //Application.Run(new FrmMain());
             Update();
             frmLoad = new FrmLoad();
             frmLoad.Show();
-            //Application.Run(new FormMain());
+
+            HttpListenServer();
+
             Application.Run();
         }
 
@@ -107,6 +113,110 @@ namespace InM_Admin
             */
 
             //Application.Run(new FrmLoad());
+        }
+
+        static void HttpListenServer()
+        {
+            HttpListener httpListener = new HttpListener();
+
+            httpListener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
+            httpListener.Prefixes.Add("http://localhost:8383/");
+            httpListener.Start();
+
+            new Thread(new ThreadStart(delegate
+            {
+                while (true)
+                {
+                    HttpListenerContext httpListenerContext = httpListener.GetContext();
+
+                    //解析Request请求
+                    HttpListenerRequest request = httpListenerContext.Request;
+
+                    string type = "";
+                    long timestamp = 0;
+                    string key = "";
+                    string version = "";
+                    string JsonData = "";
+
+                    try
+                    {
+                        type = request.QueryString["type"];
+                        timestamp = long.Parse(request.QueryString["timestamp"]);
+                        key = request.QueryString["key"];
+                        version = request.QueryString["version"];
+                    }
+                    catch
+                    {
+                        //此处略过错误
+                    }
+
+                    if (key == "")
+                    {
+                        Root returnNoAuthkey = new Root();
+                        returnNoAuthkey.code = 301;
+                        returnNoAuthkey.data = "No authkey";
+                        JsonData = JsonConvert.SerializeObject(returnNoAuthkey);
+                    }
+                    else if (timestamp.ToString() == "")
+                    {
+                        Root NoTimestamp = new Root();
+                        NoTimestamp.code = 302;
+                        NoTimestamp.data = "No authkey";
+                        JsonData = JsonConvert.SerializeObject(NoTimestamp);
+                    }
+                    else if(key == Encryption.MD5Hash(((timestamp - 500) * 3).ToString() + authkey))
+                    {
+                        switch (type)
+                        {
+                            case "start":
+                                Root returnStart = new Root();
+                                returnStart.code = 200;
+                                returnStart.data = SharedData.startInfo;
+                                JsonData = JsonConvert.SerializeObject(returnStart);
+                                break;
+                            case "userinfo":
+                                Root returnUser = new Root();
+                                returnUser.code = 200;
+                                returnUser.data = SharedData.userInfo;
+                                JsonData = JsonConvert.SerializeObject(returnUser);
+                                break;
+                            case "processinfo":
+                                Root returnProcess = new Root();
+                                returnProcess.code = 200;
+                                returnProcess.data = SharedData.processInfo;
+                                JsonData = JsonConvert.SerializeObject(returnProcess);
+                                break;
+                            default:
+                                Root returnNoType = new Root();
+                                returnNoType.code = 300;
+                                returnNoType.data = "No type";
+                                JsonData = JsonConvert.SerializeObject(returnNoType);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Root returnErrorAuthkey = new Root();
+                        returnErrorAuthkey.code = 303;
+                        returnErrorAuthkey.data = "Error authkey";
+                        JsonData = JsonConvert.SerializeObject(returnErrorAuthkey);
+                    }
+
+                    //发送Response请求
+                    HttpListenerResponse response = httpListenerContext.Response;
+                    response.StatusCode = 200;
+                    response.ContentType = "application/json;charset=UTF-8";
+                    response.ContentEncoding = Encoding.UTF8;
+                    response.AppendHeader("Content-Type", "application/json;charset=UTF-8");
+                    using (StreamWriter writer = new StreamWriter(httpListenerContext.Response.OutputStream))
+                    {
+                        writer.WriteLine(JsonData);
+                        writer.Close();
+                        response.Close();
+                    }
+
+                }
+            })).Start();
         }
     }
 }
