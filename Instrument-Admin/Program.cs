@@ -69,6 +69,7 @@ namespace InM_Admin
             {
                 SharedData.processInfoVer = smold.processInfo;
                 SharedData.userInfoVer = smold.userInfo;
+                SharedData.updateInfoVer = smold.updateInfo;
             }
 
             StartInfo startInfo = api.GetStart();
@@ -92,7 +93,8 @@ namespace InM_Admin
             StorageModel sm = new StorageModel()
             {
                 userInfo = SharedData.userInfoVer,
-                processInfo = SharedData.processInfoVer
+                processInfo = SharedData.processInfoVer,
+                updateInfo = SharedData.updateInfoVer
             };
             StorageController.Save(SharedData.dataPath, sm);
         }

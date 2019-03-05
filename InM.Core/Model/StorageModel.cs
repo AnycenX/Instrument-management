@@ -10,5 +10,6 @@ namespace InM
     {
         public InfoWithVer<UserInfo> userInfo;
         public InfoWithVer<ProcessInfo> processInfo;
+        public InfoWithVer<UpdateInfo> updateInfo;
     }
 }
