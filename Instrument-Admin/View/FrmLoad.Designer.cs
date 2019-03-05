@@ -44,7 +44,6 @@
             this.TxtUserword.Name = "TxtUserword";
             this.TxtUserword.Size = new System.Drawing.Size(180, 26);
             this.TxtUserword.TabIndex = 1;
-            this.TxtUserword.Text = "tisu";
             // 
             // LblUser
             // 
@@ -73,7 +72,6 @@
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(180, 26);
             this.TxtPassword.TabIndex = 3;
-            this.TxtPassword.Text = "123456";
             this.TxtPassword.UseSystemPasswordChar = true;
             this.TxtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPassword_KeyDown);
             // 

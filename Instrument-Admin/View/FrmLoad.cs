@@ -16,6 +16,7 @@ namespace InM_Admin
         public FrmLoad()
         {
             InitializeComponent();
+            TxtUserword.Text = Properties.Settings.Default.User;
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
@@ -23,6 +24,8 @@ namespace InM_Admin
             try
             {
                 SharedData.User.Login(TxtUserword.Text, TxtPassword.Text);
+                Properties.Settings.Default.User = TxtUserword.Text;
+                Properties.Settings.Default.Save();
             }
             catch (Exception ex)
             {

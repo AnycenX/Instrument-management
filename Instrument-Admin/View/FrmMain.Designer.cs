@@ -87,7 +87,11 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label16 = new System.Windows.Forms.Label();
+            this.BuildVersion = new System.Windows.Forms.Label();
+            this.LblBuild = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtPort = new System.Windows.Forms.TextBox();
+            this.LblPort = new System.Windows.Forms.Label();
             this.LinkHandBook = new System.Windows.Forms.LinkLabel();
             this.LblHandBook = new System.Windows.Forms.Label();
             this.LblUpdate = new System.Windows.Forms.Label();
@@ -96,6 +100,7 @@
             this.BtnCheckUpdate = new System.Windows.Forms.Button();
             this.TxtSever = new System.Windows.Forms.TextBox();
             this.LblSever = new System.Windows.Forms.Label();
+            this.LabPortNotice = new System.Windows.Forms.Label();
             this.TabCont.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataLogInfo)).BeginInit();
@@ -758,7 +763,12 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.label16);
+            this.tabPage5.Controls.Add(this.LabPortNotice);
+            this.tabPage5.Controls.Add(this.BuildVersion);
+            this.tabPage5.Controls.Add(this.LblBuild);
+            this.tabPage5.Controls.Add(this.label5);
+            this.tabPage5.Controls.Add(this.TxtPort);
+            this.tabPage5.Controls.Add(this.LblPort);
             this.tabPage5.Controls.Add(this.LinkHandBook);
             this.tabPage5.Controls.Add(this.LblHandBook);
             this.tabPage5.Controls.Add(this.LblUpdate);
@@ -774,33 +784,74 @@
             this.tabPage5.Text = " 系统设置 ";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // label16
+            // BuildVersion
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(553, 370);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(85, 16);
-            this.label16.TabIndex = 21;
-            this.label16.Text = "Build: 20190303";
+            this.BuildVersion.AutoSize = true;
+            this.BuildVersion.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BuildVersion.Location = new System.Drawing.Point(574, 370);
+            this.BuildVersion.Name = "BuildVersion";
+            this.BuildVersion.Size = new System.Drawing.Size(56, 16);
+            this.BuildVersion.TabIndex = 21;
+            this.BuildVersion.Text = "20190305";
+            // 
+            // LblBuild
+            // 
+            this.LblBuild.AutoSize = true;
+            this.LblBuild.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblBuild.Location = new System.Drawing.Point(541, 370);
+            this.LblBuild.Name = "LblBuild";
+            this.LblBuild.Size = new System.Drawing.Size(37, 16);
+            this.LblBuild.TabIndex = 25;
+            this.LblBuild.Text = "Build: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(7, 369);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 17);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "设置修改重启后生效";
+            // 
+            // TxtPort
+            // 
+            this.TxtPort.Location = new System.Drawing.Point(220, 145);
+            this.TxtPort.Name = "TxtPort";
+            this.TxtPort.Size = new System.Drawing.Size(65, 26);
+            this.TxtPort.TabIndex = 23;
+            this.TxtPort.Text = "8383";
+            this.TxtPort.TextChanged += new System.EventHandler(this.TxtPort_TextChanged);
+            this.TxtPort.MouseLeave += new System.EventHandler(this.TxtPort_MouseLeave);
+            // 
+            // LblPort
+            // 
+            this.LblPort.AutoSize = true;
+            this.LblPort.Location = new System.Drawing.Point(121, 148);
+            this.LblPort.Name = "LblPort";
+            this.LblPort.Size = new System.Drawing.Size(93, 20);
+            this.LblPort.TabIndex = 22;
+            this.LblPort.Text = "局域网端口：";
             // 
             // LinkHandBook
             // 
             this.LinkHandBook.ActiveLinkColor = System.Drawing.Color.Maroon;
             this.LinkHandBook.AutoSize = true;
             this.LinkHandBook.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.LinkHandBook.Location = new System.Drawing.Point(225, 206);
+            this.LinkHandBook.Location = new System.Drawing.Point(219, 252);
             this.LinkHandBook.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LinkHandBook.Name = "LinkHandBook";
             this.LinkHandBook.Size = new System.Drawing.Size(93, 20);
             this.LinkHandBook.TabIndex = 20;
             this.LinkHandBook.TabStop = true;
             this.LinkHandBook.Text = "查看使用说明";
+            this.LinkHandBook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkHandBook_LinkClicked);
             // 
             // LblHandBook
             // 
             this.LblHandBook.AutoSize = true;
-            this.LblHandBook.Location = new System.Drawing.Point(121, 206);
+            this.LblHandBook.Location = new System.Drawing.Point(121, 252);
             this.LblHandBook.Name = "LblHandBook";
             this.LblHandBook.Size = new System.Drawing.Size(79, 20);
             this.LblHandBook.TabIndex = 19;
@@ -809,7 +860,7 @@
             // LblUpdate
             // 
             this.LblUpdate.AutoSize = true;
-            this.LblUpdate.Location = new System.Drawing.Point(121, 152);
+            this.LblUpdate.Location = new System.Drawing.Point(121, 200);
             this.LblUpdate.Name = "LblUpdate";
             this.LblUpdate.Size = new System.Drawing.Size(79, 20);
             this.LblUpdate.TabIndex = 18;
@@ -818,7 +869,7 @@
             // LblSetInerNet
             // 
             this.LblSetInerNet.AutoSize = true;
-            this.LblSetInerNet.Location = new System.Drawing.Point(121, 98);
+            this.LblSetInerNet.Location = new System.Drawing.Point(121, 96);
             this.LblSetInerNet.Name = "LblSetInerNet";
             this.LblSetInerNet.Size = new System.Drawing.Size(93, 20);
             this.LblSetInerNet.TabIndex = 17;
@@ -829,25 +880,28 @@
             this.CheckNet.AutoSize = true;
             this.CheckNet.Checked = true;
             this.CheckNet.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CheckNet.Location = new System.Drawing.Point(220, 97);
+            this.CheckNet.Location = new System.Drawing.Point(220, 95);
             this.CheckNet.Name = "CheckNet";
             this.CheckNet.Size = new System.Drawing.Size(224, 24);
             this.CheckNet.TabIndex = 16;
             this.CheckNet.Text = "局域网仅在公网服务无效时使用";
             this.CheckNet.UseVisualStyleBackColor = true;
+            this.CheckNet.CheckedChanged += new System.EventHandler(this.CheckNet_CheckedChanged);
             // 
             // BtnCheckUpdate
             // 
-            this.BtnCheckUpdate.Location = new System.Drawing.Point(220, 148);
+            this.BtnCheckUpdate.Location = new System.Drawing.Point(220, 196);
             this.BtnCheckUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCheckUpdate.Name = "BtnCheckUpdate";
             this.BtnCheckUpdate.Size = new System.Drawing.Size(108, 28);
             this.BtnCheckUpdate.TabIndex = 15;
             this.BtnCheckUpdate.Text = "检查更新";
             this.BtnCheckUpdate.UseVisualStyleBackColor = true;
+            this.BtnCheckUpdate.Click += new System.EventHandler(this.BtnCheckUpdate_Click);
             // 
             // TxtSever
             // 
+            this.TxtSever.Enabled = false;
             this.TxtSever.Location = new System.Drawing.Point(220, 41);
             this.TxtSever.Name = "TxtSever";
             this.TxtSever.Size = new System.Drawing.Size(260, 26);
@@ -862,6 +916,18 @@
             this.LblSever.Size = new System.Drawing.Size(79, 20);
             this.LblSever.TabIndex = 3;
             this.LblSever.Text = "服务接口：";
+            // 
+            // LabPortNotice
+            // 
+            this.LabPortNotice.AutoSize = true;
+            this.LabPortNotice.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LabPortNotice.ForeColor = System.Drawing.Color.Red;
+            this.LabPortNotice.Location = new System.Drawing.Point(291, 151);
+            this.LabPortNotice.Name = "LabPortNotice";
+            this.LabPortNotice.Size = new System.Drawing.Size(144, 17);
+            this.LabPortNotice.TabIndex = 26;
+            this.LabPortNotice.Text = "输入的端口号请大于8000";
+            this.LabPortNotice.Visible = false;
             // 
             // FrmMain
             // 
@@ -962,7 +1028,12 @@
         private System.Windows.Forms.CheckBox CheckNet;
         private System.Windows.Forms.LinkLabel LinkHandBook;
         private System.Windows.Forms.Label LblHandBook;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label BuildVersion;
+        private System.Windows.Forms.TextBox TxtPort;
+        private System.Windows.Forms.Label LblPort;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblBuild;
+        private System.Windows.Forms.Label LabPortNotice;
     }
 }
 

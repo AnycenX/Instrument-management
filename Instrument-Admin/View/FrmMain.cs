@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -71,6 +72,9 @@ namespace InM_Admin
             dateStart = DateTime.Now.Date;
             dateStop = DateTime.Now.Date.AddDays(1);
             userName = ComUsername.Text;
+
+            CheckNet.Checked = Properties.Settings.Default.NetSwitch;
+            TxtPort.Text = Properties.Settings.Default.Port.ToString();
         }
 
         private void ComDayChange_SelectedIndexChanged(object sender, EventArgs e)
@@ -560,6 +564,96 @@ namespace InM_Admin
                     MessageBox.Show("监控进程删除失败，请重试", "系统提示");
                 }
             }
+        }
+
+        private void CheckNet_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckNet.Checked == true)
+            {
+                TxtPort.Enabled = true;
+                Properties.Settings.Default.NetSwitch = true;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                TxtPort.Enabled = false;
+                Properties.Settings.Default.NetSwitch = false;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void TxtPort_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtPort.Text == "")
+            {
+                LabPortNotice.Text = "端口值不能为空";
+                LabPortNotice.Visible = true;
+            }
+            else if (Convert.ToInt32(TxtPort.Text) >= 8000)
+            {
+                LabPortNotice.Visible = false;
+            }
+            else
+            {
+                LabPortNotice.Text = "输入的端口号请大于8000";
+                LabPortNotice.Visible = true;
+            }
+        }
+
+        public static Task<string> HttpGetAsync(string url) => Task.Run(() => HttpGet(url));
+
+        private async void BtnCheckUpdate_Click(object sender, EventArgs e)
+        {
+            string result = await HttpGetAsync("https://api.anycen.com/instrument/adminsoft/check/");
+            try
+            {
+                if (Convert.ToInt32(BuildVersion.Text) < Convert.ToInt32(result))
+                {
+                    MessageBox.Show("发现新版本，请前往打开页面依照提示下载更新", "更新提示");
+                    Process.Start("https://api.anycen.com/instrument/adminsoft/");
+                }
+                else
+                {
+                    MessageBox.Show("目前已经是最新版本", "更新提示");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("返回远程数据错误", "更新提示");
+            }
+        }
+
+        public static string HttpGet(string url)
+        {
+            string result = string.Empty;
+            try
+            {
+                HttpWebRequest wbRequest = (HttpWebRequest)WebRequest.Create(url);
+                wbRequest.Method = "GET";
+                HttpWebResponse wbResponse = (HttpWebResponse)wbRequest.GetResponse();
+                using (Stream responseStream = wbResponse.GetResponseStream())
+                {
+                    using (StreamReader sReader = new StreamReader(responseStream))
+                    {
+                        result = sReader.ReadToEnd();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+
+        private void LinkHandBook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://api.anycen.com/instrument/adminsoft/doc/");
+        }
+
+        private void TxtPort_MouseLeave(object sender, EventArgs e)
+        {
+
         }
     }
 }

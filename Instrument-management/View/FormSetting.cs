@@ -16,9 +16,7 @@ namespace InM
 {
     public partial class FormSetting : Form
     {
-        string[] localip = new string[20];
-        Socket clientSocket;
-       // new Thread(receiveMsg).Start(this);
+        IPAddress ip;
 
         public FormSetting()
         {
@@ -28,136 +26,80 @@ namespace InM
 
         private void frmSetting_Load(object sender, EventArgs e)
         {
+            CheckNet.Checked = Properties.Settings.Default.NetSwitch;
+            TxtPort.Text = Properties.Settings.Default.Port.ToString();
         }
 
-        private void EnumComputers(string ip3)
+        private void CheckNet_CheckedChanged(object sender, EventArgs e)
         {
-            try
+            if (CheckNet.Checked == true)
             {
-                for (int i = 1; i <= 255; i++)
-                {
-                    Ping myPing;
-                    myPing = new Ping();
-                    myPing.PingCompleted += new PingCompletedEventHandler(_myPing_PingCompleted);
-
-                    string pingIP = "192.168." + ip3 + "." + i.ToString();
-                    myPing.SendAsync(pingIP, 1000, null);
-                }
-            }
-            catch
-            {
-                listBox2.Items.Add("Error");
-            }
-        }
-
-        private async void _myPing_PingCompleted(object sender, PingCompletedEventArgs e)
-        {
-            if (e.Reply.Status == IPStatus.Success)
-            {
-                await Task.Run(() =>
-                {
-                    //Console.WriteLine(e.Reply.Address.ToString() + "|" + Dns.GetHostByAddress(IPAddress.Parse(e.Reply.Address.ToString())).HostName);
-                    listBox2.Items.Add(e.Reply.Address.ToString());
-                });
-            }
-        }
-
-        private void GetIP()
-        {
-            string hostName = Dns.GetHostName();//本机名   
-            IPAddress[] addressList = Dns.GetHostAddresses(hostName);//会返回所有地址，包括IPv4和IPv6   
-            foreach (IPAddress ip in addressList)  
-            {
-                string[] ids = ip.ToString().Split('.');
-                if (ids[0] == "192" && ids[1] == "168" && ids[3] != "1")
-                {
-                    EnumComputers(ids[2]);
-                }
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            GetIP();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (button1.Text == "TCP连接")
-            {
-                createConn();
+                TxtPort.Enabled = true;
+                TxtClient.Enabled = true;
+                Properties.Settings.Default.NetSwitch = true;
+                Properties.Settings.Default.Save();
             }
             else
             {
-                closeConn();
+                TxtPort.Enabled = false;
+                TxtClient.Enabled = false;
+                Properties.Settings.Default.NetSwitch = false;
+                Properties.Settings.Default.Save();
             }
         }
 
-        public bool createConn()
+        private void TxtPort_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtPort.Text == "")
+            {
+                LabPortNotice.Text = "端口值不能为空";
+                LabPortNotice.Visible = true;
+            }
+            else if (Convert.ToInt32(TxtPort.Text) >= 8000)
+            {
+                LabPortNotice.Visible = false;
+            }
+            else
+            {
+                LabPortNotice.Text = "输入的端口号请大于8000";
+                LabPortNotice.Visible = true;
+            }
+        }
+
+        private void TxtPort_MouseLeave(object sender, EventArgs e)
+        {
+            if (TxtPort.Text == "")
+            {
+                TxtPort.Text = "8000";
+                Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
+                Properties.Settings.Default.Save();
+            }
+            else if (Convert.ToInt32(TxtPort.Text) >= 8000)
+            {
+                Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                TxtPort.Text = "8000";
+                Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void TxtClient_MouseLeave(object sender, EventArgs e)
         {
             try
             {
-                clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                IPAddress ip = IPAddress.Parse(textBox1.Text);       
-                int connPort = Int16.Parse(textBox2.Text);
-                clientSocket.Connect(new IPEndPoint(ip, connPort)); //配置服务器IP与端口  
-                listBox2.Items.Add("连接服务器成功");
-                button1.Text = "断开连接";
+                ip = IPAddress.Parse(TxtClient.Text);
+                Properties.Settings.Default.IP = TxtClient.Text;
+                Properties.Settings.Default.Save();
+                LabIPNotice.Visible = false;
             }
-            catch (Exception e)
+            catch (Exception error)
             {
-                //listBox2.Items.Add("连接服务器失败" + e.ToString());
-                MessageBox.Show("连接服务器失败" + e.ToString());
-                return false;
+                LabIPNotice.Visible = true;
             }
-            return true;
-        }
-
-        public bool closeConn()
-        {
-            //try
-            //{
-            //    clientSocket.Shutdown(SocketShutdown.Both);
-            //    Thread.Sleep(10);
-            //    clientSocket.Close();
-            //    listBox2.Items.Add("断开服务器成功");
-            //    button1.Text = "TCP连接";
-            //    //开启监听线程
-            //    Thread receiveThread = new Thread(receiveMsg);
-            //    receiveThread.Start(this);
-            //}
-            //catch (Exception e)
-            //{
-            //    //listBox2.Items.Add("断开服务器失败" + e.ToString());
-            //    MessageBox.Show("断开服务器失败" + e.ToString());
-            //    return false;
-            //}
-            return true;
-        }
-
-        private bool sendSignal(string signal)
-        {
-            if (clientSocket == null)
-            {
-                listBox2.Items.Add("发送失败，未连接客户端");
-                return false;
-            }
-            try
-            {
-                clientSocket.Send(Encoding.UTF8.GetBytes(signal));
-                return true;
-            }
-            catch (Exception e)
-            {
-                listBox2.Items.Add("发送失败" + e.ToString());
-                clientSocket = null;
-            }
-            return false;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            sendSignal(textBox3.Text);
         }
     }
 }

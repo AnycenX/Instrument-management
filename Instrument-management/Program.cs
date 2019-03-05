@@ -34,7 +34,21 @@ namespace InM
 
             trayContoller = new TrayController();
             reportTimer = new ReportTimer();
-            api = new ApiController(authkey, endpoint);
+            if (Properties.Settings.Default.NetSwitch)
+            {
+                if (api.CheckConnection())
+                {
+                    api = new ApiController(authkey, endpoint);
+                }
+                else
+                {
+                    api = new ApiController(authkey, Properties.Settings.Default.IP);
+                }
+            }
+            else
+            {
+                api = new ApiController(authkey, endpoint);
+            }
             inMEventHandler = new InMEventHandler();
 
 #if !DEBUG

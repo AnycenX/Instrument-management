@@ -41,8 +41,11 @@ namespace InM_Admin
             frmLoad = new FrmLoad();
             frmLoad.Show();
 
-            HttpListenServer();
-
+            if (Properties.Settings.Default.NetSwitch)
+            {
+                HttpListenServer();
+            }
+            
             Application.Run();
         }
 
@@ -120,7 +123,7 @@ namespace InM_Admin
             HttpListener httpListener = new HttpListener();
 
             httpListener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
-            httpListener.Prefixes.Add("http://localhost:8383/");
+            httpListener.Prefixes.Add("http://127.0.0.1:" + Properties.Settings.Default.Port + "/");
             httpListener.Start();
 
             new Thread(new ThreadStart(delegate

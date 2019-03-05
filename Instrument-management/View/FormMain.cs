@@ -29,6 +29,7 @@ namespace InM
 #if !DEBUG
             h.Hook_Start();//禁用快捷键
 #endif
+            textBoxUsername.Text = Properties.Settings.Default.User;
         }
 
         protected override bool ProcessKeyEventArgs(ref Message m)//禁用任务管理器
@@ -112,6 +113,8 @@ namespace InM
             try
             {
                 SharedData.User.Login(textBoxUsername.Text, textBoxUserpwd.Text);
+                Properties.Settings.Default.User = textBoxUsername.Text;
+                Properties.Settings.Default.Save();
             }
             catch (Exception ex)
             {
