@@ -37,7 +37,10 @@ namespace InM_Admin
 
             inMAdminHandler = new InMAdminHandler();
 
-            Update();
+            if (api.CheckConnection())
+            {
+                Update();
+            }
             frmLoad = new FrmLoad();
             frmLoad.Show();
 
@@ -92,30 +95,6 @@ namespace InM_Admin
                 processInfo = SharedData.processInfoVer
             };
             StorageController.Save(SharedData.dataPath, sm);
-
-            /*
-            if (startInfo.update > VERSION)
-            {
-                HttpClient client = new HttpClient();
-                List<UpdateInfo> updateInfos = api.GetUpdate(startInfo.update.ToString()).ToList();
-                foreach (UpdateInfo x in updateInfos)
-                {
-                    string downloadFilename = Path.Combine(SharedData.currentPath, x.name);
-                    var response = client.GetAsync(x.url).Result;
-                    using (var fs = new FileStream(downloadFilename + ".downloading", FileMode.Create))
-                    {
-                        response.Content.CopyToAsync(fs);
-                    }
-                    if (File.Exists(downloadFilename))
-                    {
-                        File.Move(downloadFilename, downloadFilename + ".delete");
-                    }
-                    File.Move(downloadFilename + ".downloading", downloadFilename);
-                }
-            }
-            */
-
-            //Application.Run(new FrmLoad());
         }
 
         static void HttpListenServer()
