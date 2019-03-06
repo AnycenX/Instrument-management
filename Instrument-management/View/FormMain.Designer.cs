@@ -156,7 +156,6 @@
             this.Name = "FormMain";
             this.Text = "屏幕锁定";
             this.TopMost = true;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.formMain_Load);
             this.PlanLoad.ResumeLayout(false);
             this.PlanLoad.PerformLayout();

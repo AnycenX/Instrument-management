@@ -128,6 +128,10 @@ namespace InM
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "登录失败");
+                if (ex.Message == "用户名错误")
+                {
+                    LinkRefreshData_LinkClicked(null, null);
+                }
             }
         }
 

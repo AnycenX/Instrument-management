@@ -87,6 +87,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.LabPortNotice = new System.Windows.Forms.Label();
             this.BuildVersion = new System.Windows.Forms.Label();
             this.LblBuild = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -100,7 +101,7 @@
             this.BtnCheckUpdate = new System.Windows.Forms.Button();
             this.TxtSever = new System.Windows.Forms.TextBox();
             this.LblSever = new System.Windows.Forms.Label();
-            this.LabPortNotice = new System.Windows.Forms.Label();
+            this.BtnSave = new System.Windows.Forms.Button();
             this.TabCont.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataLogInfo)).BeginInit();
@@ -763,6 +764,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.BtnSave);
             this.tabPage5.Controls.Add(this.LabPortNotice);
             this.tabPage5.Controls.Add(this.BuildVersion);
             this.tabPage5.Controls.Add(this.LblBuild);
@@ -783,6 +785,18 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = " 系统设置 ";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // LabPortNotice
+            // 
+            this.LabPortNotice.AutoSize = true;
+            this.LabPortNotice.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LabPortNotice.ForeColor = System.Drawing.Color.Red;
+            this.LabPortNotice.Location = new System.Drawing.Point(291, 151);
+            this.LabPortNotice.Name = "LabPortNotice";
+            this.LabPortNotice.Size = new System.Drawing.Size(144, 17);
+            this.LabPortNotice.TabIndex = 26;
+            this.LabPortNotice.Text = "输入的端口号请大于8000";
+            this.LabPortNotice.Visible = false;
             // 
             // BuildVersion
             // 
@@ -823,7 +837,6 @@
             this.TxtPort.TabIndex = 23;
             this.TxtPort.Text = "8383";
             this.TxtPort.TextChanged += new System.EventHandler(this.TxtPort_TextChanged);
-            this.TxtPort.MouseLeave += new System.EventHandler(this.TxtPort_MouseLeave);
             // 
             // LblPort
             // 
@@ -917,17 +930,16 @@
             this.LblSever.TabIndex = 3;
             this.LblSever.Text = "服务接口：";
             // 
-            // LabPortNotice
+            // BtnSave
             // 
-            this.LabPortNotice.AutoSize = true;
-            this.LabPortNotice.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabPortNotice.ForeColor = System.Drawing.Color.Red;
-            this.LabPortNotice.Location = new System.Drawing.Point(291, 151);
-            this.LabPortNotice.Name = "LabPortNotice";
-            this.LabPortNotice.Size = new System.Drawing.Size(144, 17);
-            this.LabPortNotice.TabIndex = 26;
-            this.LabPortNotice.Text = "输入的端口号请大于8000";
-            this.LabPortNotice.Visible = false;
+            this.BtnSave.Location = new System.Drawing.Point(220, 305);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(157, 42);
+            this.BtnSave.TabIndex = 37;
+            this.BtnSave.Text = "保存设置";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // FrmMain
             // 
@@ -1034,6 +1046,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LblBuild;
         private System.Windows.Forms.Label LabPortNotice;
+        private System.Windows.Forms.Button BtnSave;
     }
 }
 

@@ -187,7 +187,7 @@ namespace InM
             paramlist.Add("key", key);
 
             var builder = new UriBuilder(endpoint);
-            builder.Port = -1;
+            //builder.Port = -1;
             var content = new FormUrlEncodedContent(paramlist);
             string query = content.ReadAsStringAsync().Result;
             builder.Query = query.ToString();

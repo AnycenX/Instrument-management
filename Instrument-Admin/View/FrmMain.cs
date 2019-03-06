@@ -14,7 +14,6 @@ using System.Windows.Forms;
 using InM;
 using InM.Core.Model;
 using InM_Admin.Controller;
-using InM_Admin.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -651,9 +650,18 @@ namespace InM_Admin
             Process.Start("https://api.anycen.com/instrument/adminsoft/doc/");
         }
 
-        private void TxtPort_MouseLeave(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
+                Properties.Settings.Default.Save();
+                MessageBox.Show("设置保存成功", "系统提示");
+            }
+            catch
+            {
+                MessageBox.Show("设置保存失败", "系统提示");
+            }
         }
     }
 }
