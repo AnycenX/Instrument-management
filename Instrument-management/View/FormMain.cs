@@ -73,6 +73,7 @@ namespace InM
         private void TimKill_Tick(object sender, EventArgs e)//始终禁用，对xp有效
         {
             KillTaskmgr();
+            WindowState = FormWindowState.Maximized;
         }
 
         private void textBoxUserpwd_Leave(object sender, EventArgs e)

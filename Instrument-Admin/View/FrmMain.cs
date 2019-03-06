@@ -74,6 +74,19 @@ namespace InM_Admin
 
             CheckNet.Checked = Properties.Settings.Default.NetSwitch;
             TxtPort.Text = Properties.Settings.Default.Port.ToString();
+
+            if (Properties.Settings.Default.NetConnect)
+            {
+                NetHideLog.Visible = false;
+                NetHideUser.Visible = false;
+                NetHideProcess.Visible = false;
+            }
+            else
+            {
+                NetHideLog.Visible = true;
+                NetHideUser.Visible = true ;
+                NetHideProcess.Visible = true;
+            }
         }
 
         private void ComDayChange_SelectedIndexChanged(object sender, EventArgs e)

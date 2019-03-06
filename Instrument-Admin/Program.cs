@@ -70,6 +70,7 @@ namespace InM_Admin
             StorageModel smold = StorageController.Load(SharedData.dataPath);
             if (smold != null)
             {
+                SharedData.updateInfoVer = smold.updateInfo;
                 SharedData.processInfoVer = smold.processInfo;
                 SharedData.userInfoVer = smold.userInfo;
             }
@@ -98,8 +99,15 @@ namespace InM_Admin
                 };
             }
 
+            SharedData.updateInfoVer = new InfoWithVer<UpdateInfo>()
+            {
+                version = startInfo.update,
+                info = api.GetUpdate(startInfo.update.ToString()).ToArray()
+            };
+
             StorageModel sm = new StorageModel()
             {
+                updateInfo = SharedData.updateInfoVer,
                 userInfo = SharedData.userInfoVer,
                 processInfo = SharedData.processInfoVer
             };
@@ -152,7 +160,7 @@ namespace InM_Admin
                     {
                         Root NoTimestamp = new Root();
                         NoTimestamp.code = 302;
-                        NoTimestamp.data = "No authkey";
+                        NoTimestamp.data = "No timestamp";
                         JsonData = JsonConvert.SerializeObject(NoTimestamp);
                     }
                     else if(key == Encryption.MD5Hash(((timestamp - 500) * 3).ToString() + authkey))
@@ -160,22 +168,52 @@ namespace InM_Admin
                         switch (type)
                         {
                             case "start":
-                                Root returnStart = new Root();
-                                returnStart.code = 200;
-                                returnStart.data = SharedData.startInfo;
-                                JsonData = JsonConvert.SerializeObject(returnStart);
+                                try
+                                {
+                                    Root returnStart = new Root();
+                                    returnStart.code = 200;
+                                    returnStart.data = SharedData.startInfo;
+                                    JsonData = JsonConvert.SerializeObject(returnStart);
+                                }
+                                catch
+                                {
+                                    Root returnErrorAuthkey = new Root();
+                                    returnErrorAuthkey.code = 500;
+                                    returnErrorAuthkey.data = "System error";
+                                    JsonData = JsonConvert.SerializeObject(returnErrorAuthkey);
+                                }
                                 break;
                             case "userinfo":
-                                Root returnUser = new Root();
-                                returnUser.code = 200;
-                                returnUser.data = SharedData.userInfo;
-                                JsonData = JsonConvert.SerializeObject(returnUser);
+                                try
+                                {
+                                    Root returnUser = new Root();
+                                    returnUser.code = 200;
+                                    returnUser.data = SharedData.userInfo;
+                                    JsonData = JsonConvert.SerializeObject(returnUser);
+                                }
+                                catch
+                                {
+                                    Root returnErrorAuthkey = new Root();
+                                    returnErrorAuthkey.code = 500;
+                                    returnErrorAuthkey.data = "System error";
+                                    JsonData = JsonConvert.SerializeObject(returnErrorAuthkey);
+                                }
                                 break;
                             case "processinfo":
-                                Root returnProcess = new Root();
-                                returnProcess.code = 200;
-                                returnProcess.data = SharedData.processInfo;
-                                JsonData = JsonConvert.SerializeObject(returnProcess);
+                                try
+                                {
+                                    Root returnProcess = new Root();
+                                    returnProcess.code = 200;
+                                    returnProcess.data = SharedData.processInfo;
+                                    JsonData = JsonConvert.SerializeObject(returnProcess);
+                                }
+                                catch
+                                {
+                                    Root returnErrorAuthkey = new Root();
+                                    returnErrorAuthkey.code = 500;
+                                    returnErrorAuthkey.data = "System error";
+                                    JsonData = JsonConvert.SerializeObject(returnErrorAuthkey);
+                                }
                                 break;
                             default:
                                 Root returnNoType = new Root();
@@ -198,7 +236,6 @@ namespace InM_Admin
                     response.StatusCode = 200;
                     response.ContentType = "application/json;charset=UTF-8";
                     response.ContentEncoding = Encoding.UTF8;
-                    response.AppendHeader("Content-Type", "application/json;charset=UTF-8");
                     using (StreamWriter writer = new StreamWriter(httpListenerContext.Response.OutputStream))
                     {
                         writer.WriteLine(JsonData);

@@ -87,6 +87,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.BtnSave = new System.Windows.Forms.Button();
             this.LabPortNotice = new System.Windows.Forms.Label();
             this.BuildVersion = new System.Windows.Forms.Label();
             this.LblBuild = new System.Windows.Forms.Label();
@@ -101,7 +102,15 @@
             this.BtnCheckUpdate = new System.Windows.Forms.Button();
             this.TxtSever = new System.Windows.Forms.TextBox();
             this.LblSever = new System.Windows.Forms.Label();
-            this.BtnSave = new System.Windows.Forms.Button();
+            this.NetHideLog = new System.Windows.Forms.Panel();
+            this.LblNetHideLog = new System.Windows.Forms.Label();
+            this.NetHideUser = new System.Windows.Forms.Panel();
+            this.LblNetHideUser = new System.Windows.Forms.Label();
+            this.NetHideProcess = new System.Windows.Forms.Panel();
+            this.LblNetHideProcess = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.TabCont.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataLogInfo)).BeginInit();
@@ -112,6 +121,9 @@
             this.PanProcessEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataProcessInfo)).BeginInit();
             this.tabPage5.SuspendLayout();
+            this.NetHideLog.SuspendLayout();
+            this.NetHideUser.SuspendLayout();
+            this.NetHideProcess.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabCont
@@ -132,6 +144,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.NetHideLog);
             this.tabPage2.Controls.Add(this.CheckUser);
             this.tabPage2.Controls.Add(this.DataLogInfo);
             this.tabPage2.Controls.Add(this.BtnSearch);
@@ -321,6 +334,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.NetHideUser);
             this.tabPage3.Controls.Add(this.RefreshUser);
             this.tabPage3.Controls.Add(this.BtnNewUser);
             this.tabPage3.Controls.Add(this.PanUserEdit);
@@ -548,6 +562,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.NetHideProcess);
             this.tabPage4.Controls.Add(this.RefreshProcess);
             this.tabPage4.Controls.Add(this.BtnNewProcess);
             this.tabPage4.Controls.Add(this.PanProcessEdit);
@@ -786,6 +801,17 @@
             this.tabPage5.Text = " 系统设置 ";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // BtnSave
+            // 
+            this.BtnSave.Location = new System.Drawing.Point(220, 305);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(157, 42);
+            this.BtnSave.TabIndex = 37;
+            this.BtnSave.Text = "保存设置";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
             // LabPortNotice
             // 
             this.LabPortNotice.AutoSize = true;
@@ -930,16 +956,98 @@
             this.LblSever.TabIndex = 3;
             this.LblSever.Text = "服务接口：";
             // 
-            // BtnSave
+            // NetHideLog
             // 
-            this.BtnSave.Location = new System.Drawing.Point(220, 305);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(157, 42);
-            this.BtnSave.TabIndex = 37;
-            this.BtnSave.Text = "保存设置";
-            this.BtnSave.UseVisualStyleBackColor = true;
-            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            this.NetHideLog.Controls.Add(this.label13);
+            this.NetHideLog.Controls.Add(this.LblNetHideLog);
+            this.NetHideLog.Location = new System.Drawing.Point(0, 0);
+            this.NetHideLog.Name = "NetHideLog";
+            this.NetHideLog.Size = new System.Drawing.Size(641, 391);
+            this.NetHideLog.TabIndex = 15;
+            this.NetHideLog.Visible = false;
+            // 
+            // LblNetHideLog
+            // 
+            this.LblNetHideLog.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblNetHideLog.ForeColor = System.Drawing.Color.SlateGray;
+            this.LblNetHideLog.Location = new System.Drawing.Point(3, 108);
+            this.LblNetHideLog.Name = "LblNetHideLog";
+            this.LblNetHideLog.Size = new System.Drawing.Size(635, 75);
+            this.LblNetHideLog.TabIndex = 0;
+            this.LblNetHideLog.Text = "局域网状态下，不可查询日志";
+            this.LblNetHideLog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NetHideUser
+            // 
+            this.NetHideUser.Controls.Add(this.label11);
+            this.NetHideUser.Controls.Add(this.LblNetHideUser);
+            this.NetHideUser.Location = new System.Drawing.Point(0, 0);
+            this.NetHideUser.Name = "NetHideUser";
+            this.NetHideUser.Size = new System.Drawing.Size(641, 391);
+            this.NetHideUser.TabIndex = 16;
+            this.NetHideUser.Visible = false;
+            // 
+            // LblNetHideUser
+            // 
+            this.LblNetHideUser.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblNetHideUser.ForeColor = System.Drawing.Color.SlateGray;
+            this.LblNetHideUser.Location = new System.Drawing.Point(3, 108);
+            this.LblNetHideUser.Name = "LblNetHideUser";
+            this.LblNetHideUser.Size = new System.Drawing.Size(635, 75);
+            this.LblNetHideUser.TabIndex = 0;
+            this.LblNetHideUser.Text = "局域网状态下，不可进行用户管理";
+            this.LblNetHideUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NetHideProcess
+            // 
+            this.NetHideProcess.Controls.Add(this.label6);
+            this.NetHideProcess.Controls.Add(this.LblNetHideProcess);
+            this.NetHideProcess.Location = new System.Drawing.Point(0, 0);
+            this.NetHideProcess.Name = "NetHideProcess";
+            this.NetHideProcess.Size = new System.Drawing.Size(641, 391);
+            this.NetHideProcess.TabIndex = 18;
+            this.NetHideProcess.Visible = false;
+            // 
+            // LblNetHideProcess
+            // 
+            this.LblNetHideProcess.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblNetHideProcess.ForeColor = System.Drawing.Color.SlateGray;
+            this.LblNetHideProcess.Location = new System.Drawing.Point(3, 108);
+            this.LblNetHideProcess.Name = "LblNetHideProcess";
+            this.LblNetHideProcess.Size = new System.Drawing.Size(635, 75);
+            this.LblNetHideProcess.TabIndex = 0;
+            this.LblNetHideProcess.Text = "局域网状态下，不可进行监控管理";
+            this.LblNetHideProcess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.ForeColor = System.Drawing.Color.DarkGray;
+            this.label6.Location = new System.Drawing.Point(4, 170);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(634, 28);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "若想更改设置，请跳转至系统设置页面";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label11
+            // 
+            this.label11.ForeColor = System.Drawing.Color.DarkGray;
+            this.label11.Location = new System.Drawing.Point(4, 170);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(634, 28);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "若想更改设置，请跳转至系统设置页面";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label13
+            // 
+            this.label13.ForeColor = System.Drawing.Color.DarkGray;
+            this.label13.Location = new System.Drawing.Point(4, 170);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(634, 28);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "若想更改设置，请跳转至系统设置页面";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FrmMain
             // 
@@ -971,6 +1079,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataProcessInfo)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.NetHideLog.ResumeLayout(false);
+            this.NetHideUser.ResumeLayout(false);
+            this.NetHideProcess.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1047,6 +1158,15 @@
         private System.Windows.Forms.Label LblBuild;
         private System.Windows.Forms.Label LabPortNotice;
         private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.Panel NetHideLog;
+        private System.Windows.Forms.Label LblNetHideLog;
+        private System.Windows.Forms.Panel NetHideUser;
+        private System.Windows.Forms.Label LblNetHideUser;
+        private System.Windows.Forms.Panel NetHideProcess;
+        private System.Windows.Forms.Label LblNetHideProcess;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label6;
     }
 }
 
