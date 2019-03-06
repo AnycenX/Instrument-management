@@ -34,7 +34,7 @@
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxUserpwd = new System.Windows.Forms.TextBox();
             this.PlanLoad = new System.Windows.Forms.Panel();
-            this.LinkForgetPass = new System.Windows.Forms.LinkLabel();
+            this.LinkRefreshData = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.picBack = new System.Windows.Forms.PictureBox();
@@ -77,7 +77,7 @@
             this.PlanLoad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PlanLoad.BackColor = System.Drawing.SystemColors.Control;
             this.PlanLoad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PlanLoad.Controls.Add(this.LinkForgetPass);
+            this.PlanLoad.Controls.Add(this.LinkRefreshData);
             this.PlanLoad.Controls.Add(this.label1);
             this.PlanLoad.Controls.Add(this.buttonLogin);
             this.PlanLoad.Controls.Add(this.textBoxUsername);
@@ -89,18 +89,19 @@
             this.PlanLoad.Size = new System.Drawing.Size(298, 206);
             this.PlanLoad.TabIndex = 8;
             // 
-            // LinkForgetPass
+            // LinkRefreshData
             // 
-            this.LinkForgetPass.ActiveLinkColor = System.Drawing.Color.Maroon;
-            this.LinkForgetPass.AutoSize = true;
-            this.LinkForgetPass.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LinkForgetPass.LinkColor = System.Drawing.Color.Gray;
-            this.LinkForgetPass.Location = new System.Drawing.Point(22, 150);
-            this.LinkForgetPass.Name = "LinkForgetPass";
-            this.LinkForgetPass.Size = new System.Drawing.Size(93, 20);
-            this.LinkForgetPass.TabIndex = 13;
-            this.LinkForgetPass.TabStop = true;
-            this.LinkForgetPass.Text = "刷新本地数据";
+            this.LinkRefreshData.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.LinkRefreshData.AutoSize = true;
+            this.LinkRefreshData.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LinkRefreshData.LinkColor = System.Drawing.Color.Gray;
+            this.LinkRefreshData.Location = new System.Drawing.Point(22, 150);
+            this.LinkRefreshData.Name = "LinkRefreshData";
+            this.LinkRefreshData.Size = new System.Drawing.Size(93, 20);
+            this.LinkRefreshData.TabIndex = 13;
+            this.LinkRefreshData.TabStop = true;
+            this.LinkRefreshData.Text = "刷新本地数据";
+            this.LinkRefreshData.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkRefreshData_LinkClicked);
             // 
             // label1
             // 
@@ -175,7 +176,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Panel panelForm;
-        private System.Windows.Forms.LinkLabel LinkForgetPass;
+        private System.Windows.Forms.LinkLabel LinkRefreshData;
     }
 }
 

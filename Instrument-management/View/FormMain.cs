@@ -13,6 +13,7 @@ using System.Drawing.Drawing2D;
 using System.Management;
 using System.Management.Instrumentation;
 using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace InM
 {
@@ -26,10 +27,15 @@ namespace InM
 
         private void formMain_Load(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.User != "")
+            {
+                textBoxUsername.Text = Properties.Settings.Default.User;
+                textBoxUsername.ForeColor = Color.Black;
+            }
+            
 #if !DEBUG
             h.Hook_Start();//禁用快捷键
 #endif
-            textBoxUsername.Text = Properties.Settings.Default.User;
         }
 
         protected override bool ProcessKeyEventArgs(ref Message m)//禁用任务管理器
@@ -105,21 +111,51 @@ namespace InM
                 textBoxUsername.Text = "请输入用户名";
                 textBoxUsername.ForeColor = Color.Silver;
             }
+            else
+            {
+                textBoxUsername.ForeColor = Color.Black;
+            }
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("xxx");
             try
             {
-                SharedData.User.Login(textBoxUsername.Text, textBoxUserpwd.Text);
                 Properties.Settings.Default.User = textBoxUsername.Text;
                 Properties.Settings.Default.Save();
+                SharedData.User.Login(textBoxUsername.Text, textBoxUserpwd.Text);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "登录失败");
             }
+        }
+
+        private void LinkRefreshData_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                SharedData.userInfoVer = new InfoWithVer<UserInfo>()
+                {
+                    info = Program.api.GetUserinfo("ver").ToArray()
+                };
+                saveDatatoBin();
+                MessageBox.Show("远程数据拉取成功", "系统提示");
+            }
+            catch
+            {
+                MessageBox.Show("无法从网络上拉取信息","网络错误");
+            }
+        }
+
+        private void saveDatatoBin()
+        {
+            StorageModel bin = new StorageModel()
+            {
+                userInfo = SharedData.userInfoVer,
+                processInfo = SharedData.processInfoVer
+            };
+            StorageController.Save(SharedData.dataPath, bin);
         }
     }
 }

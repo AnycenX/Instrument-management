@@ -27,6 +27,7 @@ namespace InM
         private void frmSetting_Load(object sender, EventArgs e)
         {
             CheckNet.Checked = Properties.Settings.Default.NetSwitch;
+            TxtClient.Text = Properties.Settings.Default.IP;
             TxtPort.Text = Properties.Settings.Default.Port.ToString();
         }
 
@@ -66,39 +67,37 @@ namespace InM
             }
         }
 
-        private void TxtPort_MouseLeave(object sender, EventArgs e)
-        {
-            if (TxtPort.Text == "")
-            {
-                TxtPort.Text = "8000";
-                Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
-                Properties.Settings.Default.Save();
-            }
-            else if (Convert.ToInt32(TxtPort.Text) >= 8000)
-            {
-                Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
-                Properties.Settings.Default.Save();
-            }
-            else
-            {
-                TxtPort.Text = "8000";
-                Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
-                Properties.Settings.Default.Save();
-            }
-        }
-
-        private void TxtClient_MouseLeave(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             try
             {
+                if (TxtPort.Text == "")
+                {
+                    TxtPort.Text = "8000";
+                    Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
+                    Properties.Settings.Default.Save();
+                }
+                else if (Convert.ToInt32(TxtPort.Text) >= 8000)
+                {
+                    Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    TxtPort.Text = "8000";
+                    Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
+                    Properties.Settings.Default.Save();
+                }
+
                 ip = IPAddress.Parse(TxtClient.Text);
                 Properties.Settings.Default.IP = TxtClient.Text;
                 Properties.Settings.Default.Save();
-                LabIPNotice.Visible = false;
+
+                MessageBox.Show("设置保存成功", "系统提示");
             }
-            catch (Exception error)
+            catch
             {
-                LabIPNotice.Visible = true;
+                MessageBox.Show("设置保存失败","系统提示");
             }
         }
     }

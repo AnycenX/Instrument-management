@@ -41,8 +41,8 @@
             this.LblNetClient = new System.Windows.Forms.Label();
             this.LblPort = new System.Windows.Forms.Label();
             this.TxtPort = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.LabPortNotice = new System.Windows.Forms.Label();
+            this.BtnSave = new System.Windows.Forms.Button();
             this.LabIPNotice = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -133,7 +133,6 @@
             this.TxtClient.Name = "TxtClient";
             this.TxtClient.Size = new System.Drawing.Size(139, 26);
             this.TxtClient.TabIndex = 30;
-            this.TxtClient.MouseLeave += new System.EventHandler(this.TxtClient_MouseLeave);
             // 
             // LblNetClient
             // 
@@ -160,18 +159,6 @@
             this.TxtPort.Size = new System.Drawing.Size(65, 26);
             this.TxtPort.TabIndex = 32;
             this.TxtPort.TextChanged += new System.EventHandler(this.TxtPort_TextChanged);
-            this.TxtPort.MouseLeave += new System.EventHandler(this.TxtPort_MouseLeave);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(49, 306);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 17);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "设置修改重启后生效";
             // 
             // LabPortNotice
             // 
@@ -185,26 +172,37 @@
             this.LabPortNotice.Text = "输入的端口号请大于8000";
             this.LabPortNotice.Visible = false;
             // 
+            // BtnSave
+            // 
+            this.BtnSave.Location = new System.Drawing.Point(151, 314);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(157, 42);
+            this.BtnSave.TabIndex = 36;
+            this.BtnSave.Text = "保存设置";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
             // LabIPNotice
             // 
             this.LabIPNotice.AutoSize = true;
             this.LabIPNotice.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabIPNotice.ForeColor = System.Drawing.Color.Red;
+            this.LabIPNotice.ForeColor = System.Drawing.Color.Gray;
             this.LabIPNotice.Location = new System.Drawing.Point(294, 128);
             this.LabIPNotice.Name = "LabIPNotice";
-            this.LabIPNotice.Size = new System.Drawing.Size(91, 17);
+            this.LabIPNotice.Size = new System.Drawing.Size(115, 17);
             this.LabIPNotice.TabIndex = 35;
-            this.LabIPNotice.Text = "IP地址输入错误";
+            this.LabIPNotice.Text = "请输入管理端IP地址";
             this.LabIPNotice.Visible = false;
             // 
             // FormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 345);
+            this.ClientSize = new System.Drawing.Size(464, 384);
+            this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.LabIPNotice);
             this.Controls.Add(this.LabPortNotice);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.TxtPort);
             this.Controls.Add(this.LblPort);
             this.Controls.Add(this.TxtClient);
@@ -244,8 +242,8 @@
         private System.Windows.Forms.Label LblNetClient;
         private System.Windows.Forms.Label LblPort;
         private System.Windows.Forms.TextBox TxtPort;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LabPortNotice;
+        private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Label LabIPNotice;
     }
 }

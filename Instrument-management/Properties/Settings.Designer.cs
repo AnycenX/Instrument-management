@@ -73,7 +73,7 @@ namespace InM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("tisu")]
         public string User {
             get {
                 return ((string)(this["User"]));
@@ -92,6 +92,18 @@ namespace InM.Properties {
             }
             set {
                 this["Port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NetConnect {
+            get {
+                return ((bool)(this["NetConnect"]));
+            }
+            set {
+                this["NetConnect"] = value;
             }
         }
     }

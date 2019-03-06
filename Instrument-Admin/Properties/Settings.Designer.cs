@@ -82,5 +82,17 @@ namespace InM_Admin.Properties {
                 this["Port"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NetConnect {
+            get {
+                return ((bool)(this["NetConnect"]));
+            }
+            set {
+                this["NetConnect"] = value;
+            }
+        }
     }
 }

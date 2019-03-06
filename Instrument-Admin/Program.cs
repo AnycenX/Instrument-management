@@ -35,16 +35,22 @@ namespace InM_Admin
 
             api = new ApiController(authkey, endpoint);
 
+            Properties.Settings.Default.NetConnect = true;
+            if (!api.CheckConnection())
+            {
+                Properties.Settings.Default.NetConnect = false;
+                if (Properties.Settings.Default.NetSwitch)
+                {
+                    HttpListenServer();
+                }
+            }
+            Properties.Settings.Default.Save();
+
             inMAdminHandler = new InMAdminHandler();
 
             Update();
             frmLoad = new FrmLoad();
             frmLoad.Show();
-
-            if (Properties.Settings.Default.NetSwitch)
-            {
-                HttpListenServer();
-            }
             
             Application.Run();
         }
@@ -66,6 +72,12 @@ namespace InM_Admin
             {
                 SharedData.processInfoVer = smold.processInfo;
                 SharedData.userInfoVer = smold.userInfo;
+            }
+
+            if (!api.CheckConnection())
+            {
+                //TODO: 局域网处理
+                return;
             }
 
             StartInfo startInfo = api.GetStart();
@@ -92,30 +104,6 @@ namespace InM_Admin
                 processInfo = SharedData.processInfoVer
             };
             StorageController.Save(SharedData.dataPath, sm);
-
-            /*
-            if (startInfo.update > VERSION)
-            {
-                HttpClient client = new HttpClient();
-                List<UpdateInfo> updateInfos = api.GetUpdate(startInfo.update.ToString()).ToList();
-                foreach (UpdateInfo x in updateInfos)
-                {
-                    string downloadFilename = Path.Combine(SharedData.currentPath, x.name);
-                    var response = client.GetAsync(x.url).Result;
-                    using (var fs = new FileStream(downloadFilename + ".downloading", FileMode.Create))
-                    {
-                        response.Content.CopyToAsync(fs);
-                    }
-                    if (File.Exists(downloadFilename))
-                    {
-                        File.Move(downloadFilename, downloadFilename + ".delete");
-                    }
-                    File.Move(downloadFilename + ".downloading", downloadFilename);
-                }
-            }
-            */
-
-            //Application.Run(new FrmLoad());
         }
 
         static void HttpListenServer()
