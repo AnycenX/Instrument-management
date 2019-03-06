@@ -35,19 +35,22 @@ namespace InM_Admin
 
             api = new ApiController(authkey, endpoint);
 
+            Properties.Settings.Default.NetConnect = true;
+            if (!api.CheckConnection())
+            {
+                Properties.Settings.Default.NetConnect = false;
+                if (Properties.Settings.Default.NetSwitch)
+                {
+                    HttpListenServer();
+                }
+            }
+            Properties.Settings.Default.Save();
+
             inMAdminHandler = new InMAdminHandler();
 
-            if (api.CheckConnection())
-            {
-                Update();
-            }
+            Update();
             frmLoad = new FrmLoad();
             frmLoad.Show();
-
-            if (Properties.Settings.Default.NetSwitch)
-            {
-                HttpListenServer();
-            }
             
             Application.Run();
         }
@@ -69,7 +72,12 @@ namespace InM_Admin
             {
                 SharedData.processInfoVer = smold.processInfo;
                 SharedData.userInfoVer = smold.userInfo;
-                SharedData.updateInfoVer = smold.updateInfo;
+            }
+
+            if (!api.CheckConnection())
+            {
+                //TODO: 局域网处理
+                return;
             }
 
             StartInfo startInfo = api.GetStart();
@@ -93,8 +101,7 @@ namespace InM_Admin
             StorageModel sm = new StorageModel()
             {
                 userInfo = SharedData.userInfoVer,
-                processInfo = SharedData.processInfoVer,
-                updateInfo = SharedData.updateInfoVer
+                processInfo = SharedData.processInfoVer
             };
             StorageController.Save(SharedData.dataPath, sm);
         }

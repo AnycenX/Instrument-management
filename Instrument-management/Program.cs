@@ -41,7 +41,7 @@ namespace InM
             {
                 if (Properties.Settings.Default.NetSwitch)
                 {
-                    api = new ApiController(authkey, Properties.Settings.Default.IP);
+                    api = new ApiController(authkey, Properties.Settings.Default.IP + ":" + Properties.Settings.Default.Port);
                 } 
             }
             inMEventHandler = new InMEventHandler();
