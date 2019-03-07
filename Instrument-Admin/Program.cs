@@ -118,9 +118,20 @@ namespace InM_Admin
         {
             HttpListener httpListener = new HttpListener();
 
-            httpListener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
-            httpListener.Prefixes.Add("http://127.0.0.1:" + Properties.Settings.Default.Port + "/");
-            httpListener.Start();
+            try
+            {
+                httpListener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
+                //httpListener.Prefixes.Add(string.Format("http://{0}:{1}/", "192.168.31.201", "8888"));Properties.Settings.Default.IP
+                httpListener.Prefixes.Add(string.Format("http://{0}:{1}/", Properties.Settings.Default.IP, Properties.Settings.Default.Port));
+                httpListener.Start();
+            }
+            catch
+            {
+                httpListener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
+                httpListener.Prefixes.Add(string.Format("http://localhost:{1}/", Properties.Settings.Default.IP, Properties.Settings.Default.Port));
+                httpListener.Start();
+                MessageBox.Show("IP地址输入错误，请登录后前往设置页面修改。","系统提示");
+            }
 
             new Thread(new ThreadStart(delegate
             {

@@ -16,8 +16,6 @@ namespace InM
 {
     public partial class FormSetting : Form
     {
-        IPAddress ip;
-
         public FormSetting()
         {
             InitializeComponent();
@@ -89,7 +87,6 @@ namespace InM
                     Properties.Settings.Default.Save();
                 }
 
-                ip = IPAddress.Parse(TxtClient.Text);
                 Properties.Settings.Default.IP = TxtClient.Text;
                 Properties.Settings.Default.Save();
 

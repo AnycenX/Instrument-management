@@ -668,12 +668,38 @@ namespace InM_Admin
             try
             {
                 Properties.Settings.Default.Port = Convert.ToInt32(TxtPort.Text);
+                Properties.Settings.Default.IP = TxtClient.Text;
                 Properties.Settings.Default.Save();
                 MessageBox.Show("设置保存成功", "系统提示");
             }
             catch
             {
                 MessageBox.Show("设置保存失败", "系统提示");
+            }
+        }
+
+        public static string InvokeExcute(string Command)
+        {
+            Command = Command.Trim().TrimEnd('&') + "&exit";
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = "cmd.exe";
+                p.StartInfo.UseShellExecute = false;        //是否使用操作系统shell启动
+                p.StartInfo.RedirectStandardInput = true;   //接受来自调用程序的输入信息
+                p.StartInfo.RedirectStandardOutput = true;  //由调用程序获取输出信息
+                p.StartInfo.RedirectStandardError = true;   //重定向标准错误输出
+                p.StartInfo.CreateNoWindow = true;          //不显示程序窗口
+                p.Start();//启动程序
+                          //向cmd窗口写入命令
+                p.StandardInput.WriteLine(Command);
+                p.StandardInput.AutoFlush = true;
+                //获取cmd窗口的输出信息
+                StreamReader reader = p.StandardOutput;//截取输出流
+                StreamReader error = p.StandardError;//截取错误信息
+                string str = reader.ReadToEnd() + error.ReadToEnd();
+                p.WaitForExit();//等待程序执行完退出进程
+                p.Close();
+                return str;
             }
         }
     }

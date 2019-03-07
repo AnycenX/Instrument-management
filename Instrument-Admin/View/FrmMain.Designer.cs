@@ -34,6 +34,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.TabCont = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.NetHideLog = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.LblNetHideLog = new System.Windows.Forms.Label();
             this.CheckUser = new System.Windows.Forms.CheckBox();
             this.DataLogInfo = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +53,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.NetHideUser = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.LblNetHideUser = new System.Windows.Forms.Label();
             this.RefreshUser = new System.Windows.Forms.LinkLabel();
             this.BtnNewUser = new System.Windows.Forms.Button();
             this.PanUserEdit = new System.Windows.Forms.Panel();
@@ -69,6 +75,9 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.NetHideProcess = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LblNetHideProcess = new System.Windows.Forms.Label();
             this.RefreshProcess = new System.Windows.Forms.LinkLabel();
             this.BtnNewProcess = new System.Windows.Forms.Button();
             this.PanProcessEdit = new System.Windows.Forms.Panel();
@@ -102,28 +111,22 @@
             this.BtnCheckUpdate = new System.Windows.Forms.Button();
             this.TxtSever = new System.Windows.Forms.TextBox();
             this.LblSever = new System.Windows.Forms.Label();
-            this.NetHideLog = new System.Windows.Forms.Panel();
-            this.LblNetHideLog = new System.Windows.Forms.Label();
-            this.NetHideUser = new System.Windows.Forms.Panel();
-            this.LblNetHideUser = new System.Windows.Forms.Label();
-            this.NetHideProcess = new System.Windows.Forms.Panel();
-            this.LblNetHideProcess = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.LabIPNotice = new System.Windows.Forms.Label();
+            this.TxtClient = new System.Windows.Forms.TextBox();
+            this.LblNetIP = new System.Windows.Forms.Label();
             this.TabCont.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.NetHideLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataLogInfo)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.NetHideUser.SuspendLayout();
             this.PanUserEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataUserinfo)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.NetHideProcess.SuspendLayout();
             this.PanProcessEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataProcessInfo)).BeginInit();
             this.tabPage5.SuspendLayout();
-            this.NetHideLog.SuspendLayout();
-            this.NetHideUser.SuspendLayout();
-            this.NetHideProcess.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabCont
@@ -163,6 +166,37 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = " 日志查看 ";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // NetHideLog
+            // 
+            this.NetHideLog.Controls.Add(this.label13);
+            this.NetHideLog.Controls.Add(this.LblNetHideLog);
+            this.NetHideLog.Location = new System.Drawing.Point(0, 0);
+            this.NetHideLog.Name = "NetHideLog";
+            this.NetHideLog.Size = new System.Drawing.Size(641, 391);
+            this.NetHideLog.TabIndex = 15;
+            this.NetHideLog.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.ForeColor = System.Drawing.Color.DarkGray;
+            this.label13.Location = new System.Drawing.Point(4, 170);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(634, 28);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "若想更改设置，请跳转至系统设置页面";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblNetHideLog
+            // 
+            this.LblNetHideLog.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblNetHideLog.ForeColor = System.Drawing.Color.SlateGray;
+            this.LblNetHideLog.Location = new System.Drawing.Point(3, 108);
+            this.LblNetHideLog.Name = "LblNetHideLog";
+            this.LblNetHideLog.Size = new System.Drawing.Size(635, 75);
+            this.LblNetHideLog.TabIndex = 0;
+            this.LblNetHideLog.Text = "局域网状态下，不可查询日志";
+            this.LblNetHideLog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CheckUser
             // 
@@ -345,6 +379,37 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = " 用户管理 ";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // NetHideUser
+            // 
+            this.NetHideUser.Controls.Add(this.label11);
+            this.NetHideUser.Controls.Add(this.LblNetHideUser);
+            this.NetHideUser.Location = new System.Drawing.Point(0, 0);
+            this.NetHideUser.Name = "NetHideUser";
+            this.NetHideUser.Size = new System.Drawing.Size(641, 391);
+            this.NetHideUser.TabIndex = 16;
+            this.NetHideUser.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.ForeColor = System.Drawing.Color.DarkGray;
+            this.label11.Location = new System.Drawing.Point(4, 170);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(634, 28);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "若想更改设置，请跳转至系统设置页面";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblNetHideUser
+            // 
+            this.LblNetHideUser.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblNetHideUser.ForeColor = System.Drawing.Color.SlateGray;
+            this.LblNetHideUser.Location = new System.Drawing.Point(3, 108);
+            this.LblNetHideUser.Name = "LblNetHideUser";
+            this.LblNetHideUser.Size = new System.Drawing.Size(635, 75);
+            this.LblNetHideUser.TabIndex = 0;
+            this.LblNetHideUser.Text = "局域网状态下，不可进行用户管理";
+            this.LblNetHideUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RefreshUser
             // 
@@ -574,6 +639,37 @@
             this.tabPage4.Text = " 监控管理 ";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // NetHideProcess
+            // 
+            this.NetHideProcess.Controls.Add(this.label6);
+            this.NetHideProcess.Controls.Add(this.LblNetHideProcess);
+            this.NetHideProcess.Location = new System.Drawing.Point(0, 0);
+            this.NetHideProcess.Name = "NetHideProcess";
+            this.NetHideProcess.Size = new System.Drawing.Size(641, 391);
+            this.NetHideProcess.TabIndex = 18;
+            this.NetHideProcess.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.ForeColor = System.Drawing.Color.DarkGray;
+            this.label6.Location = new System.Drawing.Point(4, 170);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(634, 28);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "若想更改设置，请跳转至系统设置页面";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblNetHideProcess
+            // 
+            this.LblNetHideProcess.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LblNetHideProcess.ForeColor = System.Drawing.Color.SlateGray;
+            this.LblNetHideProcess.Location = new System.Drawing.Point(3, 108);
+            this.LblNetHideProcess.Name = "LblNetHideProcess";
+            this.LblNetHideProcess.Size = new System.Drawing.Size(635, 75);
+            this.LblNetHideProcess.TabIndex = 0;
+            this.LblNetHideProcess.Text = "局域网状态下，不可进行监控管理";
+            this.LblNetHideProcess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // RefreshProcess
             // 
             this.RefreshProcess.ActiveLinkColor = System.Drawing.Color.Maroon;
@@ -779,6 +875,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.LabIPNotice);
+            this.tabPage5.Controls.Add(this.TxtClient);
+            this.tabPage5.Controls.Add(this.LblNetIP);
             this.tabPage5.Controls.Add(this.BtnSave);
             this.tabPage5.Controls.Add(this.LabPortNotice);
             this.tabPage5.Controls.Add(this.BuildVersion);
@@ -817,7 +916,7 @@
             this.LabPortNotice.AutoSize = true;
             this.LabPortNotice.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LabPortNotice.ForeColor = System.Drawing.Color.Red;
-            this.LabPortNotice.Location = new System.Drawing.Point(291, 151);
+            this.LabPortNotice.Location = new System.Drawing.Point(290, 167);
             this.LabPortNotice.Name = "LabPortNotice";
             this.LabPortNotice.Size = new System.Drawing.Size(144, 17);
             this.LabPortNotice.TabIndex = 26;
@@ -857,7 +956,7 @@
             // 
             // TxtPort
             // 
-            this.TxtPort.Location = new System.Drawing.Point(220, 145);
+            this.TxtPort.Location = new System.Drawing.Point(219, 161);
             this.TxtPort.Name = "TxtPort";
             this.TxtPort.Size = new System.Drawing.Size(65, 26);
             this.TxtPort.TabIndex = 23;
@@ -867,7 +966,7 @@
             // LblPort
             // 
             this.LblPort.AutoSize = true;
-            this.LblPort.Location = new System.Drawing.Point(121, 148);
+            this.LblPort.Location = new System.Drawing.Point(121, 164);
             this.LblPort.Name = "LblPort";
             this.LblPort.Size = new System.Drawing.Size(93, 20);
             this.LblPort.TabIndex = 22;
@@ -878,7 +977,7 @@
             this.LinkHandBook.ActiveLinkColor = System.Drawing.Color.Maroon;
             this.LinkHandBook.AutoSize = true;
             this.LinkHandBook.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.LinkHandBook.Location = new System.Drawing.Point(219, 252);
+            this.LinkHandBook.Location = new System.Drawing.Point(216, 250);
             this.LinkHandBook.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LinkHandBook.Name = "LinkHandBook";
             this.LinkHandBook.Size = new System.Drawing.Size(93, 20);
@@ -890,7 +989,7 @@
             // LblHandBook
             // 
             this.LblHandBook.AutoSize = true;
-            this.LblHandBook.Location = new System.Drawing.Point(121, 252);
+            this.LblHandBook.Location = new System.Drawing.Point(121, 250);
             this.LblHandBook.Name = "LblHandBook";
             this.LblHandBook.Size = new System.Drawing.Size(79, 20);
             this.LblHandBook.TabIndex = 19;
@@ -899,7 +998,7 @@
             // LblUpdate
             // 
             this.LblUpdate.AutoSize = true;
-            this.LblUpdate.Location = new System.Drawing.Point(121, 200);
+            this.LblUpdate.Location = new System.Drawing.Point(121, 207);
             this.LblUpdate.Name = "LblUpdate";
             this.LblUpdate.Size = new System.Drawing.Size(79, 20);
             this.LblUpdate.TabIndex = 18;
@@ -908,7 +1007,7 @@
             // LblSetInerNet
             // 
             this.LblSetInerNet.AutoSize = true;
-            this.LblSetInerNet.Location = new System.Drawing.Point(121, 96);
+            this.LblSetInerNet.Location = new System.Drawing.Point(121, 78);
             this.LblSetInerNet.Name = "LblSetInerNet";
             this.LblSetInerNet.Size = new System.Drawing.Size(93, 20);
             this.LblSetInerNet.TabIndex = 17;
@@ -919,7 +1018,7 @@
             this.CheckNet.AutoSize = true;
             this.CheckNet.Checked = true;
             this.CheckNet.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CheckNet.Location = new System.Drawing.Point(220, 95);
+            this.CheckNet.Location = new System.Drawing.Point(220, 77);
             this.CheckNet.Name = "CheckNet";
             this.CheckNet.Size = new System.Drawing.Size(224, 24);
             this.CheckNet.TabIndex = 16;
@@ -929,7 +1028,7 @@
             // 
             // BtnCheckUpdate
             // 
-            this.BtnCheckUpdate.Location = new System.Drawing.Point(220, 196);
+            this.BtnCheckUpdate.Location = new System.Drawing.Point(218, 207);
             this.BtnCheckUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCheckUpdate.Name = "BtnCheckUpdate";
             this.BtnCheckUpdate.Size = new System.Drawing.Size(108, 28);
@@ -941,7 +1040,7 @@
             // TxtSever
             // 
             this.TxtSever.Enabled = false;
-            this.TxtSever.Location = new System.Drawing.Point(220, 41);
+            this.TxtSever.Location = new System.Drawing.Point(219, 32);
             this.TxtSever.Name = "TxtSever";
             this.TxtSever.Size = new System.Drawing.Size(260, 26);
             this.TxtSever.TabIndex = 4;
@@ -950,104 +1049,39 @@
             // LblSever
             // 
             this.LblSever.AutoSize = true;
-            this.LblSever.Location = new System.Drawing.Point(121, 44);
+            this.LblSever.Location = new System.Drawing.Point(121, 35);
             this.LblSever.Name = "LblSever";
             this.LblSever.Size = new System.Drawing.Size(79, 20);
             this.LblSever.TabIndex = 3;
             this.LblSever.Text = "服务接口：";
             // 
-            // NetHideLog
+            // LabIPNotice
             // 
-            this.NetHideLog.Controls.Add(this.label13);
-            this.NetHideLog.Controls.Add(this.LblNetHideLog);
-            this.NetHideLog.Location = new System.Drawing.Point(0, 0);
-            this.NetHideLog.Name = "NetHideLog";
-            this.NetHideLog.Size = new System.Drawing.Size(641, 391);
-            this.NetHideLog.TabIndex = 15;
-            this.NetHideLog.Visible = false;
+            this.LabIPNotice.AutoSize = true;
+            this.LabIPNotice.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LabIPNotice.ForeColor = System.Drawing.Color.Gray;
+            this.LabIPNotice.Location = new System.Drawing.Point(364, 124);
+            this.LabIPNotice.Name = "LabIPNotice";
+            this.LabIPNotice.Size = new System.Drawing.Size(115, 17);
+            this.LabIPNotice.TabIndex = 40;
+            this.LabIPNotice.Text = "请输入管理端IP地址";
+            this.LabIPNotice.Visible = false;
             // 
-            // LblNetHideLog
+            // TxtClient
             // 
-            this.LblNetHideLog.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LblNetHideLog.ForeColor = System.Drawing.Color.SlateGray;
-            this.LblNetHideLog.Location = new System.Drawing.Point(3, 108);
-            this.LblNetHideLog.Name = "LblNetHideLog";
-            this.LblNetHideLog.Size = new System.Drawing.Size(635, 75);
-            this.LblNetHideLog.TabIndex = 0;
-            this.LblNetHideLog.Text = "局域网状态下，不可查询日志";
-            this.LblNetHideLog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TxtClient.Location = new System.Drawing.Point(219, 118);
+            this.TxtClient.Name = "TxtClient";
+            this.TxtClient.Size = new System.Drawing.Size(139, 26);
+            this.TxtClient.TabIndex = 39;
             // 
-            // NetHideUser
+            // LblNetIP
             // 
-            this.NetHideUser.Controls.Add(this.label11);
-            this.NetHideUser.Controls.Add(this.LblNetHideUser);
-            this.NetHideUser.Location = new System.Drawing.Point(0, 0);
-            this.NetHideUser.Name = "NetHideUser";
-            this.NetHideUser.Size = new System.Drawing.Size(641, 391);
-            this.NetHideUser.TabIndex = 16;
-            this.NetHideUser.Visible = false;
-            // 
-            // LblNetHideUser
-            // 
-            this.LblNetHideUser.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LblNetHideUser.ForeColor = System.Drawing.Color.SlateGray;
-            this.LblNetHideUser.Location = new System.Drawing.Point(3, 108);
-            this.LblNetHideUser.Name = "LblNetHideUser";
-            this.LblNetHideUser.Size = new System.Drawing.Size(635, 75);
-            this.LblNetHideUser.TabIndex = 0;
-            this.LblNetHideUser.Text = "局域网状态下，不可进行用户管理";
-            this.LblNetHideUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // NetHideProcess
-            // 
-            this.NetHideProcess.Controls.Add(this.label6);
-            this.NetHideProcess.Controls.Add(this.LblNetHideProcess);
-            this.NetHideProcess.Location = new System.Drawing.Point(0, 0);
-            this.NetHideProcess.Name = "NetHideProcess";
-            this.NetHideProcess.Size = new System.Drawing.Size(641, 391);
-            this.NetHideProcess.TabIndex = 18;
-            this.NetHideProcess.Visible = false;
-            // 
-            // LblNetHideProcess
-            // 
-            this.LblNetHideProcess.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LblNetHideProcess.ForeColor = System.Drawing.Color.SlateGray;
-            this.LblNetHideProcess.Location = new System.Drawing.Point(3, 108);
-            this.LblNetHideProcess.Name = "LblNetHideProcess";
-            this.LblNetHideProcess.Size = new System.Drawing.Size(635, 75);
-            this.LblNetHideProcess.TabIndex = 0;
-            this.LblNetHideProcess.Text = "局域网状态下，不可进行监控管理";
-            this.LblNetHideProcess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.ForeColor = System.Drawing.Color.DarkGray;
-            this.label6.Location = new System.Drawing.Point(4, 170);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(634, 28);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "若想更改设置，请跳转至系统设置页面";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label11
-            // 
-            this.label11.ForeColor = System.Drawing.Color.DarkGray;
-            this.label11.Location = new System.Drawing.Point(4, 170);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(634, 28);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "若想更改设置，请跳转至系统设置页面";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label13
-            // 
-            this.label13.ForeColor = System.Drawing.Color.DarkGray;
-            this.label13.Location = new System.Drawing.Point(4, 170);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(634, 28);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "若想更改设置，请跳转至系统设置页面";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LblNetIP.AutoSize = true;
+            this.LblNetIP.Location = new System.Drawing.Point(121, 121);
+            this.LblNetIP.Name = "LblNetIP";
+            this.LblNetIP.Size = new System.Drawing.Size(93, 20);
+            this.LblNetIP.TabIndex = 38;
+            this.LblNetIP.Text = "局域网接口：";
             // 
             // FrmMain
             // 
@@ -1066,22 +1100,22 @@
             this.TabCont.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.NetHideLog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataLogInfo)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.NetHideUser.ResumeLayout(false);
             this.PanUserEdit.ResumeLayout(false);
             this.PanUserEdit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataUserinfo)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.NetHideProcess.ResumeLayout(false);
             this.PanProcessEdit.ResumeLayout(false);
             this.PanProcessEdit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataProcessInfo)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            this.NetHideLog.ResumeLayout(false);
-            this.NetHideUser.ResumeLayout(false);
-            this.NetHideProcess.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1167,6 +1201,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LabIPNotice;
+        private System.Windows.Forms.TextBox TxtClient;
+        private System.Windows.Forms.Label LblNetIP;
     }
 }
 
