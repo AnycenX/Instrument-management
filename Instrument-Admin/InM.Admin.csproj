@@ -46,7 +46,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>InM_Admin.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>trayicon.ico</ApplicationIcon>

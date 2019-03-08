@@ -39,6 +39,12 @@ namespace InM
 
             if (!api.CheckConnection())
             {
+                if (!File.Exists(@"data.bin"))
+                {
+                    MessageBox.Show("系统初始化失败，请检查是否配置防火墙信息。","系统错误");
+                    Environment.Exit(0);
+                }
+
                 if (Properties.Settings.Default.NetSwitch)
                 {
                     api = new ApiController(authkey, Properties.Settings.Default.IP + ":" + Properties.Settings.Default.Port);
@@ -54,6 +60,18 @@ namespace InM
             catch (Exception e)
             {
                 logger.Warn("自我保护失败，请检查是否有管理员权限：" + e.Message);
+            }
+
+            try
+            {
+                Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System");
+                rk.SetValue("DisableTaskMgr", 1, Microsoft.Win32.RegistryValueKind.DWord);
+                logger.Warn("关闭任务管理器成功");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("启用任务管理器失败", "系统设置");
+                logger.Warn("关闭任务管理器失败，请检查是否有管理员权限：" + e.Message);
             }
 #endif
 

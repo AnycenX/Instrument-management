@@ -97,5 +97,19 @@ namespace InM
                 MessageBox.Show("设置保存失败","系统提示");
             }
         }
+
+        private void BtnStartTask_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System");
+                rk.SetValue("DisableTaskMgr", 0, Microsoft.Win32.RegistryValueKind.DWord);
+                MessageBox.Show("启用任务管理器成功", "系统设置");
+            }
+            catch
+            {
+                MessageBox.Show("启用任务管理器失败", "系统设置");
+            }
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.picBack = new System.Windows.Forms.PictureBox();
             this.panelForm = new System.Windows.Forms.Panel();
+            this.BtnShutDown = new System.Windows.Forms.Button();
             this.PlanLoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.panelForm.SuspendLayout();
@@ -135,6 +136,7 @@
             // 
             // panelForm
             // 
+            this.panelForm.Controls.Add(this.BtnShutDown);
             this.panelForm.Controls.Add(this.PlanLoad);
             this.panelForm.Controls.Add(this.picBack);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -143,6 +145,18 @@
             this.panelForm.Name = "panelForm";
             this.panelForm.Size = new System.Drawing.Size(960, 576);
             this.panelForm.TabIndex = 10;
+            // 
+            // BtnShutDown
+            // 
+            this.BtnShutDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnShutDown.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BtnShutDown.Location = new System.Drawing.Point(12, 538);
+            this.BtnShutDown.Name = "BtnShutDown";
+            this.BtnShutDown.Size = new System.Drawing.Size(58, 26);
+            this.BtnShutDown.TabIndex = 10;
+            this.BtnShutDown.Text = "关机";
+            this.BtnShutDown.UseVisualStyleBackColor = true;
+            this.BtnShutDown.Click += new System.EventHandler(this.BtnShutDown_Click);
             // 
             // FormMain
             // 
@@ -177,6 +191,7 @@
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.LinkLabel LinkRefreshData;
+        private System.Windows.Forms.Button BtnShutDown;
     }
 }
 

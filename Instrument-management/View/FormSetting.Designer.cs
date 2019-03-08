@@ -44,6 +44,7 @@
             this.LabPortNotice = new System.Windows.Forms.Label();
             this.BtnSave = new System.Windows.Forms.Button();
             this.LabIPNotice = new System.Windows.Forms.Label();
+            this.BtnStartTask = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LinkHandBook
@@ -174,10 +175,10 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(151, 314);
+            this.BtnSave.Location = new System.Drawing.Point(242, 319);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(157, 42);
+            this.BtnSave.Size = new System.Drawing.Size(157, 34);
             this.BtnSave.TabIndex = 36;
             this.BtnSave.Text = "保存设置";
             this.BtnSave.UseVisualStyleBackColor = true;
@@ -195,11 +196,23 @@
             this.LabIPNotice.Text = "请输入管理端IP地址";
             this.LabIPNotice.Visible = false;
             // 
+            // BtnStartTask
+            // 
+            this.BtnStartTask.Location = new System.Drawing.Point(55, 319);
+            this.BtnStartTask.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnStartTask.Name = "BtnStartTask";
+            this.BtnStartTask.Size = new System.Drawing.Size(157, 34);
+            this.BtnStartTask.TabIndex = 37;
+            this.BtnStartTask.Text = "启用任务管理器";
+            this.BtnStartTask.UseVisualStyleBackColor = true;
+            this.BtnStartTask.Click += new System.EventHandler(this.BtnStartTask_Click);
+            // 
             // FormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 384);
+            this.Controls.Add(this.BtnStartTask);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.LabIPNotice);
             this.Controls.Add(this.LabPortNotice);
@@ -245,5 +258,6 @@
         private System.Windows.Forms.Label LabPortNotice;
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Label LabIPNotice;
+        private System.Windows.Forms.Button BtnStartTask;
     }
 }
