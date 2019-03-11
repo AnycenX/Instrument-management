@@ -20,6 +20,8 @@ namespace InM
     public partial class FormMain : Form
     {
         Hook h = new Hook();
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         public FormMain()
         {
             InitializeComponent();
@@ -32,6 +34,16 @@ namespace InM
                 textBoxUsername.Text = Properties.Settings.Default.User;
                 textBoxUsername.ForeColor = Color.Black;
             }
+
+            if (Properties.Settings.Default.NetConnect)
+            {
+                BtnReg.Enabled = true;
+            }
+            else
+            {
+                BtnReg.Enabled = false;
+            }
+              
             
 #if !DEBUG
             h.Hook_Start();//禁用快捷键
@@ -124,11 +136,15 @@ namespace InM
             {
                 Properties.Settings.Default.User = textBoxUsername.Text;
                 Properties.Settings.Default.Save();
+#if !DEBUG
+                h.Hook_Clear();
+#endif
                 SharedData.User.Login(textBoxUsername.Text, textBoxUserpwd.Text);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "登录失败");
+                logger.Warn("登录失败:" + ex.Message);
                 if (ex.Message == "用户名错误")
                 {
                     LinkRefreshData_LinkClicked(null, null);
@@ -144,11 +160,17 @@ namespace InM
                 {
                     info = Program.api.GetUserinfo("ver").ToArray()
                 };
+                SharedData.processInfoVer = new InfoWithVer<ProcessInfo>()
+                {
+                    info = Program.api.GetProcessinfo("ver").ToArray()
+                };
                 saveDatatoBin();
+                logger.Warn("拉取远程数据成功");
                 MessageBox.Show("远程数据拉取成功", "系统提示");
             }
-            catch
+            catch (Exception ex)
             {
+                logger.Warn("拉取远程数据失败" + ex.Message);
                 MessageBox.Show("无法从网络上拉取信息","网络错误");
             }
         }
@@ -169,6 +191,28 @@ namespace InM
             {
                 Process.Start("shutdown.exe", "-f");//关机
             }
+        }
+
+        private void btnUserClose_MouseLeave(object sender, EventArgs e)
+        {
+            btnUserClose.BackColor = Color.Transparent;
+            btnUserClose.ForeColor = Color.Red;
+        }
+
+        private void btnUserClose_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnUserClose.BackColor = Color.Red;
+            btnUserClose.ForeColor = Color.White;
+        }
+
+        private void btnUserClose_Click(object sender, EventArgs e)
+        {
+            PanReg.Visible = false;
+        }
+
+        private void BtnReg_Click(object sender, EventArgs e)
+        {
+            PanReg.Visible = true;
         }
     }
 }

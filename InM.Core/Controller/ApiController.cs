@@ -36,8 +36,9 @@ namespace InM
                     RequestUri = new Uri(endpoint)
                 }).Result.EnsureSuccessStatusCode();
             }
-            catch
+            catch (Exception e)
             {
+                logger.Warn("网络无法连接：" + e.Message);
                 return false;
             }
             return true;

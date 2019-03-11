@@ -17,6 +17,7 @@ namespace InM_Admin
     static class Program
     {
         const int VERSION = 1;
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         const string authkey = "21232f297a57a5a743894a0e4a801fc3";
         const string endpoint = "https://api.anycen.com/instrument/";
@@ -30,6 +31,7 @@ namespace InM_Admin
         [STAThread]
         static void Main()
         {
+            logger.Info("软件开始启动");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -41,6 +43,7 @@ namespace InM_Admin
                 Properties.Settings.Default.NetConnect = false;
                 if (Properties.Settings.Default.NetSwitch)
                 {
+                    logger.Info("启动局域网模式");
                     HttpListenServer();
                 }
             }
@@ -125,11 +128,12 @@ namespace InM_Admin
                 httpListener.Prefixes.Add(string.Format("http://{0}:{1}/", Properties.Settings.Default.IP, Properties.Settings.Default.Port));
                 httpListener.Start();
             }
-            catch
+            catch(Exception e)
             {
                 httpListener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
                 httpListener.Prefixes.Add(string.Format("http://localhost:{1}/", Properties.Settings.Default.IP, Properties.Settings.Default.Port));
                 httpListener.Start();
+                logger.Info("局域网启动错误：" + e.Message);
                 MessageBox.Show("IP地址输入错误，请登录后前往设置页面修改。","系统提示");
             }
 

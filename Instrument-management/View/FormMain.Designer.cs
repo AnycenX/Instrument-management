@@ -40,9 +40,15 @@
             this.picBack = new System.Windows.Forms.PictureBox();
             this.panelForm = new System.Windows.Forms.Panel();
             this.BtnShutDown = new System.Windows.Forms.Button();
+            this.PanReg = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.BtnReg = new System.Windows.Forms.Button();
+            this.btnUserClose = new System.Windows.Forms.Label();
             this.PlanLoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.panelForm.SuspendLayout();
+            this.PanReg.SuspendLayout();
             this.SuspendLayout();
             // 
             // TimKill
@@ -136,6 +142,8 @@
             // 
             // panelForm
             // 
+            this.panelForm.Controls.Add(this.BtnReg);
+            this.panelForm.Controls.Add(this.PanReg);
             this.panelForm.Controls.Add(this.BtnShutDown);
             this.panelForm.Controls.Add(this.PlanLoad);
             this.panelForm.Controls.Add(this.picBack);
@@ -150,7 +158,7 @@
             // 
             this.BtnShutDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnShutDown.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnShutDown.Location = new System.Drawing.Point(12, 538);
+            this.BtnShutDown.Location = new System.Drawing.Point(89, 538);
             this.BtnShutDown.Name = "BtnShutDown";
             this.BtnShutDown.Size = new System.Drawing.Size(58, 26);
             this.BtnShutDown.TabIndex = 10;
@@ -158,11 +166,72 @@
             this.BtnShutDown.UseVisualStyleBackColor = true;
             this.BtnShutDown.Click += new System.EventHandler(this.BtnShutDown_Click);
             // 
+            // PanReg
+            // 
+            this.PanReg.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PanReg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanReg.Controls.Add(this.btnUserClose);
+            this.PanReg.Controls.Add(this.webBrowser1);
+            this.PanReg.Controls.Add(this.label2);
+            this.PanReg.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PanReg.Location = new System.Drawing.Point(348, 169);
+            this.PanReg.Name = "PanReg";
+            this.PanReg.Size = new System.Drawing.Size(326, 269);
+            this.PanReg.TabIndex = 11;
+            this.PanReg.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(123, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "注册新用户";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(51, 50);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScrollBarsEnabled = false;
+            this.webBrowser1.Size = new System.Drawing.Size(220, 193);
+            this.webBrowser1.TabIndex = 9;
+            this.webBrowser1.Url = new System.Uri("https://api.anycen.com/instrument/reg.html", System.UriKind.Absolute);
+            // 
+            // BtnReg
+            // 
+            this.BtnReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnReg.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BtnReg.Location = new System.Drawing.Point(12, 538);
+            this.BtnReg.Name = "BtnReg";
+            this.BtnReg.Size = new System.Drawing.Size(71, 26);
+            this.BtnReg.TabIndex = 12;
+            this.BtnReg.Text = "用户注册";
+            this.BtnReg.UseVisualStyleBackColor = true;
+            this.BtnReg.Click += new System.EventHandler(this.BtnReg_Click);
+            // 
+            // btnUserClose
+            // 
+            this.btnUserClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUserClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnUserClose.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnUserClose.ForeColor = System.Drawing.Color.Red;
+            this.btnUserClose.Location = new System.Drawing.Point(292, 0);
+            this.btnUserClose.Name = "btnUserClose";
+            this.btnUserClose.Size = new System.Drawing.Size(33, 30);
+            this.btnUserClose.TabIndex = 10;
+            this.btnUserClose.Text = "×";
+            this.btnUserClose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUserClose.Click += new System.EventHandler(this.btnUserClose_Click);
+            this.btnUserClose.MouseLeave += new System.EventHandler(this.btnUserClose_MouseLeave);
+            this.btnUserClose.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnUserClose_MouseMove);
+            // 
             // FormMain
             // 
             this.AcceptButton = this.buttonLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(960, 576);
             this.Controls.Add(this.panelForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -176,6 +245,8 @@
             this.PlanLoad.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).EndInit();
             this.panelForm.ResumeLayout(false);
+            this.PanReg.ResumeLayout(false);
+            this.PanReg.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -192,6 +263,11 @@
         private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.LinkLabel LinkRefreshData;
         private System.Windows.Forms.Button BtnShutDown;
+        private System.Windows.Forms.Panel PanReg;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtnReg;
+        private System.Windows.Forms.Label btnUserClose;
     }
 }
 

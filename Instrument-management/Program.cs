@@ -41,21 +41,30 @@ namespace InM
             {
                 if (!File.Exists(@"data.bin"))
                 {
-                    MessageBox.Show("系统初始化失败，请检查是否配置防火墙信息。","系统错误");
+                    MessageBox.Show("系统初始化失败，请检查是否配置防火墙信息。", "系统错误");
+                    logger.Warn("无法连接至公网，且本地不存在配置信息");
                     Environment.Exit(0);
                 }
 
                 if (Properties.Settings.Default.NetSwitch)
                 {
                     api = new ApiController(authkey, Properties.Settings.Default.IP + ":" + Properties.Settings.Default.Port);
-                } 
+                }
+
+                Properties.Settings.Default.NetConnect = false;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.NetConnect = true;
+                Properties.Settings.Default.Save();
             }
             inMEventHandler = new InMEventHandler();
 
 #if !DEBUG
             try
             {
-                SelfProtect.Protect();
+                //SelfProtect.Protect();
             }
             catch (Exception e)
             {

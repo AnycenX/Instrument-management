@@ -96,6 +96,9 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.LabIPNotice = new System.Windows.Forms.Label();
+            this.TxtClient = new System.Windows.Forms.TextBox();
+            this.LblNetIP = new System.Windows.Forms.Label();
             this.BtnSave = new System.Windows.Forms.Button();
             this.LabPortNotice = new System.Windows.Forms.Label();
             this.BuildVersion = new System.Windows.Forms.Label();
@@ -111,9 +114,6 @@
             this.BtnCheckUpdate = new System.Windows.Forms.Button();
             this.TxtSever = new System.Windows.Forms.TextBox();
             this.LblSever = new System.Windows.Forms.Label();
-            this.LabIPNotice = new System.Windows.Forms.Label();
-            this.TxtClient = new System.Windows.Forms.TextBox();
-            this.LblNetIP = new System.Windows.Forms.Label();
             this.TabCont.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.NetHideLog.SuspendLayout();
@@ -386,7 +386,7 @@
             this.NetHideUser.Controls.Add(this.LblNetHideUser);
             this.NetHideUser.Location = new System.Drawing.Point(0, 0);
             this.NetHideUser.Name = "NetHideUser";
-            this.NetHideUser.Size = new System.Drawing.Size(641, 391);
+            this.NetHideUser.Size = new System.Drawing.Size(641, 28);
             this.NetHideUser.TabIndex = 16;
             this.NetHideUser.Visible = false;
             // 
@@ -900,6 +900,34 @@
             this.tabPage5.Text = " 系统设置 ";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // LabIPNotice
+            // 
+            this.LabIPNotice.AutoSize = true;
+            this.LabIPNotice.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LabIPNotice.ForeColor = System.Drawing.Color.Gray;
+            this.LabIPNotice.Location = new System.Drawing.Point(364, 124);
+            this.LabIPNotice.Name = "LabIPNotice";
+            this.LabIPNotice.Size = new System.Drawing.Size(115, 17);
+            this.LabIPNotice.TabIndex = 40;
+            this.LabIPNotice.Text = "请输入管理端IP地址";
+            this.LabIPNotice.Visible = false;
+            // 
+            // TxtClient
+            // 
+            this.TxtClient.Location = new System.Drawing.Point(219, 118);
+            this.TxtClient.Name = "TxtClient";
+            this.TxtClient.Size = new System.Drawing.Size(139, 26);
+            this.TxtClient.TabIndex = 39;
+            // 
+            // LblNetIP
+            // 
+            this.LblNetIP.AutoSize = true;
+            this.LblNetIP.Location = new System.Drawing.Point(121, 121);
+            this.LblNetIP.Name = "LblNetIP";
+            this.LblNetIP.Size = new System.Drawing.Size(93, 20);
+            this.LblNetIP.TabIndex = 38;
+            this.LblNetIP.Text = "局域网接口：";
+            // 
             // BtnSave
             // 
             this.BtnSave.Location = new System.Drawing.Point(220, 305);
@@ -1055,38 +1083,10 @@
             this.LblSever.TabIndex = 3;
             this.LblSever.Text = "服务接口：";
             // 
-            // LabIPNotice
-            // 
-            this.LabIPNotice.AutoSize = true;
-            this.LabIPNotice.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabIPNotice.ForeColor = System.Drawing.Color.Gray;
-            this.LabIPNotice.Location = new System.Drawing.Point(364, 124);
-            this.LabIPNotice.Name = "LabIPNotice";
-            this.LabIPNotice.Size = new System.Drawing.Size(115, 17);
-            this.LabIPNotice.TabIndex = 40;
-            this.LabIPNotice.Text = "请输入管理端IP地址";
-            this.LabIPNotice.Visible = false;
-            // 
-            // TxtClient
-            // 
-            this.TxtClient.Location = new System.Drawing.Point(219, 118);
-            this.TxtClient.Name = "TxtClient";
-            this.TxtClient.Size = new System.Drawing.Size(139, 26);
-            this.TxtClient.TabIndex = 39;
-            // 
-            // LblNetIP
-            // 
-            this.LblNetIP.AutoSize = true;
-            this.LblNetIP.Location = new System.Drawing.Point(121, 121);
-            this.LblNetIP.Name = "LblNetIP";
-            this.LblNetIP.Size = new System.Drawing.Size(93, 20);
-            this.LblNetIP.TabIndex = 38;
-            this.LblNetIP.Text = "局域网接口：";
-            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(646, 424);
             this.Controls.Add(this.TabCont);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
