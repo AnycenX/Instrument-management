@@ -16,7 +16,11 @@ namespace InM
 
         readonly string authkey;
         readonly string endpoint;
-        private HttpClient httpClient = new HttpClient();
+        private static HttpClientHandler httpClientHandler = new HttpClientHandler()
+        {
+            UseProxy = false
+        };
+        private HttpClient httpClient = new HttpClient(httpClientHandler);
 
         public ApiController(string authkeyIn, string endpointIn)
         {
@@ -38,7 +42,7 @@ namespace InM
             }
             catch (Exception e)
             {
-                logger.Warn("网络无法连接：" + e.Message);
+                logger.Warn(e, "网络无法连接:" + endpoint);
                 return false;
             }
             return true;
