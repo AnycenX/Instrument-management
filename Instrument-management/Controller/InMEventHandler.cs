@@ -26,9 +26,8 @@ namespace InM
                 Program.formMain.Close();
                 Program.trayContoller.notifyIcon.ShowBalloonTip(5000, e.LoggedinUser + "，欢迎使用", "右击托盘图标可进行更多操作", ToolTipIcon.Info);
                 Program.reportTimer.Start();
-
 #if !DEBUG
-                h.Hook_Start();
+                h.Hook_Clear();
 #endif
             }
             else
@@ -37,7 +36,7 @@ namespace InM
                 Program.formMain.Show();
                 Program.reportTimer.Stop();
 #if !DEBUG
-                h.Hook_Clear();
+                h.Hook_Start();
 #endif
             }
         }

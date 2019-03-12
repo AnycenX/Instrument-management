@@ -12,6 +12,8 @@ namespace InM
 {
     public class Hook
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         public delegate int HookProc(int nCode, int wParam, IntPtr lParam);
         static int hHook = 0;
         public const int WH_KEYBOARD_LL = 13;
@@ -62,7 +64,7 @@ namespace InM
                 if (hHook == 0)
                 {
                     Hook_Clear();
-                    throw new Exception();
+                    logger.Warn("键盘钩子设置失败");
                 }
                 else
                 {
@@ -81,7 +83,7 @@ namespace InM
                 hHook = 0;
             }
             //如果去掉钩子失败. 
-            if (!retKeyboard) throw new Exception("UnhookWindowsHookEx failed.");
+            if (!retKeyboard) logger.Warn("键盘钩子取消失败");
         }
 
         //这里可以添加自己想要的信息处理 
