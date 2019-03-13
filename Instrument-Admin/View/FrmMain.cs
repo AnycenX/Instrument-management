@@ -80,12 +80,14 @@ namespace InM_Admin
                 NetHideLog.Visible = false;
                 NetHideUser.Visible = false;
                 NetHideProcess.Visible = false;
+                NetHideConfirmUser.Visible = false;
             }
             else
             {
                 NetHideLog.Visible = true;
                 NetHideUser.Visible = true ;
                 NetHideProcess.Visible = true;
+                NetHideConfirmUser.Visible = true;
             }
         }
 
@@ -312,7 +314,7 @@ namespace InM_Admin
                         }
                         catch
                         {
-                            MessageBox.Show("新增用户失败，请重试", "系统提示");
+                            MessageBox.Show("新增用户失败，可能是用户名已存在，请检查后重试", "系统提示");
                         }
                     }
                 }

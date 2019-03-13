@@ -39,12 +39,12 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.picBack = new System.Windows.Forms.PictureBox();
             this.panelForm = new System.Windows.Forms.Panel();
-            this.BtnShutDown = new System.Windows.Forms.Button();
-            this.PanReg = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.BtnReg = new System.Windows.Forms.Button();
+            this.PanReg = new System.Windows.Forms.Panel();
             this.btnUserClose = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnShutDown = new System.Windows.Forms.Button();
             this.PlanLoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.panelForm.SuspendLayout();
@@ -154,51 +154,6 @@
             this.panelForm.Size = new System.Drawing.Size(960, 576);
             this.panelForm.TabIndex = 10;
             // 
-            // BtnShutDown
-            // 
-            this.BtnShutDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnShutDown.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnShutDown.Location = new System.Drawing.Point(89, 538);
-            this.BtnShutDown.Name = "BtnShutDown";
-            this.BtnShutDown.Size = new System.Drawing.Size(58, 26);
-            this.BtnShutDown.TabIndex = 10;
-            this.BtnShutDown.Text = "关机";
-            this.BtnShutDown.UseVisualStyleBackColor = true;
-            this.BtnShutDown.Click += new System.EventHandler(this.BtnShutDown_Click);
-            // 
-            // PanReg
-            // 
-            this.PanReg.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PanReg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanReg.Controls.Add(this.btnUserClose);
-            this.PanReg.Controls.Add(this.webBrowser1);
-            this.PanReg.Controls.Add(this.label2);
-            this.PanReg.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PanReg.Location = new System.Drawing.Point(348, 169);
-            this.PanReg.Name = "PanReg";
-            this.PanReg.Size = new System.Drawing.Size(326, 269);
-            this.PanReg.TabIndex = 11;
-            this.PanReg.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(123, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "注册新用户";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(51, 50);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.ScrollBarsEnabled = false;
-            this.webBrowser1.Size = new System.Drawing.Size(220, 193);
-            this.webBrowser1.TabIndex = 9;
-            this.webBrowser1.Url = new System.Uri("https://api.anycen.com/instrument/reg.html", System.UriKind.Absolute);
-            // 
             // BtnReg
             // 
             this.BtnReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -210,6 +165,20 @@
             this.BtnReg.Text = "用户注册";
             this.BtnReg.UseVisualStyleBackColor = true;
             this.BtnReg.Click += new System.EventHandler(this.BtnReg_Click);
+            // 
+            // PanReg
+            // 
+            this.PanReg.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PanReg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanReg.Controls.Add(this.btnUserClose);
+            this.PanReg.Controls.Add(this.webBrowser1);
+            this.PanReg.Controls.Add(this.label2);
+            this.PanReg.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PanReg.Location = new System.Drawing.Point(348, 162);
+            this.PanReg.Name = "PanReg";
+            this.PanReg.Size = new System.Drawing.Size(326, 283);
+            this.PanReg.TabIndex = 11;
+            this.PanReg.Visible = false;
             // 
             // btnUserClose
             // 
@@ -226,6 +195,37 @@
             this.btnUserClose.Click += new System.EventHandler(this.btnUserClose_Click);
             this.btnUserClose.MouseLeave += new System.EventHandler(this.btnUserClose_MouseLeave);
             this.btnUserClose.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnUserClose_MouseMove);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(51, 43);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScrollBarsEnabled = false;
+            this.webBrowser1.Size = new System.Drawing.Size(220, 219);
+            this.webBrowser1.TabIndex = 9;
+            this.webBrowser1.Url = new System.Uri("https://api.anycen.com/instrument/reg.php", System.UriKind.Absolute);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(123, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "注册新用户";
+            // 
+            // BtnShutDown
+            // 
+            this.BtnShutDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnShutDown.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BtnShutDown.Location = new System.Drawing.Point(89, 538);
+            this.BtnShutDown.Name = "BtnShutDown";
+            this.BtnShutDown.Size = new System.Drawing.Size(58, 26);
+            this.BtnShutDown.TabIndex = 10;
+            this.BtnShutDown.Text = "关机";
+            this.BtnShutDown.UseVisualStyleBackColor = true;
+            this.BtnShutDown.Click += new System.EventHandler(this.BtnShutDown_Click);
             // 
             // FormMain
             // 
