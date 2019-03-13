@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InM.Core", "InM.Core\InM.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InM.Admin", "Instrument-Admin\InM.Admin.csproj", "{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InMSetup", "InMSetup\InMSetup.vdproj", "{B9A4B9F7-F374-4A96-950B-5D49C17B4991}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InMAdminSetup", "InMAdminSetup\InMAdminSetup.vdproj", "{C0305A2E-8335-4103-98C0-8E23C6C6ABA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,10 @@ Global
 		{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{321CC2DE-74FE-4C15-A87D-4A5C35D0B48C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9A4B9F7-F374-4A96-950B-5D49C17B4991}.Debug|Any CPU.ActiveCfg = Debug
+		{B9A4B9F7-F374-4A96-950B-5D49C17B4991}.Release|Any CPU.ActiveCfg = Release
+		{C0305A2E-8335-4103-98C0-8E23C6C6ABA2}.Debug|Any CPU.ActiveCfg = Debug
+		{C0305A2E-8335-4103-98C0-8E23C6C6ABA2}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
