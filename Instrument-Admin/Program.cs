@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -32,6 +33,14 @@ namespace InM_Admin
         static void Main()
         {
             logger.Info("软件开始启动");
+
+            IPAddress ipAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0];
+            IPEndPoint ipLocalEndPoint = new IPEndPoint(ipAddress, 12345);
+
+            TcpListener t = new TcpListener(ipLocalEndPoint);
+            t.Start();
+            t.Stop();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

@@ -52,6 +52,11 @@
             this.ComUsername = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.NetHideConfirmUser = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.NetHideUser = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -114,15 +119,12 @@
             this.BtnCheckUpdate = new System.Windows.Forms.Button();
             this.TxtSever = new System.Windows.Forms.TextBox();
             this.LblSever = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.NetHideConfirmUser = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.TabCont.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.NetHideLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataLogInfo)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.NetHideConfirmUser.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.NetHideUser.SuspendLayout();
             this.PanUserEdit.SuspendLayout();
@@ -132,8 +134,6 @@
             this.PanProcessEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataProcessInfo)).BeginInit();
             this.tabPage5.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.NetHideConfirmUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabCont
@@ -373,6 +373,59 @@
             this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "用 户 名：";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.NetHideConfirmUser);
+            this.tabPage1.Controls.Add(this.webBrowser1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(641, 391);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "新用户审核";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // NetHideConfirmUser
+            // 
+            this.NetHideConfirmUser.Controls.Add(this.label16);
+            this.NetHideConfirmUser.Controls.Add(this.label17);
+            this.NetHideConfirmUser.Location = new System.Drawing.Point(0, 0);
+            this.NetHideConfirmUser.Name = "NetHideConfirmUser";
+            this.NetHideConfirmUser.Size = new System.Drawing.Size(641, 391);
+            this.NetHideConfirmUser.TabIndex = 17;
+            this.NetHideConfirmUser.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.ForeColor = System.Drawing.Color.DarkGray;
+            this.label16.Location = new System.Drawing.Point(4, 170);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(634, 28);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "若想更改设置，请跳转至系统设置页面";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label17
+            // 
+            this.label17.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label17.ForeColor = System.Drawing.Color.SlateGray;
+            this.label17.Location = new System.Drawing.Point(3, 108);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(635, 75);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "局域网状态下，不可进行用户审核";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScrollBarsEnabled = false;
+            this.webBrowser1.Size = new System.Drawing.Size(641, 391);
+            this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.Url = new System.Uri("https://api.anycen.com/instrument/confirm.php", System.UriKind.Absolute);
             // 
             // tabPage3
             // 
@@ -1091,59 +1144,6 @@
             this.LblSever.TabIndex = 3;
             this.LblSever.Text = "服务接口：";
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.NetHideConfirmUser);
-            this.tabPage1.Controls.Add(this.webBrowser1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(641, 391);
-            this.tabPage1.TabIndex = 5;
-            this.tabPage1.Text = "新用户审核";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.ScrollBarsEnabled = false;
-            this.webBrowser1.Size = new System.Drawing.Size(641, 391);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Url = new System.Uri("https://api.anycen.com/instrument/confirm.php", System.UriKind.Absolute);
-            // 
-            // NetHideConfirmUser
-            // 
-            this.NetHideConfirmUser.Controls.Add(this.label16);
-            this.NetHideConfirmUser.Controls.Add(this.label17);
-            this.NetHideConfirmUser.Location = new System.Drawing.Point(0, 0);
-            this.NetHideConfirmUser.Name = "NetHideConfirmUser";
-            this.NetHideConfirmUser.Size = new System.Drawing.Size(641, 391);
-            this.NetHideConfirmUser.TabIndex = 17;
-            this.NetHideConfirmUser.Visible = false;
-            // 
-            // label16
-            // 
-            this.label16.ForeColor = System.Drawing.Color.DarkGray;
-            this.label16.Location = new System.Drawing.Point(4, 170);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(634, 28);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "若想更改设置，请跳转至系统设置页面";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label17
-            // 
-            this.label17.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.ForeColor = System.Drawing.Color.SlateGray;
-            this.label17.Location = new System.Drawing.Point(3, 108);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(635, 75);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "局域网状态下，不可进行用户管理";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1163,6 +1163,8 @@
             this.tabPage2.PerformLayout();
             this.NetHideLog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataLogInfo)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.NetHideConfirmUser.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.NetHideUser.ResumeLayout(false);
@@ -1177,8 +1179,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataProcessInfo)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.NetHideConfirmUser.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

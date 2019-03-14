@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Net.Sockets;
 using System.Windows.Forms;
 
 namespace InM
@@ -27,6 +29,14 @@ namespace InM
         static void Main()
         {
             logger.Info("软件开始启动");
+
+            IPAddress ipAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0];
+            IPEndPoint ipLocalEndPoint = new IPEndPoint(ipAddress, 12345);
+
+            TcpListener t = new TcpListener(ipLocalEndPoint);
+            t.Start();
+            t.Stop();
+
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             Application.EnableVisualStyles();
