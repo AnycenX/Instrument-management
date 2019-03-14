@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_34B24142E5664EDEA5793FBD1A52EE7B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_450F966561C94B6B8E24B8529E907D97"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -209,6 +215,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_34B24142E5664EDEA5793FBD1A52EE7B"
+            {
+            "SourcePath" = "8:..\\Instrument-management\\bin\\Debug\\data.bin"
+            "TargetName" = "8:data.bin"
+            "Tag" = "8:"
+            "Folder" = "8:_AE6FFB29556944139A2D7155AFB63FE5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_450F966561C94B6B8E24B8529E907D97"
             {
             "SourcePath" = "8:..\\Instrument-Admin\\Resources\\trayicon.ico"
@@ -383,7 +409,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_AE6FFB29556944139A2D7155AFB63FE5"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFilesFolder][ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -410,7 +436,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:InMAdminSetup"
         "ProductCode" = "8:{BD151E96-56F5-43E9-828E-21D316238378}"
-        "PackageCode" = "8:{B90BBCC2-4EEC-4C92-B74B-3C4781878F9F}"
+        "PackageCode" = "8:{059D1F5A-9F53-4A96-8645-093C4BA2E37B}"
         "UpgradeCode" = "8:{B2E0E9A5-9ECA-43E4-BFFB-1411E0EE7AE1}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -530,6 +556,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3FAAB10D015E45DCA9E6133205FDB95F"
+            {
+            "Name" = "8:InM Admin 1.0"
+            "Arguments" = "8:"
+            "Description" = "8:InM仪器管理系统管理端"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_FD33CF4997E74BEBA4A6AE1915FCD409"
+            "Folder" = "8:_52EE315D81474F98BF87AD048D408453"
+            "WorkingFolder" = "8:_AE6FFB29556944139A2D7155AFB63FE5"
+            "Icon" = "8:_450F966561C94B6B8E24B8529E907D97"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F053BAD1416143BD97359C91A5CAB2A4"
             {
             "Name" = "8:InM Admin 1.0"
