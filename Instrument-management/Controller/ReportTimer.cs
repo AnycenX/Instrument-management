@@ -34,7 +34,7 @@ namespace InM
             timerRefreshProcess = new Timer(2000);
             timerRefreshProcess.Elapsed += TimerRefreshProcess_Elapsed;
             timerRefreshProcess.Enabled = true;
-            timerUploadProcess = new Timer(10000);
+            timerUploadProcess = new Timer(30000);
             timerUploadProcess.Elapsed += TimerUploadProcess_Elapsed;
             timerUploadProcess.Enabled = true;
         }

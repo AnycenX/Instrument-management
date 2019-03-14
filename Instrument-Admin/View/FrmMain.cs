@@ -653,7 +653,7 @@ namespace InM_Admin
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
 
             }

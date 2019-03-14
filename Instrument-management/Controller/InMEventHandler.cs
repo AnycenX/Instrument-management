@@ -35,6 +35,8 @@ namespace InM
                 Program.formMain = new FormMain();
                 Program.formMain.Show();
                 Program.reportTimer.Stop();
+                Program.formMain.panelDelay.Visible = false;
+                Program.formMain.PlanLoad.Visible = true;
 #if !DEBUG
                 h.Hook_Start();
 #endif

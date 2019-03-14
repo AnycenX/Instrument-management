@@ -89,7 +89,7 @@ namespace InM
 
         private static void DelayConncet()
         {
-            System.Timers.Timer timerDelay = new System.Timers.Timer(30000)
+            System.Timers.Timer timerDelay = new System.Timers.Timer(5000)
             {
                 AutoReset = false,
             };
@@ -101,7 +101,12 @@ namespace InM
         {
             CheckServer();
             Update();
-            formMain.BeginInvoke((Action)(() => { formMain.HideDelay(); }));
+            formMain.BeginInvoke((Action)(() => {
+                formMain.HideDelay();
+                formMain.panelDelay.Visible = false;
+                formMain.PlanLoad.Visible = true;
+                formMain.BtnReg.Enabled = true;
+            }));
         }
 
         private static void CheckServer()

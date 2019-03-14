@@ -15,6 +15,18 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_004C6412915B467591287C6DEE21E8A6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0CA5CE17DD2B4291AD99275F47BF5EB1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0CF1866E0B75CD96AAFDFF0394125658"
         "OwnerKey" = "8:_5E3FD8C4EDCA792BCE982CC71C2222ED"
         "MsmSig" = "8:_UNDEFINED"
@@ -22,43 +34,43 @@
         "Entry"
         {
         "MsmKey" = "8:_0CF1866E0B75CD96AAFDFF0394125658"
-        "OwnerKey" = "8:_A32459D738264ACDBDAE8CD39E372004"
+        "OwnerKey" = "8:_004C6412915B467591287C6DEE21E8A6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0CFCE6A16FF84326ADE19AF5B5C154F3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_22F671CE6E08499386EE87EC8B76FC8C"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_456BC3E380B9EB755FBD164CE6265E87"
-        "OwnerKey" = "8:_A32459D738264ACDBDAE8CD39E372004"
+        "OwnerKey" = "8:_004C6412915B467591287C6DEE21E8A6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_456BC3E380B9EB755FBD164CE6265E87"
         "OwnerKey" = "8:_5E3FD8C4EDCA792BCE982CC71C2222ED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_573967A7F2734878BE04ECFC9382C8EC"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_5E3FD8C4EDCA792BCE982CC71C2222ED"
-        "OwnerKey" = "8:_A32459D738264ACDBDAE8CD39E372004"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5F2E5C7733CB41ABB8DE21ED053D96AD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9C4A8948C5AC4E3FAA0779D4674147C3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A32459D738264ACDBDAE8CD39E372004"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_004C6412915B467591287C6DEE21E8A6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,13 +82,13 @@
         "Entry"
         {
         "MsmKey" = "8:_BE8A93D3FAB60571606246E1133091C4"
-        "OwnerKey" = "8:_A32459D738264ACDBDAE8CD39E372004"
+        "OwnerKey" = "8:_004C6412915B467591287C6DEE21E8A6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_E99131BC49ADA8D15E5593C53A809997"
-        "OwnerKey" = "8:_A32459D738264ACDBDAE8CD39E372004"
+        "OwnerKey" = "8:_004C6412915B467591287C6DEE21E8A6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,13 +106,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5E3FD8C4EDCA792BCE982CC71C2222ED"
+        "OwnerKey" = "8:_004C6412915B467591287C6DEE21E8A6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A32459D738264ACDBDAE8CD39E372004"
+        "OwnerKey" = "8:_5E3FD8C4EDCA792BCE982CC71C2222ED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -139,6 +151,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -155,6 +175,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -184,6 +220,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0CA5CE17DD2B4291AD99275F47BF5EB1"
+            {
+            "SourcePath" = "8:..\\Instrument-management\\bin\\Release\\InM.exe.config"
+            "TargetName" = "8:InM.exe.config"
+            "Tag" = "8:"
+            "Folder" = "8:_F0498FBFA47C485EB9E35CC46A377E47"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0CF1866E0B75CD96AAFDFF0394125658"
             {
             "AssemblyRegister" = "3:1"
@@ -213,6 +269,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0CFCE6A16FF84326ADE19AF5B5C154F3"
+            {
+            "SourcePath" = "8:..\\Instrument-management\\bin\\Debug\\data.bin"
+            "TargetName" = "8:data.bin"
+            "Tag" = "8:"
+            "Folder" = "8:_F0498FBFA47C485EB9E35CC46A377E47"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_22F671CE6E08499386EE87EC8B76FC8C"
+            {
+            "SourcePath" = "8:..\\Instrument-management\\Resources\\trayIcon.ico"
+            "TargetName" = "8:trayIcon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_F0498FBFA47C485EB9E35CC46A377E47"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_456BC3E380B9EB755FBD164CE6265E87"
@@ -246,6 +342,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_573967A7F2734878BE04ECFC9382C8EC"
+            {
+            "SourcePath" = "8:..\\Instrument-management\\bin\\Release\\NLog.config"
+            "TargetName" = "8:NLog.config"
+            "Tag" = "8:"
+            "Folder" = "8:_F0498FBFA47C485EB9E35CC46A377E47"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5E3FD8C4EDCA792BCE982CC71C2222ED"
             {
             "AssemblyRegister" = "3:1"
@@ -275,46 +391,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5F2E5C7733CB41ABB8DE21ED053D96AD"
-            {
-            "SourcePath" = "8:..\\Instrument-management\\Resources\\trayIcon.ico"
-            "TargetName" = "8:trayIcon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_F0498FBFA47C485EB9E35CC46A377E47"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C4A8948C5AC4E3FAA0779D4674147C3"
-            {
-            "SourcePath" = "8:..\\Instrument-Admin\\bin\\Debug\\data.bin"
-            "TargetName" = "8:data.bin"
-            "Tag" = "8:"
-            "Folder" = "8:_F0498FBFA47C485EB9E35CC46A377E47"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BE8A93D3FAB60571606246E1133091C4"
@@ -436,7 +512,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:InMSetup"
         "ProductCode" = "8:{C5EE364F-E977-4CA7-AD0A-F664622CA9A5}"
-        "PackageCode" = "8:{3FE68C1F-7C5E-4E2F-A1DE-D7F7D43FBD84}"
+        "PackageCode" = "8:{ACA1D7E5-0C04-407E-804D-9A755D0B7940}"
         "UpgradeCode" = "8:{D612754F-CF27-4085-9ED4-A284826CC200}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -444,7 +520,7 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:du.xingxia@hotmail.com"
+        "Manufacturer" = "8:Anycen"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:InMSetup"
@@ -556,32 +632,32 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_95D3C0E2CE6A4317A4A494D420C5BC2B"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_978C1951F49946B58F2785D009B546B6"
             {
             "Name" = "8:InM 1.0"
             "Arguments" = "8:"
-            "Description" = "8:InM仪器管理系统用户端"
+            "Description" = "8:仪器管理系统用户端"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_A32459D738264ACDBDAE8CD39E372004"
-            "Folder" = "8:_8C660BBB42D5409B85D7CFECF33530CC"
-            "WorkingFolder" = "8:_F0498FBFA47C485EB9E35CC46A377E47"
-            "Icon" = "8:_5F2E5C7733CB41ABB8DE21ED053D96AD"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E0AF8796817A419891D9939667ADC0AD"
-            {
-            "Name" = "8:InM 1.0"
-            "Arguments" = "8:"
-            "Description" = "8:InM仪器管理系统用户端"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_A32459D738264ACDBDAE8CD39E372004"
+            "Target" = "8:_004C6412915B467591287C6DEE21E8A6"
             "Folder" = "8:_752B90AD8F8443628820B8F620BAE408"
             "WorkingFolder" = "8:_F0498FBFA47C485EB9E35CC46A377E47"
-            "Icon" = "8:_5F2E5C7733CB41ABB8DE21ED053D96AD"
+            "Icon" = "8:_22F671CE6E08499386EE87EC8B76FC8C"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EA388128C9FF48E5ABB7B16796F0BEB4"
+            {
+            "Name" = "8:InM 1.0"
+            "Arguments" = "8:"
+            "Description" = "8:仪器管理系统用户端"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_004C6412915B467591287C6DEE21E8A6"
+            "Folder" = "8:_8C660BBB42D5409B85D7CFECF33530CC"
+            "WorkingFolder" = "8:_F0498FBFA47C485EB9E35CC46A377E47"
+            "Icon" = "8:_22F671CE6E08499386EE87EC8B76FC8C"
             "Feature" = "8:"
             }
         }
@@ -983,7 +1059,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A32459D738264ACDBDAE8CD39E372004"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_004C6412915B467591287C6DEE21E8A6"
             {
             "SourcePath" = "8:..\\Instrument-management\\obj\\Release\\InM.exe"
             "TargetName" = "8:"
