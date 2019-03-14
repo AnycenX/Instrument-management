@@ -49,7 +49,7 @@ namespace InM
 
             if (!api.CheckConnection())
             {
-                if (!File.Exists(@"data.bin"))
+                if (!File.Exists("data.bin"))
                 {
                     MessageBox.Show("系统初始化失败，请检查是否配置防火墙信息。", "系统错误");
                     logger.Warn("无法连接至公网，且本地不存在配置信息");
