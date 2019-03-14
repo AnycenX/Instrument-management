@@ -187,9 +187,9 @@ namespace InM
 
         private void BtnShutDown_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("是否确认关机？", "系统提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("是否确认关机？系统将在1分钟后关闭计算机。", "系统提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                Process.Start("shutdown.exe", "-f");//关机
+                Process.Start("shutdown.exe", "-s");//关机
             }
         }
 
