@@ -214,5 +214,10 @@ namespace InM
         {
             PanReg.Visible = true;
         }
+
+        public void HideDelay()
+        {
+            panelDelay.Visible = false;
+        }
     }
 }

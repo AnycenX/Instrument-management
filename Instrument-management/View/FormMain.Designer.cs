@@ -41,6 +41,8 @@
             this.panelForm = new System.Windows.Forms.Panel();
             this.BtnReg = new System.Windows.Forms.Button();
             this.PanReg = new System.Windows.Forms.Panel();
+            this.panelDelay = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnUserClose = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,6 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.panelForm.SuspendLayout();
             this.PanReg.SuspendLayout();
+            this.panelDelay.SuspendLayout();
             this.SuspendLayout();
             // 
             // TimKill
@@ -59,10 +62,10 @@
             // textBoxUsername
             // 
             this.textBoxUsername.ForeColor = System.Drawing.Color.Silver;
-            this.textBoxUsername.Location = new System.Drawing.Point(22, 55);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxUsername.Location = new System.Drawing.Point(28, 69);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(255, 29);
+            this.textBoxUsername.Size = new System.Drawing.Size(318, 34);
             this.textBoxUsername.TabIndex = 4;
             this.textBoxUsername.Text = "请输入用户名";
             this.textBoxUsername.Enter += new System.EventHandler(this.textBoxUsername_Enter);
@@ -71,9 +74,10 @@
             // textBoxUserpwd
             // 
             this.textBoxUserpwd.ForeColor = System.Drawing.Color.Silver;
-            this.textBoxUserpwd.Location = new System.Drawing.Point(22, 96);
+            this.textBoxUserpwd.Location = new System.Drawing.Point(28, 120);
+            this.textBoxUserpwd.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUserpwd.Name = "textBoxUserpwd";
-            this.textBoxUserpwd.Size = new System.Drawing.Size(255, 29);
+            this.textBoxUserpwd.Size = new System.Drawing.Size(318, 34);
             this.textBoxUserpwd.TabIndex = 5;
             this.textBoxUserpwd.Text = "请输入密码";
             this.textBoxUserpwd.Enter += new System.EventHandler(this.textBoxUserpwd_Enter);
@@ -90,10 +94,10 @@
             this.PlanLoad.Controls.Add(this.textBoxUsername);
             this.PlanLoad.Controls.Add(this.textBoxUserpwd);
             this.PlanLoad.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PlanLoad.Location = new System.Drawing.Point(359, 185);
+            this.PlanLoad.Location = new System.Drawing.Point(449, 231);
             this.PlanLoad.Margin = new System.Windows.Forms.Padding(0);
             this.PlanLoad.Name = "PlanLoad";
-            this.PlanLoad.Size = new System.Drawing.Size(298, 206);
+            this.PlanLoad.Size = new System.Drawing.Size(372, 257);
             this.PlanLoad.TabIndex = 8;
             // 
             // LinkRefreshData
@@ -102,9 +106,10 @@
             this.LinkRefreshData.AutoSize = true;
             this.LinkRefreshData.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LinkRefreshData.LinkColor = System.Drawing.Color.Gray;
-            this.LinkRefreshData.Location = new System.Drawing.Point(22, 150);
+            this.LinkRefreshData.Location = new System.Drawing.Point(28, 188);
+            this.LinkRefreshData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LinkRefreshData.Name = "LinkRefreshData";
-            this.LinkRefreshData.Size = new System.Drawing.Size(93, 20);
+            this.LinkRefreshData.Size = new System.Drawing.Size(118, 24);
             this.LinkRefreshData.TabIndex = 13;
             this.LinkRefreshData.TabStop = true;
             this.LinkRefreshData.Text = "刷新本地数据";
@@ -113,17 +118,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(111, 11);
+            this.label1.Location = new System.Drawing.Point(139, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 21);
+            this.label1.Size = new System.Drawing.Size(92, 27);
             this.label1.TabIndex = 7;
             this.label1.Text = "请先登录";
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(140, 141);
+            this.buttonLogin.Location = new System.Drawing.Point(175, 176);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(131, 36);
+            this.buttonLogin.Size = new System.Drawing.Size(164, 45);
             this.buttonLogin.TabIndex = 3;
             this.buttonLogin.Text = "登 录";
             this.buttonLogin.UseVisualStyleBackColor = true;
@@ -134,14 +141,16 @@
             this.picBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picBack.Image = ((System.Drawing.Image)(resources.GetObject("picBack.Image")));
             this.picBack.Location = new System.Drawing.Point(0, 0);
+            this.picBack.Margin = new System.Windows.Forms.Padding(4);
             this.picBack.Name = "picBack";
-            this.picBack.Size = new System.Drawing.Size(960, 576);
+            this.picBack.Size = new System.Drawing.Size(1200, 720);
             this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBack.TabIndex = 9;
             this.picBack.TabStop = false;
             // 
             // panelForm
             // 
+            this.panelForm.Controls.Add(this.panelDelay);
             this.panelForm.Controls.Add(this.BtnReg);
             this.panelForm.Controls.Add(this.PanReg);
             this.panelForm.Controls.Add(this.BtnShutDown);
@@ -151,16 +160,17 @@
             this.panelForm.Location = new System.Drawing.Point(0, 0);
             this.panelForm.Margin = new System.Windows.Forms.Padding(2);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(960, 576);
+            this.panelForm.Size = new System.Drawing.Size(1200, 720);
             this.panelForm.TabIndex = 10;
             // 
             // BtnReg
             // 
             this.BtnReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnReg.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnReg.Location = new System.Drawing.Point(12, 538);
+            this.BtnReg.Location = new System.Drawing.Point(15, 672);
+            this.BtnReg.Margin = new System.Windows.Forms.Padding(4);
             this.BtnReg.Name = "BtnReg";
-            this.BtnReg.Size = new System.Drawing.Size(71, 26);
+            this.BtnReg.Size = new System.Drawing.Size(89, 32);
             this.BtnReg.TabIndex = 12;
             this.BtnReg.Text = "用户注册";
             this.BtnReg.UseVisualStyleBackColor = true;
@@ -174,11 +184,29 @@
             this.PanReg.Controls.Add(this.webBrowser1);
             this.PanReg.Controls.Add(this.label2);
             this.PanReg.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PanReg.Location = new System.Drawing.Point(348, 162);
+            this.PanReg.Location = new System.Drawing.Point(435, 202);
+            this.PanReg.Margin = new System.Windows.Forms.Padding(4);
             this.PanReg.Name = "PanReg";
-            this.PanReg.Size = new System.Drawing.Size(326, 283);
+            this.PanReg.Size = new System.Drawing.Size(407, 353);
             this.PanReg.TabIndex = 11;
             this.PanReg.Visible = false;
+            // 
+            // panelDelay
+            // 
+            this.panelDelay.Controls.Add(this.label3);
+            this.panelDelay.Location = new System.Drawing.Point(47, 42);
+            this.panelDelay.Name = "panelDelay";
+            this.panelDelay.Size = new System.Drawing.Size(399, 334);
+            this.panelDelay.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(118, 145);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "系统正在初始化……";
             // 
             // btnUserClose
             // 
@@ -186,9 +214,10 @@
             this.btnUserClose.BackColor = System.Drawing.Color.Transparent;
             this.btnUserClose.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnUserClose.ForeColor = System.Drawing.Color.Red;
-            this.btnUserClose.Location = new System.Drawing.Point(292, 0);
+            this.btnUserClose.Location = new System.Drawing.Point(365, 0);
+            this.btnUserClose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnUserClose.Name = "btnUserClose";
-            this.btnUserClose.Size = new System.Drawing.Size(33, 30);
+            this.btnUserClose.Size = new System.Drawing.Size(41, 38);
             this.btnUserClose.TabIndex = 10;
             this.btnUserClose.Text = "×";
             this.btnUserClose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -198,20 +227,22 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(51, 43);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Location = new System.Drawing.Point(64, 54);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(25, 25);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScrollBarsEnabled = false;
-            this.webBrowser1.Size = new System.Drawing.Size(220, 219);
+            this.webBrowser1.Size = new System.Drawing.Size(275, 274);
             this.webBrowser1.TabIndex = 9;
             this.webBrowser1.Url = new System.Uri("https://api.anycen.com/instrument/reg.php", System.UriKind.Absolute);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(123, 14);
+            this.label2.Location = new System.Drawing.Point(154, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.Size = new System.Drawing.Size(100, 24);
             this.label2.TabIndex = 8;
             this.label2.Text = "注册新用户";
             // 
@@ -219,9 +250,10 @@
             // 
             this.BtnShutDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnShutDown.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnShutDown.Location = new System.Drawing.Point(89, 538);
+            this.BtnShutDown.Location = new System.Drawing.Point(111, 672);
+            this.BtnShutDown.Margin = new System.Windows.Forms.Padding(4);
             this.BtnShutDown.Name = "BtnShutDown";
-            this.BtnShutDown.Size = new System.Drawing.Size(58, 26);
+            this.BtnShutDown.Size = new System.Drawing.Size(72, 32);
             this.BtnShutDown.TabIndex = 10;
             this.BtnShutDown.Text = "关机";
             this.BtnShutDown.UseVisualStyleBackColor = true;
@@ -230,12 +262,13 @@
             // FormMain
             // 
             this.AcceptButton = this.buttonLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(960, 576);
+            this.ClientSize = new System.Drawing.Size(1200, 720);
             this.Controls.Add(this.panelForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Text = "屏幕锁定";
             this.TopMost = true;
@@ -247,6 +280,8 @@
             this.panelForm.ResumeLayout(false);
             this.PanReg.ResumeLayout(false);
             this.PanReg.PerformLayout();
+            this.panelDelay.ResumeLayout(false);
+            this.panelDelay.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -268,6 +303,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnReg;
         private System.Windows.Forms.Label btnUserClose;
+        private System.Windows.Forms.Panel panelDelay;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -30,13 +30,7 @@ namespace InM
         {
             logger.Info("软件开始启动");
 
-            IPAddress ipAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0];
-            IPEndPoint ipLocalEndPoint = new IPEndPoint(ipAddress, 12345);
-
-            TcpListener t = new TcpListener(ipLocalEndPoint);
-            t.Start();
-            t.Stop();
-
+            WinFirewallPopup();
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             Application.EnableVisualStyles();
@@ -45,32 +39,31 @@ namespace InM
             trayContoller = new TrayController();
             reportTimer = new ReportTimer();
 
-            api = new ApiController(authkey, endpoint);
-
-            if (!api.CheckConnection())
-            {
-                if (!File.Exists("data.bin"))
-                {
-                    MessageBox.Show("系统初始化失败，请检查是否配置防火墙信息。", "系统错误");
-                    logger.Warn("无法连接至公网，且本地不存在配置信息");
-                    Environment.Exit(0);
-                }
-
-                if (Properties.Settings.Default.NetSwitch)
-                {
-                    api = new ApiController(authkey, Properties.Settings.Default.IP + ":" + Properties.Settings.Default.Port);
-                }
-
-                Properties.Settings.Default.NetConnect = false;
-                Properties.Settings.Default.Save();
-            }
-            else
-            {
-                Properties.Settings.Default.NetConnect = true;
-                Properties.Settings.Default.Save();
-            }
             inMEventHandler = new InMEventHandler();
 
+            StartSelfProtect();
+            DelayConncet();
+
+            formMain = new FormMain();
+            formMain.Show();
+            
+            Application.Run();
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            logger.Fatal(e.ExceptionObject);
+            Application.Restart();
+        }
+
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            logger.Fatal(e.Exception);
+            Application.Restart();
+        }
+
+        private static void StartSelfProtect()
+        {
 #if !DEBUG
             try
             {
@@ -89,28 +82,68 @@ namespace InM
             }
             catch (Exception e)
             {
-                MessageBox.Show("启用任务管理器失败", "系统设置");
                 logger.Warn("关闭任务管理器失败，请检查是否有管理员权限：" + e.Message);
             }
 #endif
+        }
 
+        private static void DelayConncet()
+        {
+            System.Timers.Timer timerDelay = new System.Timers.Timer(30000)
+            {
+                AutoReset = false,
+            };
+            timerDelay.Elapsed += TimerDelay_Elapsed;
+            timerDelay.Start();
+        }
+
+        private static void TimerDelay_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            CheckServer();
             Update();
-            formMain = new FormMain();
-            formMain.Show();
-            
-            Application.Run();
+            formMain.BeginInvoke((Action)(() => { formMain.HideDelay(); }));
         }
 
-        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        private static void CheckServer()
         {
-            logger.Fatal(e.ExceptionObject);
-            Application.Restart();
-        }
+            api = new ApiController(authkey, endpoint);
+            if (!api.CheckConnection()) //公网连不上
+            {
+                logger.Warn("无法连接公网");
+                bool checkBin = false;
+                if (Properties.Settings.Default.NetSwitch) //有内网配置
+                {
+                    api = new ApiController(authkey, Properties.Settings.Default.IP + ":" + Properties.Settings.Default.Port);
+                    if (!api.CheckConnection()) //内网连不上
+                    {
+                        logger.Warn("无法连接内网" + Properties.Settings.Default.IP + ":" + Properties.Settings.Default.Port);
+                        checkBin = true;
+                    }
+                }
+                else //无内网配置
+                {
+                    logger.Warn("无内网配置");
+                    checkBin = true;
+                }
 
-        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
-        {
-            logger.Fatal(e.Exception);
-            Application.Restart();
+                if (checkBin) //公网内网都连不上
+                {
+                    if (!File.Exists(Path.Combine(SharedData.currentPath, "data.bin")))
+                    {
+                        logger.Error("无本地缓存数据，程序即将退出");
+                        MessageBox.Show("系统初始化失败，请检查是否配置防火墙信息。", "系统错误");
+                        Environment.Exit(0);
+                    }
+                }
+
+                Properties.Settings.Default.NetConnect = false;
+                Properties.Settings.Default.Save();
+            }
+            else //公网可以连
+            {
+                Properties.Settings.Default.NetConnect = true;
+                Properties.Settings.Default.Save();
+            }
         }
 
         static void Update()
@@ -132,10 +165,8 @@ namespace InM
                 SharedData.userInfoVer = smold.userInfo;
             }
 
-            if (!api.CheckConnection())
+            if (!Properties.Settings.Default.NetConnect) //无网络连接，读取过本地数据即可
             {
-                logger.Warn("无法连接至公网服务器");
-                //TODO: 局域网处理
                 return;
             }
 
@@ -183,6 +214,16 @@ namespace InM
                     File.Move(downloadFilename + ".downloading", downloadFilename);
                 }
             }
+        }
+
+        private static void WinFirewallPopup()
+        {
+            IPAddress ipAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0];
+            IPEndPoint ipLocalEndPoint = new IPEndPoint(ipAddress, 12345);
+
+            TcpListener t = new TcpListener(ipLocalEndPoint);
+            t.Start();
+            t.Stop();
         }
     }
 }
